@@ -1,0 +1,46 @@
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+
+@media (max-width: 980px) {
+	/* Enable use of floated navbar text */
+	.navbar-text.pull-right {
+	  float: none;
+	  padding-left: 5px;
+	  padding-right: 5px;
+	}
+}
+
+ul {
+	list-style:none;
+}
+
+a {
+	cursor:pointer;
+}
+
+/*sidebar*/
+.sidebar-nav {
+	padding: 9px 0;
+}
+
+/*BOXES*/
+
+/*databases*/
+.result_div{
+	margin-bottom:10px;
+}
+
+.box_loading_animation{
+	background-image: url(../php/ep-BentoBoxDemo/web/ajax_loading.gif);
+	background-repeat: no-repeat;
+	height:20px;	
+	float:center;
+	margin:auto;
+	display:none;
+}
+
+.mime_icon {
+	margin-right:10px;
+}
