@@ -104,7 +104,7 @@ function Success (response){
 	       //         	var image = response.Heading[i].Title.BibImage.BibImageThumb;
     				// }
     			}
-    			var count = response.Heading.length;
+    			var count = response.PAGEINFO.ENTRYCOUNT;
                	var urlPrefix = "http://elibrary.wayne.edu/record=";
                	var url = urlPrefix+recNum;
 
@@ -129,7 +129,7 @@ function Success (response){
 		// }
 		    //if there are more than 3 results, allow them to see all of the results with a link to the catalog
 		    if (response.Heading.length > 3) {
-        	$("#journals .box_results").append("<br/><span><a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"&searchscope=17' target='_blank'><em>View more results...("+count+")</em></a></span>");		    	
+        	$("#journals .box_results").append("<br/><span><a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"&searchscope=17' target='_blank'><em>View more results...</em></a></span>");		    	
 		    }
 		}
 		//if there is only one result, display it here
@@ -164,7 +164,7 @@ function Success (response){
 				// imageInsert(response, i);		
                	}
     }
-    	else {
+    	else if (response.PAGEINFO.ENTRYCOUNT.length == 0) {
         	$("#journals .box_results").append("<span>No Results Found.</span>");		
     	}
     }
