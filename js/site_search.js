@@ -60,13 +60,13 @@ function site_search_query(search_string){
             var icon = window.iconURL('text/html');            
             //iterate through results, push to search page
             for (var i = 0; i < site_searchJSON.responseData.results.length && i < 3; ++i){            
-                $("#site_search .box_results").append("<div id='siteSearch_"+i+"' class='result_div'></div>");
-                $("#siteSearch_"+i).append("<img class='mime_icon' src='http://silo.lib.wayne.edu/fedora/objects/wayne:WSUDORThumbnails/datastreams/HTML/content' width=30 />");
-                $("#siteSearch_"+i).append("<a target='_blank' href='"+decodeURIComponent(site_searchJSON.responseData.results[i].url)+"'>"+site_searchJSON.responseData.results[i].title+"</a></br>");           
+                $("#site_search .box_results").append("<div id='siteSearch_"+i+"' class='result_div indiv-result'></div>");
+                //$("#siteSearch_"+i).append("<img class='mime_icon' src='http://silo.lib.wayne.edu/fedora/objects/wayne:WSUDORThumbnails/datastreams/HTML/content' width=30 />");
+                $("#siteSearch_"+i).append("<p class='title'><a target='_blank' href='"+decodeURIComponent(site_searchJSON.responseData.results[i].url)+"'>"+site_searchJSON.responseData.results[i].title+"</a></p>");           
                 
             }
             var moreResultsURL = "http://wayne.edu/search/?q=biology#site:lib.wayne.edu " + search_string; 
-            $("#site_search .box_results").append("<div id='more_results' class='result_div'><a target='_blank' href='"+moreResultsURL+"'><em>View more results...</em></a></div>");
+            $("#site_search .box_results").append("<a target='_blank' href='"+moreResultsURL+"'><em>View more results...</em></a>");
         }        
 
         //turns off animation

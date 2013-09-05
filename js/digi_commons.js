@@ -55,11 +55,11 @@ function digi_commons_query(search_string){
                     var icon = window.iconURL(format);
                 }                                                                      
 
-                $("#digi_commons .box_results").append("<div id='digi_commons"+i+"' class='result_div'></div>");                
-                $("#digi_commons"+i).append("<img class='mime_icon' src='"+icon+"' width=30 />");
-                $("#digi_commons"+i).append("<a target='_blank' href='"+docURL+"'>"+title+"</a></br>");
+                $("#digi_commons .box_results").append("<div id='digi_commons"+i+"' class='result_div indiv-result'></div>");                
+                //$("#digi_commons"+i).append("<img class='mime_icon' src='"+icon+"' width=30 />");
+                $("#digi_commons"+i).append("<p class='title'><a target='_blank' href='"+docURL+"'>"+title+"</a></p>");
                 if (typeof response.response.docs[i].dc_description !== 'undefined'){
-                    $("#digi_commons"+i).append("<p>"+response.response.docs[i].dc_description[0].substr(0,100)+"...</p>");
+                    $("#digi_commons"+i).append("<p class='result-details'>"+response.response.docs[i].dc_description[0].substr(0,100)+"...</p>");
                 }
                 
             }

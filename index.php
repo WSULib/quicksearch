@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>WSU Bento Boxes</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<link rel="shortcut icon" href="../../assets/ico/favicon.png">-->
+
+    <title>WSU Library Bento Boxes</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="inc/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="inc/ico/style.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="inc/bootstrap/js/html5shiv.js"></script>
+      <script src="inc/bootstrap/js/respond.min.js"></script>
+    <![endif]-->
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     
@@ -24,157 +43,142 @@
     <!--load main JS -->
     <script type="text/javascript" src="js/bento_queries.js"></script>
 
-    <!--Local Overrides to Bootstrap defaults-->
-    <link type="text/css" rel="stylesheet" href="css/style.css"/>
-
-    <!--Load Bootstrap-->
-    <link href="inc/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="inc/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-
     <!--jquery cookie-->
     <script src="js/jquery.cookie.js"></script>
-  
-  </head>
 
-  <body data-spy="scroll" data-target=".bs-docs-sidebar">
 
     <!--load bootstrap js-->    
     <script src="inc/bootstrap/js/bootstrap.js"></script>
+    <script src="inc/bootstrap/js/html5shiv.js"></script>
+    <script src="inc/bootstrap/js/respond.min.js"></script>
 
-    <!--topbar-->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>          
-          <a class="brand" href="./">WSU Lib Bento Boxes</a>          
-          
-          <div class="nav-collapse collapse">
-            <ul class="nav pull-right">              
-              <li style="color:white; padding-right:10px;"><a target="_blank" href="https://docs.google.com/drawings/d/1Fvn_NSKLA0dVv4DCd7MtaEWr6ErpyNas5U2aBSoxIPY/edit?usp=sharing">model</a></li>
-            </ul>
-          </div> --><!--/.nav-collapse-->
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> 
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'>
 
-        </div>
-      </div>
-    </div>
+</head>
 
-    <div class="container-fluid">      
-      <div class="row-fluid">
+<script type='text/javascript'>//<![CDATA[ 
+$(window).load(function(){
+$(function(){   
+        
+    $("#submit").click(function(){
+        $('#search-results').show();
+    });  
+    
+});
+});//]]>  
 
-        <!--side column *****************************************************************************************************************-->
-        <div class="span3" id="side_nav">
-          
-          <!--sidebar-->
-          <!-- <div class="row-fluid">            
-            <div class="well sidebar-nav">
-              <ul class="nav nav-list">
-                <li class=""><a href="/linkPad/">All</a></li>
-              </ul>
-            </div>
-          </div>  -->          
+$().ready(function() {
+    $(".books").click(function() {
+        $("#search_string").val('borrow books');
+    });
+    $(".gender").click(function() {
+        $("#search_string").val('gender studies');
+    });
+    $(".journal").click(function() {
+        $("#search_string").val('Journal of the Royal Society of Arts');
+    });
+});
+</script>
 
-        </div><!--/side column span -->
 
-        <!--content span ****************************************************************************************************************-->
-        <div id="mainContent" class="span12">        
+  <body>
+
+    <header>
+      <img src="img/warrior_logo1.png" alt="Wayne State University"/>
+    </header>
+    <div class="container">      
+      <div class="row-fluid">   
         
           <div id="search_row" class="row-fluid">
 
-            <div id="searchForm" class="span5">
-              <form class="form-search" onsubmit="searchCall(); return false;">
-                <input id="search_string" type="text" class="input-medium" value="biology">
-                <button type="submit" class="btn">Search</button>
-              </form>                        
+            <div id="searchForm" class="col-lg-12">
+              <form id="search" class="form-wrapper" onsubmit="searchCall(); return false;">
+                <input id="search_string" type="text" class="input-large" placeholder="Find books, articles, journals, and more">
+                <button id="submit" type="submit" class="btn">Find</button>
+              </form>  
+
+              <div class="examples">
+                <p>Examples:
+                <a href="#" class="books">borrow books</a>,
+                <a href="#" class="gender">gender studies</a>,
+                <a href="#" class="journal">Journal of the Royal Society of Arts</a></p>
+              </div>
+
             </div>
 
           </div> <!--closes search row -->
 
           <div id="boxes_rows" class="row-fluid">
 
-            <div id="boxes_container" class="span12">
+            <div id="search-results" style="display:none;" class="col-lg-12">
 
               <!--column1-->
-              <div id="boxes_left" class="span3">              
-                <div class="row-fluid">
-                  <div id="articles" class="well">
-                    <h4>Peer Reviewed Articles</h4>
-                    <div class="box_loading_animation"></div>
-                    <div class="box_results"></div>
-                  </div>
+              <div id="boxes_left" class="col-md-6 col-lg-4">           
+                <div id ="articles" class="row-fluid pin">
+                  <h4>Peer Reviewed Articles</h4>
+                  <div class="box_loading_animation"></div>
+                  <div class="box_results"></div>
                 </div>                
-                <div class="row-fluid">
-                  <div id="databases" class="well">
-                    <h4>Databases</h4>
-                    <div class="box_loading_animation"></div>
-                    <div class="box_results"></div>
-                  </div>
-                </div>
-                <div class="row-fluid">
-                  <div id="lib_guides" class="well">
-                    <h4>Research Guides</h4>
-                    <div class="box_loading_animation"></div>
-                    <div class="box_results"></div>
-                  </div>
-                </div>        
+                <div id="databases" class="row-fluid pin">
+                  <h4>Databases</h4>
+                  <div class="box_loading_animation"></div>
+                  <div class="box_results"></div>
+                </div>       
               </div>
 
               <!--column2-->
-              <div id="boxes_middle" class="span3">
-                <div class="row-fluid">
-                  <div id="books" class="well">
-                    <h4>Books and Media</h4>
-                    <div class="box_loading_animation"></div>
-                    <div class="box_results"></div>
-                  </div>
+              <div id="boxes_middle" class="col-md-6 col-lg-4">
+                <div id="books" class="row-fluid pin">
+                  <h4>Books and Media</h4>
+                  <div class="box_loading_animation"></div>
+                  <div class="box_results"></div>
                 </div>
-                <div class="row-fluid">
-                  <div id="journals" class="well">
-                    <h4>Journals</h4>
-                    <div class="box_loading_animation"></div>
-                    <div class="box_results"></div>
-                  </div>
+                <div id="journals" class="row-fluid pin">
+                  <h4>Journals</h4>
+                  <div class="box_loading_animation"></div>
+                  <div class="box_results"></div>
                 </div>                                
-                <div class="row-fluid">
-                  <div id="digi_commons" class="well">
-                    <h4>DigitalCommons@WayneState</h4>
-                    <div class="box_loading_animation"></div>
-                    <div class="box_results"></div>
-                  </div>
-                </div>
+                <div id="lib_guides" class="row-fluid pin">
+                  <h4>Research Guides</h4>
+                  <div class="box_loading_animation"></div>
+                  <div class="box_results"></div>
+                </div>               
               </div>
 
-              <div id="boxes_right" class="span3">                
-                <div class="row-fluid">
-                  <div id="site_search" class="well">
-                    <h4>Site Search</h4>
-                    <div class="box_loading_animation"></div>
-                    <div class="box_results"></div>
-                  </div>
-                </div>                
-                <div class="row-fluid">
-                  <div id="digi_collections" class="well">
+              <div id="boxes_right" class="col-md-6 col-lg-4">               
+                <div id="site_search" class="row-fluid pin">
+                  <h4>Site Search</h4>
+                  <div class="box_loading_animation"></div>
+                  <div class="box_results"></div>
+                </div>  
+
+                <div id="digi_commons" class="row-fluid pin">
+                  <h4>DigitalCommons@WayneState</h4>
+                  <div class="box_loading_animation"></div>
+                  <div class="box_results"></div>
+                </div>
+
+               <!-- <div class="row-fluid">
+                  <div id="digi_collections">
                     <h4>Digital Collections</h4>
                     <div class="box_loading_animation"></div>
                     <div class="box_results"></div>
                   </div>                
-                </div>
+                </div>-->
               </div>
 
               <!--column3-->
 
              </div> <!--closes boxes_container-->
-           </div> <!--closes boxes_row-->                                       
+           </div> <!--closes boxes_row-->     
         
-        </div><!--content span12-->
+        </div><!--content col-lg-12-->
 
       </div> <!--all encompassing row -->
 
     </div><!--/.fluid-container-->   
-    
+   
   </body>
 
   <!--run query if included as GET parameter-->

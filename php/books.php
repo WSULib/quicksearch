@@ -3,13 +3,13 @@
 $URL = $_POST['encodedURL'];
 $data_type = $_POST['data_type'];
 $searchTerm = $_POST['searchTerm'];
-$number = "/1/1/1/30";
+$number = "?scope=2";
 
 // $URL = 'http://elibrary.wayne.edu/xmlopac/X';
 // $data_type = 'xml2json';
 // $searchTerm = 'JAMA';
 //take value and add to query
-$my_query = $URL . $searchTerm . $number;
+$my_query = $URL . $searchTerm;
 
 //Test
 //echo $my_query;

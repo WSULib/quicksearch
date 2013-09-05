@@ -22,12 +22,13 @@ function lib_guides_query(search_string){
 
 	function libguideSuccess(response){
 		$("#lib_guides .box_results").append(response);	
-    // hides loading animation
-    $("#lib_guides .box_loading_animation").hide();
+
+        // hides loading animation
+        $("#lib_guides .box_loading_animation").hide();
 	}
 	function libguideError(response){
 		$("#lib_guides .box_results").append("<p>Results could not be had.</p>");	
 	}
 
-
 }
+

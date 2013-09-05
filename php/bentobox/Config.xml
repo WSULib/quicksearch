@@ -1,0 +1,186 @@
+<Config>
+    <Version>EDS API-BentoBox Demo 1.3</Version>
+    <EndPoints>
+    <EndPoint>http://eds-api.ebscohost.com/edsapi/rest</EndPoint>
+    <AuthenticationEndPoint>https://eds-api.ebscohost.com/Authservice/rest</AuthenticationEndPoint>
+    </EndPoints>
+    <AbstractLength>300</AbstractLength>
+    <ClientCredentials>
+        <User>
+            <UserId>eds</UserId>
+            <Password>ebsco</Password>        
+        </User>        
+    </ClientCredentials>
+    
+    <EDSCredentials>     
+        <User>
+            <ClientUser>guest</ClientUser>
+            <EDSUserID>s8440836</EDSUserID>
+            <EDSPassword>blue4mars</EDSPassword>
+            <EDSProfile>wsapi</EDSProfile>           
+        </User>
+        <User>
+            <ClientUser>eds</ClientUser>
+            <EDSUserID>s8440836</EDSUserID>
+            <EDSPassword>blue4mars</EDSPassword>
+            <EDSProfile>wsapi</EDSProfile>           
+        </User>        
+    </EDSCredentials>          
+	<CommonSearchParametersForEachBentoBox>
+		<SearchMode>all</SearchMode>
+		<ResultsPerPage>20</ResultsPerPage>
+		<PageNumber>1</PageNumber>
+		<Sort>relevance</Sort>
+		<Highlight>n</Highlight>
+		<IncludeFacets>y</IncludeFacets>
+		<View>detailed</View>
+                <Expander>fulltext</Expander>
+	</CommonSearchParametersForEachBentoBox>
+	<FullResultsSearchParameters>
+		<Highlight>y</Highlight>
+		<IncludeFacets>y</IncludeFacets>
+		<View>detailed</View>
+	</FullResultsSearchParameters>
+	<Hover>
+		<Item>Ti</Item>
+                <Item>Src</Item>
+		<Item>Au</Item>             
+		<Item>Date</Item>		
+		<Item>Su</Item>
+		<Item>Ab</Item>
+                <ItemLength>200</ItemLength>
+		<!--<Header>FullText</Header>-->
+		<Header>DbLabel</Header>
+                <Header>PubType</Header>
+                <hidetime>2000</hidetime>
+	</Hover>
+	<BentoBoxes>
+           <BentoBox>
+			<ID>books</ID>
+			<Label>Books</Label>
+			<Timeout>30</Timeout>
+                        <Description>Books</Description>
+                        <Status>regular</Status>
+			<SearchCriteria>
+				<Action>addfacetfilter(SourceType:eBooks)</Action>
+				<Action>addfacetfilter(SourceType:Books)</Action>
+                                <sortBy></sortBy>
+			</SearchCriteria>
+		</BentoBox>
+                <BentoBox>
+			<ID>scholarlyarticles</ID>
+			<Label>Scholarly Articles</Label>
+			<Timeout>30</Timeout>
+                        <Description>Scholarly Articles</Description>
+                        <Status>regular</Status>
+			<SearchCriteria>
+				<Action>addlimiter(RV:y)</Action>
+                                <sortBy></sortBy>
+			</SearchCriteria>
+		</BentoBox>
+      <!--  <BentoBox>
+			<ID>news</ID>
+			<Label>News</Label>
+			<Timeout>30</Timeout>
+                        <Description>News</Description>
+                        <Status>regular</Status>
+			<SearchCriteria>
+				<Action>addfacetfilter(SourceType:News)</Action>
+                                <sortBy>date</sortBy>
+			</SearchCriteria>
+		</BentoBox>-->	
+		<!--<BentoBox>
+			<ID>audiovideo</ID>
+			<Label>Audio and Video</Label>
+			<Timeout>30</Timeout>
+                        <Description>Audio and Video</Description>
+                        <Status>regular</Status>
+			<SearchCriteria>
+				<Action>addfacetfilter(SourceType:Audio)</Action>
+				<Action>addfacetfilter(SourceType:Audiobooks)</Action>
+				<Action>addfacetfilter(SourceType:Videos)</Action>
+                                <sortBy></sortBy>
+			</SearchCriteria>
+		</BentoBox>-->
+           <!--   <BentoBox>
+			<ID>catalogitems</ID>
+			<Label>Catalog Items</Label>
+			<Timeout>30</Timeout>
+                        <Description>Catalog Items</Description>
+                        <Status>regular</Status>
+			<SearchCriteria>
+				<Action>addlimiter(FC:y)</Action>
+                                <sortBy></sortBy>
+			</SearchCriteria>
+		</BentoBox>-->
+            <!--    <BentoBox>
+			<ID>recentarticles</ID>
+			<Label>Recent Articles</Label>
+			<Timeout>30</Timeout>
+                        <Description>Recent Articles</Description>
+                        <Status>regular</Status>
+			<SearchCriteria>
+				<Action>addlimiter(DT1:2010-01/2012-12)</Action>
+                                <sortBy>date</sortBy>
+			</SearchCriteria>
+		</BentoBox>-->
+                <BentoBox>
+			<ID>subjectterms</ID>
+			<Label>Subject Terms</Label>
+			<Timeout>30</Timeout>
+                        <Description>Subject Terms</Description>
+                        <Status>individual</Status>
+                        <Blacklist>united states,books -- reviews,books,e-books,short stories,poems,animals,human,humans,male,female,adult,middle aged,adolescent,child,nonfiction,fiction</Blacklist>
+                        <Blacklistdelimiter>,</Blacklistdelimiter>
+			<SearchCriteria>
+				<Action></Action>
+                                <sortBy></sortBy>
+			</SearchCriteria>
+		</BentoBox>
+           <!--     <BentoBox>
+			<ID>publications</ID>
+			<Label>Publications</Label>
+			<Timeout>30</Timeout>
+                        <Description>Publications</Description>
+                        <Status>individual</Status>
+			<SearchCriteria>
+				<Action></Action>
+                                <sortBy></sortBy>
+			</SearchCriteria>
+		</BentoBox>-->		             
+          <!--      <BentoBox>
+			<ID>institutionalrepository</ID>
+			<Label>Institutional Repository</Label>
+			<Timeout>30</Timeout>
+                        <Description>Institutional Repository</Description>
+                        <Status>regular</Status>
+			<SearchCriteria>
+				<Action>addlimiter(FC1:y)</Action>
+                                <sortBy></sortBy>
+			</SearchCriteria>
+		</BentoBox>  -->
+	</BentoBoxes>
+	<Widgets>
+		<Widget>
+			<ID>1</ID>
+			<Title>Twitter</Title>
+			<Timeout>30</Timeout>
+                        <Key></Key>
+		</Widget>
+		<Widget>
+			<ID>2</ID>
+			<Title>Flickr</Title>
+			<Timeout>30</Timeout>
+                        <Key></Key>
+		</Widget>
+                <Widget>
+			<ID>3</ID>
+			<Title>WorldCat</Title>
+			<Timeout>30</Timeout>
+                        <Key></Key> 
+                        <!-- To use the WorldCat widget, you need to request your own wskey from the WorldCat
+                        (http://oclc.org/developer/documentation/worldcat-basic-api/using-api) and place it 
+                         between the <Key> element above.--> 
+		</Widget>
+	</Widgets>
+</Config>

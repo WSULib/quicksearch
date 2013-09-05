@@ -1,0 +1,619 @@
+/* Layout */
+p, ul, dl, form, input, textarea, select, label {
+    margin-bottom: 0.2em;
+}
+.navmenu dt {
+    background-color: #EEEEEE;
+    font-weight: bold;
+    margin-top: 0.75em;
+    padding: 0.2em 0.4em;
+}
+.navmenu dd {
+    border-bottom: 1px solid #E3E3E3;
+    list-style-type: none;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.4em;
+}
+.clearfix:after{
+    content:".";
+    display:block;
+    heihgt:0;
+    clear:both;
+    visibility: hidden;
+}
+/*Hides from IE-mac\*/
+*html.clearfix{height: 1%;}
+/*End hide from IE-mac*/
+.record-link{
+    background-color: transparent;
+    background-image: url("../web/icon-sprites.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 20px;
+    line-height: 1.25em;
+    margin: 4px 0;
+    padding: 8px 12px 2px 36px;
+    background-position: 0 -250px;
+}
+.lastrow{
+    
+    background-color: #DDDDDD;
+    background-image: url("../web/gradient-x.png");
+    background-position: 0 -1280px;
+    background-repeat: repeat-x;
+    border: 1px solid #CCCCCC;
+    clear: both;
+    font-size: 0.92em;
+    margin-top: 15px;
+    padding: 0 5px;
+}
+.expand{
+    position: relative;
+    z-index: 222;
+    visibility: hidden;
+}
+.hover{
+     font-family: Tahoma,Verdana,Arial,sans-serif;
+        font-size: 1.00em;
+        
+}
+#popupBox0{
+          position: absolute;
+         top:350px;
+         left:5px;
+        font-family: Tahoma,Verdana,Arial,sans-serif;
+        font-size: 0.75em;
+          width: 300px;        
+          border: solid 1px #000000;
+          background-color: #FFFFFF;
+          display: none;
+          z-index: 222;
+          }
+#popupBox1:hover{cursor: pointer}         
+.widgetsContainer{
+        /*position: absolute;
+         top:100px;
+        right: 5px;*/
+      float: left;
+          }
+
+.topSeachBox{
+             border-bottom:  1px solid #DDDDDD;
+             margin-bottom: 20px;
+             padding: 0;
+          }
+.frameWrapper
+{
+position: relative;
+width: 280px;
+float: left;
+margin: 6px;
+background-image: url("../web/ajax_loading.gif") ;
+background-repeat: no-repeat;
+background-position: 130px, 20px ;
+border: 2px solid #DDDDDD;
+}
+.widgets
+{
+border: 2px solid #DDDDDD;
+position: relative;
+width: 283px;
+margin: 6px;
+height: 310px;
+/*background-image: url("../web/ajax_loading.gif") ;*/
+background-repeat: no-repeat;
+background-position: 130px, 20px ;
+float: left;
+overflow: hidden;
+}
+iframe {
+    /*border: 2px solid #DDDDDD;*/
+    position: relative;
+    border: none;
+    z-index: 10;
+}
+
+dl dt {
+    font-weight: bold;
+}
+
+p.submit {
+    padding: 10px 0;
+}
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+h1 {    
+    line-height: 1;  
+}
+h4 {
+    border-bottom: 2px solid #DDDDDD;
+}
+
+h4 {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+h4 {
+    font-size: 1.2em;
+    line-height: 1.25;
+    margin-bottom: 1.25em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #111111;
+    font-weight: normal;
+}
+/*, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section */
+body{
+    border: 0 none;
+    font-family: Arial;
+    font-size: 90%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    font-family: Arial;
+}
+.login{
+    font-family: Arial;
+    float: right;
+    position: relative;
+    
+}
+.login a:hover{
+    color: lightsteelblue
+}
+.loginfailed{
+    background: none repeat scroll 0 0 #FBE3E4;
+    border: 2px solid #FBC2C4;
+    color: #8A1F11;
+    font-size: 80%;
+    padding: 0.8em;
+    margin-bottom: 1em;
+    
+}
+.container {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px 5px 5px 5px;
+    margin: 0 auto;
+    width: 950px;
+}
+.header {
+    border: 1px solid #cccccc;
+    height: 65px;
+    padding: 0.8em;
+    font-size: 80%;
+}
+.topSearchBox{
+             border-bottom:  1px solid #DDDDDD;       
+             padding: 0;
+             margin-bottom: 1em;       
+          }
+.topbar{
+    background: #1079C9 ; 
+   width: 100%;
+   height: 30px;
+   margin-top: 10px;
+   margin-bottom: 20px;
+       }
+       
+.topbar-resultList{
+   
+   width: 100%;
+   height: 30px;
+   margin-top: 10px;
+   margin-bottom: 20px;
+       }
+#logo {
+    background: url("../web/vufind-logo.png") no-repeat scroll left center transparent;
+     float: left;
+    height: 65px;
+    width: 300px;
+}
+.guestbox{
+    text-align: center;
+    margin-left: 80px;
+    margin-top: 30px;
+    float: left;
+    width: 300px;
+    border: 1px solid #327BBA;
+    background: none repeat scroll 0 0 blanchedalmond
+}
+
+.guestbox div{
+   
+}
+.guestbox a:hover{
+    color: lightsteelblue
+}
+.content {
+    margin: 0;
+    padding: 10px;
+    border-top: 1px solid #DDDDDD;
+    background-color: whitesmoke;
+    margin: auto;
+}
+
+#toptabcontent {
+    border: 1px solid #CDCDCD;
+    clear: left;
+    padding: 1em 0.5em;
+    background: white;
+}
+.error {
+    color: red;
+}
+.span-5 {
+    margin: auto;
+    width: 500px;
+}
+.searchHomeContent {
+    margin: 0 auto;
+    padding: 5em 0;
+    text-align: left;
+    width: 800px;
+}
+.searchHomeForm {
+     margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+    background-color: #E3E9EE;
+    border: 2px solid #327BBA;
+}
+
+div.searchHomeForm 
+ div.searchform {
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+}
+.header, .searchbox, .breadcrumbs, .main, .footer {
+    padding: 0.8em;
+}
+
+.searchbox, .breadcrumbs, .main, .footer {
+    border-top: 1px solid #DDDDDD;
+}
+.floatleft {
+    float: left;
+}
+.floatright {
+    float: right;
+}
+
+
+/* Results */
+
+.table {
+    display: table;
+    margin-left: 10px;
+    margin-right: 0;
+    background-color: white;
+}
+
+.table-row {
+    border-bottom: 1px solid #EEEEEE;
+    margin-bottom: 10px;
+    padding-bottom: 10px; 
+  
+}
+
+.table-cell {
+    display: table-cell;
+    /*padding: 10px;*/
+    vertical-align: top;
+  
+}
+.top-menu{
+    margin-bottom: 35px;
+    margin-left: 20px;
+}
+.menu {
+    margin-bottom: 10px;
+    float: right;
+}
+
+.filters,
+.facets {
+    width: 220px;
+    
+}
+
+.facet-values {
+    margin-bottom: 10px;
+    display: none;
+}
+
+.facet-label dt {
+    background-color: #EEEEEE;
+    font-weight: bold;
+    margin-top: 0.75em;
+    padding: 0.2em 0.4em;
+}
+.facet-label td {
+    border-bottom: 1px solid #E3E3E3;
+    list-style-type: none;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.4em;
+    width: 200px
+}
+
+.facet-label dd {
+border-bottom: 1px solid #E3E3E3;
+list-style-type: none;
+margin: 0;
+padding: 0.1em 0 0.1em 0.4em;
+}
+
+.facet-values dt {
+    background-color: #EEEEEE;
+    font-weight: bold;
+    margin-top: 0.75em;
+    padding: 0.2em 0.4em;
+}
+.facet-values td {
+    border-bottom: 1px solid #E3E3E3;
+    list-style-type: none;
+    margin: 0;
+    padding: 0.1em 0 0.1em 0.4em;
+    width: 200px
+}
+.facet-values dd {
+border-bottom: 1px solid #E3E3E3;
+list-style-type: none;
+margin: 0;
+padding: 0.1em 0 0.1em 0.4em;
+}
+.facet-values p {
+    margin: 5px 0;
+}
+
+.filters p {
+    margin: 5px 0;
+}
+ul.filters {
+    background-color: orange;
+    color: white;
+    list-style-type: none;
+    margin: 0;
+    padding: 0.2em 0.4em;
+    width: 210px;
+}
+.results {
+    width: 680px;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+.result:nth-child(2n+0) {
+    background-color: #eeeeee;
+}
+
+.record-id {
+    width: 30px;
+    text-align: center;
+}
+
+.pubtype {
+    
+    width: auto; 
+    margin-right: 10px;
+     display: table-cell;
+    padding-right: 5px;
+    vertical-align: top;
+}
+
+.info {   
+    width: 600px;
+}
+
+.title {
+    margin-bottom: 10px;
+}
+
+
+.abstract {
+    
+    margin-bottom: 10px;
+}
+.full-abstract{
+    margin-bottom: 10px;
+    display: none;
+}
+.authors {
+    margin-bottom: 10px;
+}
+
+.subjects {
+    margin-bottom: 10px;
+}
+
+.links {
+    margin-bottom: 10px;
+}
+
+.custom-links {
+    margin-bottom: 50px;
+}
+
+.custom-links ul {
+    list-style-type: none;
+}
+
+.custom-links ul li {
+    float: left;
+}
+.pagination {
+    color: black !important;
+    margin-bottom: 20px;
+    padding-bottom: 1px;
+    text-align: center;
+}
+.pagination a {  
+    display: inline-block;
+    line-height: 1em;
+    margin: 0 1px;
+    padding: 0 1px;
+    color: #327BBA !important;
+}
+.pagination p {   
+    margin-top: 8px;
+}
+.optionsControls{
+    
+    font-size: 80%;
+}
+.optionsControls  ul {
+    
+    list-style: none outside none;
+}
+.optionsControls .options-controls-li {
+   float: left;
+   margin-left: 20px;
+    position: relative;
+}
+a:link{
+    text-decoration: none;
+    color: blue;
+}
+a:visited{
+    text-decoration: none;
+     color: blue;
+}
+.results-paging-next {
+    background: url("../web/arrow-sprites.png") no-repeat scroll right -500px transparent;
+    
+    text-indent: -999em;
+   
+}
+
+.results-paging-previous {
+    background: url("../web/arrow-sprites.png") no-repeat scroll left -550px transparent;
+    overflow: hidden;
+    text-indent: -999em;
+    width: 0.5em;
+}
+
+/* Record */
+
+.record {
+    width: 880px;
+}
+
+.label {
+    width: 200px;
+}
+
+.data {
+    width: 800px;
+}
+
+.jacket {
+    float: left;
+}
+.version{
+text-align: right;
+    font-size: 85%; 
+    color: lightgray;
+    height: 10px;
+    position: relative;
+}
+/* General */
+
+.highlight {
+    font-weight: bold; 
+}
+
+.summery{
+   
+    width: 220px; 
+    height: 110px;
+}
+.statistics{
+    float: left;
+}
+
+.record .toolbar {
+    font-size: 1em;
+}
+
+.toolbar {
+    border-bottom: 1px solid #EEEEEE;
+    font-size: 90%;
+    margin-bottom: 1em;
+    min-height: 2em;
+    padding-left: 1em;
+    text-align: right;
+}
+
+.span-15 {
+    width: 590px;
+     float: left;
+    margin-right: 10px;
+}
+.table-cell-box {
+    border: 1px solid #cccccc;
+    list-style-type: none;
+    padding: 5px;
+}
+.table-cell-box li {
+    padding: 5px 0;
+}
+.icon.pdf {
+    background-position: 0 -84px;
+}
+
+.icon {
+    background: url("../web/sprites_32.png") no-repeat scroll left top transparent;
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 36px;
+}
+
+.icon.html {
+    background-position: 0 -42px;
+}
+
+.icon {
+    background: url("../web/sprites_32.png") no-repeat scroll left top transparent;
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 36px;
+}
+
+/*Bento Box*/
+
+.top-bar{
+    border-bottom: 1px solid #E3E3E3;
+    padding :  8px;
+    margin-bottom: 20px;
+    height: 20px;
+    widt: 100%;
+}
+.searchTerm {
+    float: left;
+    width: 50%;
+}
+
+.resultsnumber{
+    float: right;
+    width: 50%;
+}
+
+.boxcontainer{   
+    padding :  8px;
+    margin-bottom: 20px;
+    height: 100%;
+    widt: 100%;
+}
