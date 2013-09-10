@@ -12,6 +12,7 @@ function searchFunc(term){
     $(".box_loading_animation").show();
 
     //run box queries
+    lib_hours_query(search_string);
     articles_query(search_string);
     books_query(search_string);
     journals_query(search_string);

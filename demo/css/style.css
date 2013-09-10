@@ -1,0 +1,215 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body {
+}
+h1 {
+	margin: 30px 0 20px;
+	font-size: 25pt;
+	font-family: 'Gochi Hand', cursive;
+	text-align: center;
+}
+/** AXIS **/
+#axis{
+	border: 5px #f7f7f7 solid;
+	font: 10pt normal Arial, sans-serif;
+	height: 900px;
+	margin: 30px auto 80px auto;
+	position: relative;
+	text-align: center;
+	width: 900px;
+	-webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+}
+#axis.default {
+	background: url('../images/axis.jpg') no-repeat 0 0;
+}
+#axis.one{
+	background: url('../images/axis-1.jpg') no-repeat 0 0;
+}
+#axis.two{
+	background: url('../images/axis-2.jpg') no-repeat 0 0;
+}
+#axis.three{
+	background: url('../images/axis-3.jpg') no-repeat 0 0;
+}
+#axis.four{
+	background: url('../images/axis-4.jpg') no-repeat 0 0;
+}
+#axis.five{
+	background: url('../images/axis-5.jpg') no-repeat 0 0;
+}
+#axis.six{
+	background: url('../images/axis-6-cw.jpg') no-repeat 0 0;
+}
+#axis.seven{
+	background: url('../images/axis-7-ccw.jpg') no-repeat 0 0;
+}
+#axis.eight{
+	background: url('../images/axis-8-scale.jpg') no-repeat 0 0;
+}
+.object {
+	position: absolute;
+/** This css rule will make the object 
+move smoothly and animated **/
+	-webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+	/* Currently IE doesn't support for transition property http://www.w3schools.com/cssref/css3_pr_transition.asp */
+	/**
+		linear: The animation has the same speed from start to end.
+		ease: Default. The animation has a slow start, then fast, before it ends slowly.
+		ease-in: The animation has a slow start.
+		ease-out: The animation has a slow end.
+		ease-in-out: The animation has both a slow start and a slow end.
+		Credit Source: http://www.w3schools.com/cssref/css3_pr_animation-timing-function.asp
+	**/
+}
+/** Adjust objects position
+to the center of Axis **/
+.van {
+	top: 40%;
+	left: 44%;
+}
+.rocket {
+	top: 34%;
+	left: 44%;
+}
+.coin {
+	top: 45%;
+	left: 43%;
+}
+.plane {
+	top: 39%;
+	left: 43%;
+}
+.pencil{
+	top: 39%;
+	left: 45%;
+}
+.car {
+	top: 42%;
+	left: 43%;
+}
+.boomerang {
+	top: 42%;
+	left: 43%;
+}
+/* HORIZONTALLY MOVEMENT */
+/* PREFIX 
+-webkit- is for Chrome & Safari;
+-o- is for Opera;
+-moz- is for Mozilla Firefox
+*/
+/** Moving object to the right **/
+#axis:hover .move-right{
+	transform: translate(350px,0);
+	-webkit-transform: translate(350px,0);
+	-o-transform: translate(350px,0); 
+	-moz-transform: translate(350px,0);
+}
+/** Moving object to the left **/
+#axis:hover .move-left{
+	transform: translate(-350px,0);
+	-webkit-transform: translate(-350px,0);
+	-o-transform: translate(-350px,0); 
+	-moz-transform: translate(-350px,0);
+}
+/** VERTICALLY MOVEMENT **/
+/** Moving object upwards**/
+/*#axis:hover*/ .move-up{
+	transform: translate(0,-350px);
+	-webkit-transform: translate(0,-350px);
+	-o-transform: translate(0,-350px); 
+	-moz-transform: translate(0,-350px);
+}
+/** Moving object downwards **/
+#axis:hover .move-down{
+	transform: translate(0,350px);
+	-webkit-transform: translate(0,350px);
+	-o-transform: translate(0,350px); 
+	-moz-transform: translate(0,350px);
+}
+/** DIAGONALLY MOVEMENT **/
+/** Move object diagonally (Northeast) **/
+#axis:hover .move-ne{
+	transform: translate(350px,-350px);
+	-webkit-transform: translate(350px,-350px);
+	-o-transform: translate(350px,-350px); 
+	-moz-transform: translate(350px,-350px);
+	
+}
+/** ROTATION **/
+/** Rotate Object 360 clockwise**/
+#axis:hover .rotate360cw{
+	transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-o-transform: rotate(360deg); 
+	-moz-transform: rotate(360deg);
+}
+/** Rotate Object 360 counter clockwise **/
+#axis:hover .rotate360ccw{
+	transform: rotate(-360deg);
+	-webkit-transform: rotate(-360deg);
+	-o-transform: rotate(-360deg); 
+	-moz-transform: rotate(-360deg);
+}
+/** Scale **/
+#axis:hover .scale{
+	transform: scale(2);
+	-webkit-transform: scale(2);
+	-o-transform: scale(2); 
+	-moz-transform: scale(2);
+}
+/** Multiple **/
+#axis:hover .multiple {
+	transform: translate(350px, -350px) rotate(360deg);
+	-webkit-transform: translate(350px, -350px) rotate(360deg);
+	-o-transform: translate(350px, -350px) rotate(360deg);
+	-moz-transform: translate(350px, -350px) rotate(360deg);
+}
