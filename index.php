@@ -31,6 +31,7 @@
 
     <!--load search query JS files-->
     <!--THESE CAN BE COMBINED LATER, EASIER TO WORK ON THIS WAY-->
+    <script type="text/javascript" src="js/lib_hours.js"></script>
     <script type="text/javascript" src="js/articles.js"></script>
     <script type="text/javascript" src="js/books.js"></script>
     <script type="text/javascript" src="js/journals.js"></script>
@@ -38,7 +39,7 @@
     <script type="text/javascript" src="js/lib_guides.js"></script>
     <script type="text/javascript" src="js/site_search.js"></script>
     <script type="text/javascript" src="js/digi_collections.js"></script>
-    <script type="text/javascript" src="js/digi_commons.js"></script>    
+    <script type="text/javascript" src="js/digi_commons.js"></script>       
 
     <!--load main JS -->
     <script type="text/javascript" src="js/bento_queries.js"></script>
@@ -94,7 +95,7 @@ $().ready(function() {
 
             <div id="searchForm" class="col-lg-12">
               <form id="search" class="form-wrapper" onsubmit="searchCall(); return false;">
-                <input id="search_string" type="text" class="input-large" placeholder="Find books, articles, journals, and more">
+                <input id="search_string" type="text" class="input-large" placeholder="Find everything">
                 <button id="submit" type="submit" class="btn">Find</button>
               </form>  
 
@@ -112,6 +113,17 @@ $().ready(function() {
           <div id="boxes_rows" class="row-fluid">
 
             <div id="search-results" style="display:none;" class="col-lg-12">
+
+
+              <!-- <div id="boxes_middle" class="col-md-6 col-lg-4"> -->
+                <div id="lib_hours" class="row-fluid pin">
+                  <div class="box_loading_animation"></div>
+                  <div class="box_results"></div>
+                </div>               
+              <!-- </div> -->
+    <script type="text/javascript">
+// $('div.lib_hours:empty').hide()
+ </script>
 
               <!--column1-->
               <div id="boxes_left" class="col-md-6 col-lg-4">           
