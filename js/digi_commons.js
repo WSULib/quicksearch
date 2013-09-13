@@ -52,7 +52,7 @@ function digi_commons_query(search_string){
                 }
                 else{ 
                     var format = response.response.docs[i].dc_format[0];                    
-                    var icon = window.iconURL(format);
+                 //   var icon = window.iconURL(format);
                 }                                                                      
 
                 $("#digi_commons .box_results").append("<div id='digi_commons"+i+"' class='result_div indiv-result'></div>");                

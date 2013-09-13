@@ -57,7 +57,7 @@ function site_search_query(search_string){
 
         else {
             //set icon
-            var icon = window.iconURL('text/html');            
+          //  var icon = window.iconURL('text/html');            
             //iterate through results, push to search page
             for (var i = 0; i < site_searchJSON.responseData.results.length && i < 3; ++i){            
                 $("#site_search .box_results").append("<div id='siteSearch_"+i+"' class='result_div indiv-result'></div>");

@@ -40,16 +40,10 @@ function Success (response){
     return true;
     }
 
-//isEmpty({a:1}) // false
-//isEmpty({}) // true
+
 if (books_object.PAGEINFO.ENTRYCOUNT !== '0') {
-//  z = '3';
 
-//if (books_object.PAGEINFO.ENTRYCOUNT === '1') {
 
-//  z = books_object.PAGEINFO.ENTRYCOUNT;
-
-//}
 if (books_object.PAGEINFO.ENTRYCOUNT === '1') {
   count = books_object.Heading.HeadingSize;
   if ( isEmpty(books_object.Heading.Title.TitleField) === true) {
@@ -71,6 +65,7 @@ if (books_object.PAGEINFO.ENTRYCOUNT === '1') {
 
 }
 
+else {
 for (var i = 0; i < 3; i++) {
          //make some shortened variables for the data you want to mess with
               
@@ -101,13 +96,13 @@ for (var i = 0; i < 3; i++) {
         $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"' target='_blank'>"+title+"</a></p></div>");
         // imageInsert(response, i);
         }
-
+      
         $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' target='_blank'><em>View more results...("+count+")</em></a></span>");  
-
+    }
 }
 //If no results, then display no results found
       if (books_object.PAGEINFO.ENTRYCOUNT === '0') {  
-          $("#books .box_results").append("<span>No material esults were found.  Please try another search in the <a href='http://elibrary.wayne.edu' target='_blank'>Catalog</a></span>");    
+          $("#books .box_results").append("<span>No material results were found.  Please try another search in the <a href='http://elibrary.wayne.edu' target='_blank'>Catalog</a></span>");    
       }
 }
 

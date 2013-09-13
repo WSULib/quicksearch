@@ -24,18 +24,22 @@ $(document).ready(function(){
 function Success (response){
     //clear previous results
     $("#journals .box_results").empty();
-    console.log(response);
+  //  console.log(response);
     // hides loading animation
 	$("#journals .box_loading_animation").hide();
-    journals_object = new Object();    
+    journal_object = new Object();    
     // populate journal_object global variable with bibnumbers
 
   journal_object = response;
+    
+function isEmpty(ob){
+    for(var i in ob){ return false;}
+    return true;
+    }
 
 if (journal_object.PAGEINFO.ENTRYCOUNT !== '0') {
 
-if (journal_object.PAGEINFO.ENTRYCOUNT === '1') {
-
+  if (journal_object.PAGEINFO.ENTRYCOUNT === '1') {
   count = journal_object.Heading.HeadingSize;
   if ( isEmpty(journal_object.Heading.Title.TitleField) === true) {
     title = "eResource - Click For Title";
@@ -56,6 +60,7 @@ if (journal_object.PAGEINFO.ENTRYCOUNT === '1') {
 
 }
 
+else {
 for (var i = 0; i < 3; i++) {
          //make some shortened variables for the data you want to mess with
                 count = journal_object.Heading.HeadingSize;
@@ -84,9 +89,11 @@ for (var i = 0; i < 3; i++) {
         $("#journals .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"' target='_blank'>"+title+"</a></p></div>");
         // imageInsert(response, i);
         }
+        
+
         $("#journals .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"&searchscope=17' target='_blank'><em>View more results...("+count+")</em></a>");  
     }
-
+  }
 //If no results, then display no results found
            if (journal_object.PAGEINFO.ENTRYCOUNT === '0') {  
 

@@ -56,8 +56,6 @@
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'>
 
-</head>
-
 <script type='text/javascript'>//<![CDATA[ 
 $(window).load(function(){
 $(function(){   
@@ -81,6 +79,7 @@ $().ready(function() {
     });
 });
 </script>
+</head>
 
 
   <body>
@@ -116,10 +115,10 @@ $().ready(function() {
 
 
               <!-- <div id="boxes_middle" class="col-md-6 col-lg-4"> -->
-                <div id="lib_hours" class="row-fluid pin">
+              <!--  <div id="lib_hours" class="row-fluid pin">
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
-                </div>               
+                </div>-->               
               <!-- </div> -->
     <script type="text/javascript">
 // $('div.lib_hours:empty').hide()
@@ -189,7 +188,7 @@ $().ready(function() {
 
       </div> <!--all encompassing row -->
 
-    </div><!--/.fluid-container-->   
+   <!-- </div>--><!--/.fluid-container-->   
    
   </body>
 
