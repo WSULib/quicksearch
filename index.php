@@ -20,6 +20,16 @@
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
+      <style>
+        i {
+        display:none;
+        }
+        input[class=input-large] {
+        line-height: 18px;
+        padding: 10px 15px;
+        }
+
+      </style>
       <script src="inc/bootstrap/js/html5shiv.js"></script>
       <script src="inc/bootstrap/js/respond.min.js"></script>
     <![endif]-->
@@ -56,6 +66,8 @@
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'>
 
+</head>
+
 <script type='text/javascript'>//<![CDATA[ 
 $(window).load(function(){
 $(function(){   
@@ -68,18 +80,27 @@ $(function(){
 });//]]>  
 
 $().ready(function() {
-    $(".books").click(function() {
-        $("#search_string").val('borrow books');
+    $(".hours").click(function() {
+        $("#search_string").val('ugl hours').trigger("submit");
+        $("#search-results").show();
+
     });
     $(".gender").click(function() {
-        $("#search_string").val('gender studies');
+        $("#search_string").val('gender studies').trigger("submit");
+        $("#search-results").show();
     });
     $(".journal").click(function() {
-        $("#search_string").val('Journal of the Royal Society of Arts');
+        $("#search_string").val('Journal of the Royal Society of Arts').trigger("submit");
+        $("#search-results").show();
+    });
+
+    $(".clear-search").on("click", function() {
+        $("#search_string").val("")
     });
 });
+
+
 </script>
-</head>
 
 
   <body>
@@ -94,13 +115,15 @@ $().ready(function() {
 
             <div id="searchForm" class="col-lg-12">
               <form id="search" class="form-wrapper" onsubmit="searchCall(); return false;">
-                <input id="search_string" type="text" class="input-large" placeholder="Find everything">
+                <input id="search_string" type="text" class="input-large" placeholder="Find articles, books, journals and more">
+                <span class="clear-search">X</span>
                 <button id="submit" type="submit" class="btn">Find</button>
               </form>  
+                
 
               <div class="examples">
                 <p>Examples:
-                <a href="#" class="books">borrow books</a>,
+                <a href="#" class="hours">ugl hours</a>,
                 <a href="#" class="gender">gender studies</a>,
                 <a href="#" class="journal">Journal of the Royal Society of Arts</a></p>
               </div>
@@ -113,13 +136,13 @@ $().ready(function() {
 
             <div id="search-results" style="display:none;" class="col-lg-12">
 
-
-              <!-- <div id="boxes_middle" class="col-md-6 col-lg-4"> -->
-              <!--  <div id="lib_hours" class="row-fluid pin">
-                  <div class="box_loading_animation"></div>
+              <!-- <div id="boxes_middle" class="col-md-6 col-lg-4">
+                <div id="lib_hours" class="row-fluid pin-hours">
+                  <div id="hours" class="box_loading_animation"></div>
                   <div class="box_results"></div>
-                </div>-->               
+                </div>               
               <!-- </div> -->
+
     <script type="text/javascript">
 // $('div.lib_hours:empty').hide()
  </script>
@@ -127,31 +150,31 @@ $().ready(function() {
               <!--column1-->
               <div id="boxes_left" class="col-md-6 col-lg-4">           
                 <div id ="articles" class="row-fluid pin">
-                  <h4>Peer Reviewed Articles</h4>
+                  <h4><i class="icon-article"></i> Peer Reviewed Articles</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div>                
-                <div id="databases" class="row-fluid pin">
-                  <h4>Databases</h4>
+                <div id="digi_commons" class="row-fluid pin">
+                  <h4>DigitalCommons@WayneState</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
-                </div>       
+                </div>  
               </div>
 
               <!--column2-->
               <div id="boxes_middle" class="col-md-6 col-lg-4">
                 <div id="books" class="row-fluid pin">
-                  <h4>Books and Media</h4>
+                  <h4><i class="icon-book"></i> Books and Media</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div>
                 <div id="journals" class="row-fluid pin">
-                  <h4>Journals</h4>
+                  <h4><i class="icon-notebook"></i> Journals</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div>                                
                 <div id="lib_guides" class="row-fluid pin">
-                  <h4>Research Guides</h4>
+                  <h4><i class="icon-map"></i> Research Guides</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div>               
@@ -159,24 +182,15 @@ $().ready(function() {
 
               <div id="boxes_right" class="col-md-6 col-lg-4">               
                 <div id="site_search" class="row-fluid pin">
-                  <h4>Site Search</h4>
+                  <h4><i class="icon-globe"></i> WSU Site Search</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div>  
-
-                <div id="digi_commons" class="row-fluid pin">
-                  <h4>DigitalCommons@WayneState</h4>
+                <div id="databases" class="row-fluid pin">
+                  <h4><i class="icon-server"></i> Databases</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
-                </div>
-
-               <!-- <div class="row-fluid">
-                  <div id="digi_collections">
-                    <h4>Digital Collections</h4>
-                    <div class="box_loading_animation"></div>
-                    <div class="box_results"></div>
-                  </div>                
-                </div>-->
+                </div>                
               </div>
 
               <!--column3-->
@@ -188,21 +202,30 @@ $().ready(function() {
 
       </div> <!--all encompassing row -->
 
-   <!-- </div>--><!--/.fluid-container-->   
+    </div><!--/.fluid-container-->   
    
   </body>
 
-  <!--run query if included as GET parameter-->
-  <?php
-  $q = $_GET['q'];
-  if ( isset($q) ){
-    echo "<script type='text/javascript'>
-      $(document).ready(function(){ 
-        $('#search_string').val('$q');
-        search(); 
-      });
-    </script>";
-  }
-  ?>
+  <script type="text/javascript">
+    updatePage();
+  </script>
   
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

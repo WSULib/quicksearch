@@ -6,11 +6,33 @@ body {
 	line-height: 1.4em;
 }
 
+.clear-search {
+	z-index: 20;
+	position: absolute;
+	top: 18px;
+	left: 400px;
+	font-size: 20px;
+	display: block;
+	background-color: #fff;
+	border: none;
+	color: #ddd;
+}
+
+i {
+	margin-right: 5px;
+	font-size: 18px;
+}
+
 .trans {
     position: relative;
     left: 0;
     top: 300px;
     z-index: -5;
+}
+
+.header {
+	background-color: #999;
+	width: 100%;
 }
 
 header {
@@ -39,8 +61,11 @@ a:active {
 }
 
 h4 {
-	padding: 0 10px 10px 10px;
+	background-color: #fff6dd;
+	margin-top: 0;
+	padding: 15px;
 	font-size: 20px;
+	border-bottom: 1px solid #eee;
 }
 
 /* Search Box */
@@ -56,8 +81,12 @@ input[class=input-large] {
 	border-radius: 3px;     
 }
 
+input[type="text"]:focus {
+	outline: none;
+}
+
 .form-wrapper {
-	width: 450px;
+	width: 500px;
 	padding: 8px;
 	margin: 0 auto;
 	overflow: hidden;
@@ -112,7 +141,9 @@ input[class=input-large] {
 } 
 
 .form-wrapper #submit {
-	float: right;    
+	z-index: 10;
+	position: absolute;
+	float: right;   
 	border: 1px solid #00748f;
 	height: 42px;
 	width: 100px;
@@ -160,10 +191,9 @@ input[class=input-large] {
 .box_loading_animation{
 	background-image: url(../php/ep-BentoBoxDemo/web/ajax_loading.gif);
 	background-repeat: no-repeat;
-	height:20px;	
-	float:center;
-	margin:auto;
+	height:20px;		
 	display:none;
+	margin: 20px 20px 0 20px;
 }
 
 #columns {
@@ -182,9 +212,30 @@ input[class=input-large] {
 	display: inline-block;
 	width: 100%;
 	background: #FEFEFE;
-	border: 2px solid #FAFAFA;
+	//border: 2px solid #FAFAFA;
 	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
 	margin: 0 2px 15px;
+	-webkit-column-break-inside: avoid;
+	-moz-column-break-inside: avoid;
+	column-break-inside: avoid;
+	//padding: 15px;
+	//padding-bottom: 5px;
+	background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
+	opacity: 1;
+
+	-webkit-transition: all .2s ease;
+	-moz-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	transition: all .2s ease;
+}
+
+.pin-hours {
+	width: 97.5%;
+	background: #FEFEFE;
+	border: 2px solid #FAFAFA;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+	margin: 0 auto;
+	margin-bottom: 35px;
 	-webkit-column-break-inside: avoid;
 	-moz-column-break-inside: avoid;
 	column-break-inside: avoid;
@@ -200,9 +251,7 @@ input[class=input-large] {
 }
 
 .box_results {
-	padding-left: 10px;
-	padding-bottom: 20px;
-	margin-top: 15px;
+	padding: 5px 20px 20px 20px;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 	letter-spacing: .005em;
@@ -223,6 +272,10 @@ input[class=input-large] {
 	padding-bottom: 20px;
 	margin-bottom: 20px;
 	border-bottom: 1px solid #eee;
+}
+
+.indiv-result:hover {
+	background-color: #eee;
 }
 
 .result-details {
@@ -261,6 +314,20 @@ p.title {
 		-moz-column-count: 2;
 		column-count: 2;
 	}
+input[class=input-large] {
+  width: 385px;   
+}
+
+.form-wrapper {
+	width: 500px;
+}
+
+.form-wrapper #submit {
+	left: 390px;
+}
+.clear-search {
+	left: 360px;
+}
 }
 
 @media (min-width: 960px) and (max-width: 1200px) {
@@ -269,6 +336,20 @@ p.title {
 		-moz-column-count: 3;
 		column-count: 3;
 	}
+input[class=input-large] {
+  width: 685px;   
+}
+
+.form-wrapper {
+	width: 800px;
+}
+
+.form-wrapper #submit {
+	left: 690px;
+}
+.clear-search {
+	left: 660px;
+}
 }
 
 @media (min-width: 1201px) {
@@ -277,4 +358,19 @@ p.title {
 		-moz-column-count: 3;
 		column-count: 3;
 	}
+	
+input[class=input-large] {
+  width: 985px;   
+}
+
+.form-wrapper {
+	width: 1100px;
+}
+
+.form-wrapper #submit {
+	left: 991px;
+}
+.clear-search {
+	left: 960px;
+}
 }
