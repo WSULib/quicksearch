@@ -153,7 +153,7 @@ $i = $_REQUEST['i'];
     <h4 title="<?php echo $description[$i] ?>" style="margin-bottom: 10px; background-color: lightgrey"><?php echo $_REQUEST['bn'] ?></h4>
   </div>         
   <div>
-    <p>No articles results were found.  Please try another search in <a target="_blank" href="http://search.ebscohost.com/login.aspx?type=1&authtype=ip,guest&profile=eds&custid=s8440836&groupid=main">Research Warrior</a></p>
+    <p>No articles results were found.  Please try another search in <a href="http://search.ebscohost.com/login.aspx?type=1&authtype=ip,guest&profile=eds&custid=s8440836&groupid=main">Research Warrior</a></p>
   </div>
 </div>
 
@@ -211,11 +211,11 @@ $i = $_REQUEST['i'];
                     $t = substr($Ti['TitleFull'], 0, 80) . '...';                                    
               ?>
 
-             <a target="_blank" id="trig<?php echo $z ?>" href="<?php echo 'http://proxy.lib.wayne.edu/login?url=' . $result['PLink'] . '&scope=site' ?>"><?php echo  $t; ?></a>                                       
+             <a id="trig<?php echo $z ?>" href="<?php echo 'http://proxy.lib.wayne.edu/login?url=' . $result['PLink'] . '&scope=site' ?>"><?php echo  $t; ?></a>                                       
             <?php }}
             else {  ?>  
          
-          <a target="_parent" id="trig<?php echo $z ?>"  href="<?php echo 'http://proxy.lib.wayne.edu/login?url=' . $result['PLink'] . '&scope=site' ?>"><?php echo "Title is not Available"; ?></a>
+          <a id="trig<?php echo $z ?>"  href="<?php echo 'http://proxy.lib.wayne.edu/login?url=' . $result['PLink'] . '&scope=site' ?>"><?php echo "Title is not Available"; ?></a>
 
           <?php } ?> 
         <?php }?>                                                   
@@ -283,7 +283,7 @@ $i = $_REQUEST['i'];
     
     <div>
       <em> 
-        <a target="_blank" href="http://search.ebscohost.com/login.aspx?direct=true&scope=site&site=eds-live&authtype=ip,guest&custid=s8440836&groupid=main&profile=eds&bquery=<?php echo $searchTerm ?>&clv0=Y&cli0=RV">View more results...(<?php echo number_format($results['recordCount'])  ?>)</a>
+        <a href="http://search.ebscohost.com/login.aspx?direct=true&scope=site&site=eds-live&authtype=ip,guest&custid=s8440836&groupid=main&profile=eds&bquery=<?php echo $searchTerm ?>&clv0=Y&cli0=RV">View more results...(<?php echo number_format($results['recordCount'])  ?>)</a>
       </em>
     </div>
 </div>

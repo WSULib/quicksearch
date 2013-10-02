@@ -40,7 +40,7 @@ function site_search_query(search_string){
         //     //iterate through results, push to search page
         //     for (var i = 0; i < 3; ++i){            
         //         $("#site_search .box_results").append("<div id='siteSearch_"+i+"' class='result_div'></div>");
-        //         $("#siteSearch_"+i).append("<a target='_blank' href='"+decodeURIComponent(site_searchJSON.results[i].url)+"'>"+site_searchJSON.results[i].title+"</a></br>");           
+        //         $("#siteSearch_"+i).append("<a href='"+decodeURIComponent(site_searchJSON.results[i].url)+"'>"+site_searchJSON.results[i].title+"</a></br>");           
                 
         //     }
         // }
@@ -62,11 +62,11 @@ function site_search_query(search_string){
             for (var i = 0; i < site_searchJSON.responseData.results.length && i < 3; ++i){            
                 $("#site_search .box_results").append("<div id='siteSearch_"+i+"' class='result_div indiv-result'></div>");
                 //$("#siteSearch_"+i).append("<img class='mime_icon' src='http://silo.lib.wayne.edu/fedora/objects/wayne:WSUDORThumbnails/datastreams/HTML/content' width=30 />");
-                $("#siteSearch_"+i).append("<p class='title'><a target='_blank' href='"+decodeURIComponent(site_searchJSON.responseData.results[i].url)+"'>"+site_searchJSON.responseData.results[i].title+"</a></p>");           
+                $("#siteSearch_"+i).append("<p class='title'><a href='"+decodeURIComponent(site_searchJSON.responseData.results[i].url)+"'>"+site_searchJSON.responseData.results[i].title+"</a></p>");           
                 
             }
             var moreResultsURL = "http://wayne.edu/search/?q=biology#site:lib.wayne.edu " + search_string; 
-            $("#site_search .box_results").append("<a target='_blank' href='"+moreResultsURL+"'><em>View more results...</em></a>");
+            $("#site_search .box_results").append("<a href='"+moreResultsURL+"'><em>View more results...</em></a>");
         }        
 
         //turns off animation

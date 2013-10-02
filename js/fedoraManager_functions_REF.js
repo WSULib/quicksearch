@@ -16,7 +16,7 @@ $(document).ready(function(){
 
     //check for PIDsObj cookie
     //should check if NOT containing the lists...
-    if ($.cookie('PIDsObjSelected') === undefined) { 
+    if ($.cookie('PIDsObjSelected') === undefined) {
         // PIDsObj = new Object();
         // PIDsObj.selected = new Array();
         // PIDsObj.batchUpload = new Array();        
@@ -31,11 +31,11 @@ $(document).ready(function(){
         // console.log(PIDsObj);              
         if (PIDsObj.selected.length > 0){
             for (var i = 0; i < PIDsObj.selected.length; ++i){
-                $("#currSelect").append("<li><a href='http://141.217.172.153/fedora/objects/"+PIDsObj.selected[i]+"/' target='_blank'>"+PIDsObj.selected[i]+"</a></li>");
+                $("#currSelect").append("<li><a href='http://141.217.172.153/fedora/objects/"+PIDsObj.selected[i]+"/'>"+PIDsObj.selected[i]+"</a></li>");
             }
         }
-    }    
-})
+    }
+});
 
 
 
@@ -88,7 +88,7 @@ function loadView(view,dest,clear){
         $("#topView").load(viewLocation);
     }
     if (dest == "bottomView"){
-        $("#bottomView").load(viewLocation);    
+        $("#bottomView").load(viewLocation);
     }
 }
 
@@ -116,8 +116,8 @@ function RDFQuery(){
         var baseURL = "http://localhost/fedora/risearch?";
         var queryOptions = "type=tuples&lang=itql&format=json&dt=on&stream=on&query=";
         var baseQuery = "select $subject from <#ri> where $subject <fedora-rels-ext:"+itql_predicate+"> <info:fedora/"+itql_object+">;";
-        dataObject.encodedURL = baseURL + queryOptions + encodeURIComponent(baseQuery);    
-        console.log(dataObject.encodedURL);    
+        dataObject.encodedURL = baseURL + queryOptions + encodeURIComponent(baseQuery);
+        console.log(dataObject.encodedURL);
 
         //returns json
         $(document).ready(function(){
@@ -137,10 +137,10 @@ function RDFQuery(){
             PIDsObj.queryResults = response;
             
             //iterates through and creates checkboxes to select PIDs
-            for (var i = 0; i < PIDsObj.queryResults.results.length; ++i){                
-                var PID = PIDsObj.queryResults.results[i].subject
-                var PIDpretty = $.trim(PIDsObj.queryResults.results[i].subject.split('/')[1]);                
-                $("#results_list").append("<li><input class='result_checkbox' type='checkbox' name='PIDcheckbox[]' value='"+PIDpretty+"'><a target='_blank' href='http://141.217.172.153/fedora/objects/"+PIDpretty+"'>"+PIDpretty+"</a></input></li>");
+            for (var i = 0; i < PIDsObj.queryResults.results.length; ++i){
+                var PID = PIDsObj.queryResults.results[i].subject;
+                var PIDpretty = $.trim(PIDsObj.queryResults.results[i].subject.split('/')[1]);
+                $("#results_list").append("<li><input class='result_checkbox' type='checkbox' name='PIDcheckbox[]' value='"+PIDpretty+"'><a href='http://141.217.172.153/fedora/objects/"+PIDpretty+"'>"+PIDpretty+"</a></input></li>");
             }
             
         }
@@ -161,9 +161,9 @@ function extended_RDFQuery(type){
     // $("#results_list").empty();
 
     //drill-down
-    if (type === 'drilldown'){        
-        var to_query = $('#ext_results_list input:checked')
-        $("#ext_results_list").empty();        
+    if (type === 'drilldown'){
+        var to_query = $('#ext_results_list input:checked');
+        $("#ext_results_list").empty();
     }
 
     //first extended query
@@ -189,8 +189,8 @@ function extended_RDFQuery(type){
             var baseURL = "http://localhost/fedora/risearch?";
             var queryOptions = "type=tuples&lang=itql&format=json&dt=on&stream=on&query=";
             var baseQuery = "select $subject from <#ri> where $subject <fedora-rels-ext:"+itql_predicate+"> <info:fedora/"+itql_object+">;";
-            dataObject.encodedURL = baseURL + queryOptions + encodeURIComponent(baseQuery);    
-            console.log(dataObject.encodedURL);    
+            dataObject.encodedURL = baseURL + queryOptions + encodeURIComponent(baseQuery);
+            console.log(dataObject.encodedURL);
 
             //returns json
             $(document).ready(function(){
@@ -210,11 +210,11 @@ function extended_RDFQuery(type){
                 PIDsObj.queryResults = response;
                 
                 //iterates through and creates checkboxes to select PIDs
-                for (var i = 0; i < PIDsObj.queryResults.results.length; ++i){                
-                    var PID = PIDsObj.queryResults.results[i].subject
-                    var PIDpretty = $.trim(PIDsObj.queryResults.results[i].subject.split('/')[1]);                
-                    $("#ext_results_list").append("<li><input class='result_checkbox' type='checkbox' name='PIDcheckbox[]' value='"+PIDpretty+"'><a target='_blank' href='http://141.217.172.153/fedora/objects/"+PIDpretty+"'>"+PIDpretty+"</a></input></li>");
-                }                
+                for (var i = 0; i < PIDsObj.queryResults.results.length; ++i){
+                    var PID = PIDsObj.queryResults.results[i].subject;
+                    var PIDpretty = $.trim(PIDsObj.queryResults.results[i].subject.split('/')[1]);
+                    $("#ext_results_list").append("<li><input class='result_checkbox' type='checkbox' name='PIDcheckbox[]' value='"+PIDpretty+"'><a href='http://141.217.172.153/fedora/objects/"+PIDpretty+"'>"+PIDpretty+"</a></input></li>");
+                }
             }
 
             function pull_PIDsError(){
@@ -249,7 +249,7 @@ function solrQuery(){
     dataObject.data_type = "unfiltered"; //json expected, unfiltered
     dataObject.request_type = "GET";
     //assemble URL
-    dataObject.baseURL = "http://localhost/solr4/"+dataObject.GETparams.core+"/select?";        
+    dataObject.baseURL = "http://localhost/solr4/"+dataObject.GETparams.core+"/select?";
     
     // console.log(dataObject);
     
@@ -270,15 +270,15 @@ function solrQuery(){
 
         //add conditional for NO responses
 
-        for (var i = 0; i < PIDsObj.queryResults.response.docs.length; ++i){                
+        for (var i = 0; i < PIDsObj.queryResults.response.docs.length; ++i){
             var PID = PIDsObj.queryResults.response.docs[i].id;
-            if (typeof PIDsObj.queryResults.response.docs[i].mods_title_ms === 'undefined'){                
-                var title = "[unknown title]";                
+            if (typeof PIDsObj.queryResults.response.docs[i].mods_title_ms === 'undefined'){
+                var title = "[unknown title]";
             }
-            else{                
+            else{
                 var title = PIDsObj.queryResults.response.docs[i].mods_title_ms[0];
-            }            
-            $("#results_list").append("<li><input class='result_checkbox' type='checkbox' name='PIDcheckbox[]' value='"+PID+"'><a target='_blank' href='http://141.217.172.153/fedora/objects/"+PID+"'>"+PID+" - "+title+"</a></input></li>");
+            }
+            $("#results_list").append("<li><input class='result_checkbox' type='checkbox' name='PIDcheckbox[]' value='"+PID+"'><a href='http://141.217.172.153/fedora/objects/"+PID+"'>"+PID+" - "+title+"</a></input></li>");
         }
 
     }
@@ -289,7 +289,7 @@ function solrQuery(){
 }
 
 //purge object
-function selectPIDs(locale){    
+function selectPIDs(locale){
     
     //some selection
     if ($('#'+locale+' input:checked').length > 0){
@@ -301,14 +301,14 @@ function selectPIDs(locale){
         $('#'+locale+' input:checked').each(function() {
             // To pass this value to its nearby hidden input
             var eachPID = $(this).val($(this).val())[0].value;
-            eachPID = $.trim(eachPID);            
+            eachPID = $.trim(eachPID);
             PIDsObj.selected.push(eachPID);
             PIDsObj.selected_tmp.push(eachPID);
 
             //then push to selected_list
             $("#selected_list").append("<li>"+eachPID+"</li>");
             $("#currSelect").append("<li>"+eachPID+"</li>");
-        });    
+        });
 
         //show extended_selection (SHOULD HAPPEN AFTER SELECTION)
         $("#extended_selection").fadeIn();
@@ -347,13 +347,13 @@ function purgePIDs(type){
                 var baseURL = "http://localhost/fedora/objects/";
                 var queryOptions = PIDsObj.selected[i];
                 PIDsObj.purgedPIDs.push(PIDsObj.selected[i]);
-                dataObject.encodedURL = baseURL + queryOptions
-                console.log(dataObject.encodedURL);    
+                dataObject.encodedURL = baseURL + queryOptions;
+                console.log(dataObject.encodedURL);
 
                 //purges object
                 $(document).ready(function(){
                   $.ajax({
-                    type: "POST",                    
+                    type: "POST",
                     url: "php/purgeObject.php",
                     data: dataObject,
                     dataType: "html",
@@ -364,7 +364,7 @@ function purgePIDs(type){
             });
 
             //remove PIDs from currently selected
-            if(i == PIDsObj.selected.length - 1 ) {                
+            if(i == PIDsObj.selected.length - 1 ) {
                 deselectPIDs();
             }
         }
@@ -377,7 +377,7 @@ function purgePIDs(type){
             // To pass this value to its nearby hidden input
 
             var eachPID = $(this).val($(this).val())[0].value;
-            eachPID = $.trim(eachPID);            
+            eachPID = $.trim(eachPID);
             toPurge.push(eachPID);
 
             //create dataObject for Ajax call
@@ -386,8 +386,8 @@ function purgePIDs(type){
             var baseURL = "http://localhost/fedora/objects/";
             var queryOptions = eachPID;
             PIDsObj.purgedPIDs.push(eachPID);
-            dataObject.encodedURL = baseURL + queryOptions
-            console.log(dataObject.encodedURL);    
+            dataObject.encodedURL = baseURL + queryOptions;
+            console.log(dataObject.encodedURL);
 
             //purges object
             $(document).ready(function(){
@@ -471,7 +471,7 @@ function exportPIDs(type){
             // To pass this value to its nearby hidden input
 
             var eachPID = $(this).val($(this).val())[0].value;
-            eachPID = $.trim(eachPID);            
+            eachPID = $.trim(eachPID);
             toExport.push(eachPID);
 
             //create dataObject for Ajax call
@@ -516,12 +516,12 @@ function uploadForm(){
         beforeSend: function() {
             $("#uploaded_batch").empty();
             var percentVal = '0%';
-            bar.width(percentVal)
+            bar.width(percentVal);
             percent.html(percentVal);
         },
         uploadProgress: function(event, position, total, percentComplete) {
             var percentVal = percentComplete + '%';
-            bar.width(percentVal)
+            bar.width(percentVal);
             percent.html(percentVal);
             //console.log(percentVal, position, total);
         },
@@ -531,16 +531,16 @@ function uploadForm(){
                 var filename = uploadStatusObj.myfile.name[i];
                 $("#uploaded_batch").append("<li>"+filename+"</li>");
                 PIDsObj.batchUpload.push(filename);
-            }            
+            }
             $("#batchIngestButton").removeClass('disabled');
             $("#batchIngestButton").addClass('btn-success');
         }
-    });    
+    });
 }
 
 function ingestBatch(e){ //where e is the button
 
-    if (e.hasClass('disabled') == true){
+    if (e.hasClass('disabled') === true){
         alert('batch upload incomplete or not issued, nothing to ingest.');
         return;
     }
@@ -557,11 +557,11 @@ function ingestBatch(e){ //where e is the button
         for (var i = 0; i < PIDsObj.batchUpload.length; ++i){
 
             // console.log(PIDsObj.batchUpload[i]);    
-            var baseURL = "http://localhost/fedora/objects/new";        
+            var baseURL = "http://localhost/fedora/objects/new";
             dataObject.filename = PIDsObj.batchUpload[i];
             dataObject.encodedURL = baseURL;
             dataObject.sourceDir = 'uploads/FOXML';
-            console.log(dataObject.encodedURL, dataObject.filename);    
+            console.log(dataObject.encodedURL, dataObject.filename);
 
             //ingest object
             $(document).ready(function(){
@@ -586,7 +586,7 @@ function ingestAllUploads(){
     }
 
     //create new array in PIDsObj with list of uploaded files
-    PIDsObj.allUpload = [];    
+    PIDsObj.allUpload = [];
     var upload_items = $("#currUpload li");
 
     if (upload_items.length > 0){
@@ -595,15 +595,15 @@ function ingestAllUploads(){
             PIDsObj.allUpload.push( $("#upload"+i).html() );
         }
 
-        dataObject = new Object();    
+        dataObject = new Object();
 
         for (var i = 0; i < PIDsObj.allUpload.length; ++i){
             
             var baseURL = "http://localhost/fedora/objects/new";
-            dataObject.sourceDir = 'uploads/FOXML';        
+            dataObject.sourceDir = 'uploads/FOXML';
             dataObject.filename = PIDsObj.allUpload[i];
             dataObject.encodedURL = baseURL;
-            console.log(dataObject.encodedURL, dataObject.filename);    
+            console.log(dataObject.encodedURL, dataObject.filename);
 
             //ingest object
             $(document).ready(function(){
@@ -615,7 +615,7 @@ function ingestAllUploads(){
                 // dataType: "html",
                 success: ingested
               });
-            });        
+            });
         }
     }
     else{
@@ -631,7 +631,7 @@ function ingestAllExports(){
     }
 
     //create new array in PIDsObj with list of uploaded files
-    PIDsObj.allExports = [];    
+    PIDsObj.allExports = [];
     var upload_items = $("#currExport li");
     console.log(upload_items);
 
@@ -641,15 +641,15 @@ function ingestAllExports(){
             PIDsObj.allExports.push( $("#uploadExport"+i).html() );
         }
 
-        dataObject = new Object();    
+        dataObject = new Object();
 
         for (var i = 0; i < PIDsObj.allExports.length; ++i){
             
             var baseURL = "http://localhost/fedora/objects/new";
-            dataObject.sourceDir = 'exports/FOXML';        
+            dataObject.sourceDir = 'exports/FOXML';
             dataObject.filename = PIDsObj.allExports[i];
             dataObject.encodedURL = baseURL;
-            console.log(dataObject.encodedURL, dataObject.filename);    
+            console.log(dataObject.encodedURL, dataObject.filename);
 
             //ingest object
             $(document).ready(function(){
@@ -661,7 +661,7 @@ function ingestAllExports(){
                 // dataType: "html",
                 success: ingested
               });
-            });        
+            });
         }
     }
     else{
@@ -679,7 +679,7 @@ function deselectPIDs(){
     //delete cookie
     $.removeCookie('PIDsObj');
     //wipe selected list from PIDsObj object
-    PIDsObj.selected = [];    
+    PIDsObj.selected = [];
     //clear list
     $("#currSelect").empty();
     //reset empty cookie
@@ -694,7 +694,7 @@ function populateSelectedTable(){
         $("#selected_actions button").addClass('disabled');
         $("#selected_table").append("<tr><td>No Objects Selected, please rectify.</td><td></td></tr>");
     }
-    else {        
+    else {
         for (var i = 0; i < PIDsObj.selected.length; ++i){
             $("#selected_table").append("<tr><td>"+PIDsObj.selected[i]+"</td><td><input class='selected_checkbox' type='checkbox' name='selected_checkboxes[]' value='"+PIDsObj.selected[i]+"'/></td></tr>");
         }
@@ -722,8 +722,8 @@ function removeSelectedPIDs(){
         //update lists
         $(this).parent().parent().remove();
         for (var i = 0; i < PIDsObj.selected.length; ++i){
-            $("#currSelect").append("<li>"+PIDsObj.selected[i]+"</li>");            
-        }        
+            $("#currSelect").append("<li>"+PIDsObj.selected[i]+"</li>");
+        }
     });
 }
 
@@ -760,10 +760,10 @@ function addDatastream(type){
         // console.log(dataObject);
     }
 
-    if (DStype == "upload"){      
+    if (DStype == "upload"){
       
         //prepare POST data
-        dataObject.addDStype = "upload";        
+        dataObject.addDStype = "upload";
         dataObject.sourceDir = "uploads/DS";
         dataObject.filename = PIDsObj.batchUpload[0];
         // console.log(dataObject);        
@@ -781,9 +781,9 @@ function addDatastream(type){
         var toAddDS = [];
 
         //iterates through all checked
-        $('input:checked').each(function() {            
+        $('input:checked').each(function() {
             var eachPID = $(this).val($(this).val())[0].value;
-            eachPID = $.trim(eachPID);            
+            eachPID = $.trim(eachPID);
             toAddDS.push(eachPID);
 
             //ingest object
@@ -819,18 +819,18 @@ function checksumCall(pid, dsid){
 
         if (checksumType == "DISABLED" && checksumValid == "true") {
             console.log("this one does not have an enabled checksum");
-            $("#results_list_disabled").append("<li><a href='http://141.217.172.153/fedora/objects/"+pid+"/datastreams/"+dsid+"?format=xml&valideChecksum=true' target='_blank'>"+pid+"-"+objectLabel+"</a></input></li>")
+            $("#results_list_disabled").append("<li><a href='http://141.217.172.153/fedora/objects/"+pid+"/datastreams/"+dsid+"?format=xml&valideChecksum=true'>"+pid+"-"+objectLabel+"</a></input></li>");
             // $("#results_lists").append("<li><a href='http://141.217.172.153/fedora/objects/'"+pid+"'>"+pid+"</a></li>");
         }
 
         else if ((checksumType == "MD5" || "SHA-1" || "SHA-256" || "SHA-512") && checksumValid == "true") {
             console.log("this one does have an enabled and valid checksum");
-          $("#results_list_enabled").append("<li><a target='_blank' href='http://141.217.172.153/fedora/objects/"+pid+"/datastreams/"+dsid+"?format=xml&valideChecksum=true' target='_blank'>"+pid+"-"+objectLabel+"</a></input></li>")
+          $("#results_list_enabled").append("<li><a href='http://141.217.172.153/fedora/objects/"+pid+"/datastreams/"+dsid+"?format=xml&valideChecksum=true'>"+pid+"-"+objectLabel+"</a></input></li>");
         }
 
         else if (checksumType == "ENABLED" && checksumValid == "false") {
             console.log("this one have an enabled checksum, but it is not valid");
-          $("#results_list_invalid").append("<li><a href='http://141.217.172.153/fedora/objects/"+pid+"/datastreams/"+dsid+"?format=xml&valideChecksum=true' target='_blank'>"+pid+"-"+objectLabel+"</a></input></li>")
+          $("#results_list_invalid").append("<li><a href='http://141.217.172.153/fedora/objects/"+pid+"/datastreams/"+dsid+"?format=xml&valideChecksum=true'>"+pid+"-"+objectLabel+"</a></input></li>");
         }
 
         else {
@@ -847,7 +847,7 @@ function checksumCall(pid, dsid){
         $(document).ready(function() {
             dataObject = new Object();
             dataObject.data_type = "checksum";
-            dataObject.encodedURL = 'http://localhost/fedora/objects/'+pid+'/datastreams/'+dsid+'?format=xml&validateChecksum=true';    
+            dataObject.encodedURL = 'http://localhost/fedora/objects/'+pid+'/datastreams/'+dsid+'?format=xml&validateChecksum=true';
 
             $(document).ready(function(){
               $.ajax({
@@ -886,7 +886,7 @@ function checksumPIDs(type){
                         checksumCall(pid, dsid);
                     }
  
-}          
+}
 
     }
         function Error(response){
@@ -900,7 +900,7 @@ function checksumPIDs(type){
         $(document).ready(function() {
             dataObject = new Object();
             dataObject.data_type = "xml2json";
-            dataObject.encodedURL = 'http://localhost/fedora/listDatastreams/'+PIDsObj.selected[i]+'?xml=true';    
+            dataObject.encodedURL = 'http://localhost/fedora/listDatastreams/'+PIDsObj.selected[i]+'?xml=true';
 
             $(document).ready(function(){
               $.ajax({
@@ -926,8 +926,8 @@ if (type == "selected"){
         $(document).ready(function() {
             dataObject = new Object();
             dataObject.data_type = "xml2json";
-            dataObject.encodedURL = 'http://localhost/fedora/listDatastreams/'+eachPID+'?xml=true';    
-            console.log(dataObject.encodedURL);    
+            dataObject.encodedURL = 'http://localhost/fedora/listDatastreams/'+eachPID+'?xml=true';
+            console.log(dataObject.encodedURL);
 
             $(document).ready(function(){
               $.ajax({
@@ -941,7 +941,7 @@ if (type == "selected"){
             });
 });
 
-});    
+});
 }
 
 }
@@ -977,7 +977,7 @@ if (type == "selected"){
 //function to index datastreams in Solr - array record mode
 function indexDS(type){
 
-    if (type === "fg"){  
+    if (type === "fg"){
 
         $("#index_results_list").append("<li>Running each PID individually, results should populate as they roll in.</li></br>");
         
@@ -990,7 +990,7 @@ function indexDS(type){
             //grab each selected PID, so it can be passed on
             var eachPID = $(this).val($(this).val())[0].value;
 
-            dataObject = new Object();                    
+            dataObject = new Object();
             dataObject.PID = eachPID;
             dataObject.mode = "fg";
         
@@ -1001,7 +1001,7 @@ function indexDS(type){
                 dataType: "html",
                 success: Success,
                 error: Error
-            });        
+            });
 
         });
     }
@@ -1021,11 +1021,11 @@ function indexDS(type){
         //show results
         function Success(response){
             $("#index_results_list").append("<li>"+response+"</li></br>");
-        }    
+        }
 
-        dataObject = new Object();                    
-        dataObject.PIDsArray = PIDsArray;   
-        dataObject.mode = "bg"; 
+        dataObject = new Object();
+        dataObject.PIDsArray = PIDsArray;
+        dataObject.mode = "bg";
         
         $.ajax({
             type: "POST",
@@ -1067,7 +1067,7 @@ function facetSearch(){
     dataObject.data_type = "unfiltered"; //json expected, unfiltered
     dataObject.request_type = "GET";
     //assemble URL
-    dataObject.baseURL = "http://localhost/solr4/"+dataObject.GETparams.core+"/select?";        
+    dataObject.baseURL = "http://localhost/solr4/"+dataObject.GETparams.core+"/select?";
     
     // console.log(dataObject);
     
@@ -1100,9 +1100,9 @@ function facetSearch(){
         //DISPLAY RESULTS / THUMBS
         var docs = response.response.docs;
         for (var i = 0; i < docs.length; i++){
-            $("#resultsContainer").append("<div id='result"+i+"' class='span10 result_record'></div>");                    
+            $("#resultsContainer").append("<div id='result"+i+"' class='span10 result_record'></div>");
             $("#result"+i).append("<div class='result_image'><img src='"+repo_baseURL+"/fedora/objects/"+docs[i].id+"/datastreams/THUMBNAIL/content'/></div>");
-            $("#result"+i).append("<p><strong>"+docs[i].mods_title_ms[0]+"</strong></p>");            
+            $("#result"+i).append("<p><strong>"+docs[i].mods_title_ms[0]+"</strong></p>");
         }
     }
 
@@ -1113,7 +1113,7 @@ function facetSearch(){
 
 //UTILITIES/////////////////////////////////////////////////////////////////////////////////////////////////////
 //function for last of array
-Array.prototype.last = function() {return this[this.length-1];}
+Array.prototype.last = function() {return this[this.length-1];};
 
 //function to remove values from array - array,string
 function removeValue(arr) {
@@ -1144,18 +1144,18 @@ $(document).ready(function(){
 
       $.cookie("PIDsObjSelected", JSON.stringify(PIDsObj.selected));
       console.log('sent');
-    }
+    };
 });
 
 //sandbox selector listener
 $(document).ready( function(){
-    $("#sandboxSelect").change(function(){                             
+    $("#sandboxSelect").change(function(){
         // console.log(this.options[this.selectedIndex].value);
         var sandboxDest = this.options[this.selectedIndex].value;
         if (sandboxDest != "null"){
             loadView(sandboxDest, 'topView', 'both');
         }
-    })
+    });
 });
 
 

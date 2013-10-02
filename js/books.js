@@ -60,8 +60,8 @@ if (books_object.PAGEINFO.ENTRYCOUNT === '1') {
   var recNum = books_object.Heading.Title.RecordId.RecordKey;
   var url = urlPrefix+recNum;
   }
-  $("#books .box_results").append("<a href='"+url+"' target='_blank'>"+title+"</a><br/><br/>");
-  $("#books .box_results").append("<br/><span><a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' target='_blank'><em>View more results...("+count+")</em></a></span>");  
+  $("#books .box_results").append("<a href='"+url+"'>"+title+"</a><br/><br/>");
+  $("#books .box_results").append("<br/><span><a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"'><em>View more results...("+count+")</em></a></span>");  
 
 }
 
@@ -93,16 +93,16 @@ for (var i = 0; i < 3; i++) {
 
           //plunk the data into the books box
        // $("#books .box_results").append("<div id='result"+i+"' class=result_div></div>");
-        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"' target='_blank'>"+title+"</a></p></div>");
+        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p></div>");
         // imageInsert(response, i);
         }
       
-        $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' target='_blank'><em>View more results...("+count+")</em></a></span>");  
+        $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"'><em>View more results...("+count+")</em></a></span>");  
     }
 }
 //If no results, then display no results found
       if (books_object.PAGEINFO.ENTRYCOUNT === '0') {  
-          $("#books .box_results").append("<span>No material results were found.  Please try another search in the <a href='http://elibrary.wayne.edu' target='_blank'>Catalog</a></span>");    
+          $("#books .box_results").append("<span>No material results were found.  Please try another search in the <a href='http://elibrary.wayne.edu'>Catalog</a></span>");    
       }
 }
 

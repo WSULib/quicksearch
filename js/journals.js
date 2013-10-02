@@ -55,8 +55,8 @@ if (journal_object.PAGEINFO.ENTRYCOUNT !== '0') {
   var recNum = journal_object.Heading.Title.RecordId.RecordKey;
   var url = urlPrefix+recNum;
   }
-  $("#journals .box_results").append("<a href='"+url+"' target='_blank'>"+title+"</a><br/><br/>");
-  $("#journals .box_results").append("<br/><span><a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"&searchscope=17' target='_blank'><em>View more results...("+count+")</em></a></span>");  
+  $("#journals .box_results").append("<a href='"+url+"'>"+title+"</a><br/><br/>");
+  $("#journals .box_results").append("<br/><span><a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"&searchscope=17'><em>View more results...("+count+")</em></a></span>");  
 
 }
 
@@ -86,18 +86,18 @@ for (var i = 0; i < 3; i++) {
 
           //plunk the data into the books box
        // $("#books .box_results").append("<div id='result"+i+"' class=result_div></div>");
-        $("#journals .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"' target='_blank'>"+title+"</a></p></div>");
+        $("#journals .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p></div>");
         // imageInsert(response, i);
         }
         
 
-        $("#journals .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"&searchscope=17' target='_blank'><em>View more results...("+count+")</em></a>");  
+        $("#journals .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"&searchscope=17'><em>View more results...("+count+")</em></a>");  
     }
   }
 //If no results, then display no results found
            if (journal_object.PAGEINFO.ENTRYCOUNT === '0') {  
 
-          $("#journals .box_results").append("<span>No Journal results were found.  Please try another search in the <a href='http://elibrary.wayne.edu/search~S17' target='_blank'>Catalog</a></span>");    
+          $("#journals .box_results").append("<span>No Journal results were found.  Please try another search in the <a href='http://elibrary.wayne.edu/search~S17'>Catalog</a></span>");    
       }
 }
 
