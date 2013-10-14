@@ -286,5 +286,4 @@ $i = $_REQUEST['i'];
         <a href="http://search.ebscohost.com/login.aspx?direct=true&scope=site&site=eds-live&authtype=ip,guest&custid=s8440836&groupid=main&profile=eds&bquery=<?php echo $searchTerm ?>&clv0=Y&cli0=RV">View more results...(<?php echo number_format($results['recordCount'])  ?>)</a>
       </em>
     </div>
-</div>
 <?php } ?>

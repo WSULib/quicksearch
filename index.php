@@ -19,7 +19,7 @@
     <link href="css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
+    <!--[if IE]>
       <style>
         i {
         display:none;
@@ -148,8 +148,8 @@ $().ready(function() {
  </script>
 
               <!--column1-->
-              <div id="boxes_left" class="col-md-6 col-lg-4">           
-                <div id ="articles" class="row-fluid pin">
+              <div class="col-sm-6 col-md-4 col-lg-4">           
+                <div id="articles" class="row-fluid pin">
                   <h4><i class="icon-article"></i> Peer Reviewed Articles</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
@@ -162,7 +162,7 @@ $().ready(function() {
               </div>
 
               <!--column2-->
-              <div id="boxes_middle" class="col-md-6 col-lg-4">
+              <div class="col-sm-6 col-md-4 col-lg-4">
                 <div id="books" class="row-fluid pin">
                   <h4><i class="icon-book"></i> Books and Media</h4>
                   <div class="box_loading_animation"></div>
@@ -179,8 +179,9 @@ $().ready(function() {
                   <div class="box_results"></div>
                 </div>               
               </div>
-
-              <div id="boxes_right" class="col-md-6 col-lg-4">               
+              
+              <!--column3-->
+              <div class="col-sm-6 col-md-4 col-lg-4">               
                 <div id="site_search" class="row-fluid pin">
                   <h4><i class="icon-globe"></i> WSU Site Search</h4>
                   <div class="box_loading_animation"></div>
@@ -192,8 +193,6 @@ $().ready(function() {
                   <div class="box_results"></div>
                 </div>                
               </div>
-
-              <!--column3-->
 
              </div> <!--closes boxes_container-->
            </div> <!--closes boxes_row-->     

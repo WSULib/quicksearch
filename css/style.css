@@ -281,11 +281,11 @@ input[type="text"]:focus {
 .result-details {
 	padding-left: 10px;
 	margin-top: 10px;
-	font-size: .8em;
+	font-size: 12px;
 	color: #888;
 	line-height: 1.4em;
 	font-family: 'Roboto', sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 	letter-spacing: .07em;
 }
 
@@ -308,12 +308,7 @@ p.title {
 	margin-top: 30px;
 }
 
-@media (min-width: 600px) and (max-width: 959px) {
-	#columns {
-		-webkit-column-count: 2;
-		-moz-column-count: 2;
-		column-count: 2;
-	}
+@media (max-width: 767px) {
 input[class=input-large] {
   width: 385px;   
 }
@@ -330,12 +325,40 @@ input[class=input-large] {
 }
 }
 
-@media (min-width: 960px) and (max-width: 1200px) {
-	#columns {
-		-webkit-column-count: 3;
-		-moz-column-count: 3;
-		column-count: 3;
-	}
+@media (min-width: 768px) and (max-width: 991px) {
+h4 {
+	font-size: 14px;
+}
+
+input[class=input-large] {
+  width: 385px;   
+}
+
+.form-wrapper {
+	width: 500px;
+}
+
+.form-wrapper #submit {
+	left: 390px;
+}
+.clear-search {
+	left: 360px;
+}
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+i {
+	font-size: 15px;
+}
+
+h4 {
+	font-size: 17px;
+}
+
+.box_results {
+	font-size: 14px;
+}
+
 input[class=input-large] {
   width: 685px;   
 }
@@ -352,13 +375,8 @@ input[class=input-large] {
 }
 }
 
-@media (min-width: 1201px) {
-	#columns {
-		-webkit-column-count: 3;
-		-moz-column-count: 3;
-		column-count: 3;
-	}
-	
+@media (min-width: 1200px) {
+
 input[class=input-large] {
   width: 985px;   
 }
