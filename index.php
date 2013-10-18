@@ -35,6 +35,7 @@
     <![endif]-->
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.highlight-4.js"></script>
     
     <!--icon hash table -->
     <script type="text/javascript" src="js/icon_hash_table.js"></script>
@@ -79,7 +80,7 @@ $(function(){
 });
 });//]]>  
 
-$().ready(function() {
+$(document).ready(function() {
     $(".hours").click(function() {
         $("#search_string").val('ugl hours').trigger("submit");
         $("#search-results").show();
@@ -95,8 +96,9 @@ $().ready(function() {
     });
 
     $(".clear-search").on("click", function() {
-        $("#search_string").val("")
+        $("#search_string").val("");
     });
+
 });
 
 
@@ -115,7 +117,7 @@ $().ready(function() {
 
             <div id="searchForm" class="col-lg-12">
               <form id="search" class="form-wrapper" onsubmit="searchCall(); return false;">
-                <input id="search_string" type="text" class="input-large" placeholder="Find articles, books, journals and more">
+                <input id="search_string" type="search" class="input-large" placeholder="Find articles, books, journals and more">
                 <span class="clear-search">X</span>
                 <button id="submit" type="submit" class="btn">Find</button>
               </form>  
@@ -136,12 +138,12 @@ $().ready(function() {
 
             <div id="search-results" style="display:none;" class="col-lg-12">
 
-              <!-- <div id="boxes_middle" class="col-md-6 col-lg-4">
+               <!--<div id="boxes_middle" class="col-md-6 col-lg-4">
                 <div id="lib_hours" class="row-fluid pin-hours">
                   <div id="hours" class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div>               
-              <!-- </div> -->
+               </div> -->
 
     <script type="text/javascript">
 // $('div.lib_hours:empty').hide()

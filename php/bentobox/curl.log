@@ -1,20 +1,20 @@
 * About to connect() to eds-api.ebscohost.com port 80 (#0)
-*   Trying 140.234.252.186...
+*   Trying 140.234.254.186...
 * connected
-* Connected to eds-api.ebscohost.com (140.234.252.186) port 80 (#0)
-> GET /edsapi/rest/Search?sort=&searchmode=all&view=detailed&includefacets=y&resultsperpage=20&pagenumber=1&highlight=n&expander=fulltext&query=testing&action-1= HTTP/1.1
+* Connected to eds-api.ebscohost.com (140.234.254.186) port 80 (#0)
+> GET /edsapi/rest/Search?sort=relevance&searchmode=all&view=detailed&includefacets=y&resultsperpage=20&pagenumber=1&highlight=n&expander=fulltext&query=carpal+tunnel&action-1=addlimiter%28RV%3Ay%29&action-2=addlimiter%28FT1%3Ay%29 HTTP/1.1
 Host: eds-api.ebscohost.com
 Accept: */*
-x-authenticationToken: 98b54430-1609-4c43-aede-6017730d74a4
-x-sessionToken: 845278b3-53ba-48ab-a2de-d78bf70987e9.hUuE2fhwUo17QOhT7coy/4N3jaahXpeYeJB/GclUUrw=
+x-authenticationToken: 66f8ecc5-1bdb-46c8-91bb-ff19a5ee9e09
+x-sessionToken: d80d530e-85c3-4c3d-b4ce-76b1d2b097a3.JedqHwoUrQmP69BPioEI9SWOVKQAWjU9qseO5LCkjSY=
 
 < HTTP/1.1 200 OK
 < Cache-Control: private
-< Content-Length: 180662
+< Content-Length: 228201
 < Content-Type: application/xml; charset=utf-8
 < Server: Microsoft-IIS/7.5
 < X-AspNet-Version: 4.0.30319
 < X-Powered-By: ASP.NET
-< Date: Thu, 01 Aug 2013 03:21:55 GMT
+< Date: Fri, 18 Oct 2013 01:58:12 GMT
 < 
 * Connection #0 to host eds-api.ebscohost.com left intact

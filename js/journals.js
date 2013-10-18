@@ -86,7 +86,7 @@ for (var i = 0; i < 3; i++) {
 
           //plunk the data into the books box
        // $("#books .box_results").append("<div id='result"+i+"' class=result_div></div>");
-        $("#journals .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p></div>");
+        $("#journals .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p></div>").highlight(search_string);
         // imageInsert(response, i);
         }
         

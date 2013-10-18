@@ -53,7 +53,7 @@ a:link,
 a:visited,
 a:hover,
 a:active {
-	color: #006666;
+	color: #0C5449;
 }
 
 .container {
@@ -61,7 +61,7 @@ a:active {
 }
 
 h4 {
-	background-color: #fff6dd;
+	background-color: #F0D890;
 	margin-top: 0;
 	padding: 15px;
 	font-size: 20px;
@@ -274,15 +274,11 @@ input[type="text"]:focus {
 	border-bottom: 1px solid #eee;
 }
 
-.indiv-result:hover {
-	background-color: #eee;
-}
-
 .result-details {
 	padding-left: 10px;
 	margin-top: 10px;
 	font-size: 12px;
-	color: #888;
+	color: #666;
 	line-height: 1.4em;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
@@ -299,13 +295,13 @@ p.title {
 }
 
 #api_search_guides_iid692 {
-	margin-top: -30px;
-	color: #888;
+	margin-top: -15px;
+	color: #666;
 }
 
 #api_search_guides_iid692 a {
 	display: inline-block;
-	margin-top: 30px;
+	margin-top: 15px;
 }
 
 @media (max-width: 767px) {

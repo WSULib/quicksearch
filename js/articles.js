@@ -25,7 +25,7 @@ function articles_query(search_string){
 	function articlesSuccess(response){
     $("#articles .box_results").empty();
 
-		$("#articles .box_results").append(response);	
+		$("#articles .box_results").append(response).highlight(search_string);
     // hides loading animation
     $("#articles .box_loading_animation").hide();
 	}
