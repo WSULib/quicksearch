@@ -12,7 +12,7 @@ function articles_query(search_string){
     //returns json
     $(document).ready(function(){
       $.ajax({
-        type: "GET",
+        type: "POST",
         url: url,
       //  data: dataObject,
         dataType: "html",
@@ -25,7 +25,7 @@ function articles_query(search_string){
 	function articlesSuccess(response){
     $("#articles .box_results").empty();
 
-		$("#articles .box_results").append(response).highlight(search_string);
+		$("#articles .box_results").append(response);	
     // hides loading animation
     $("#articles .box_loading_animation").hide();
 	}

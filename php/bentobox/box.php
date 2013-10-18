@@ -114,7 +114,7 @@ if (isset($results['error'])) {
 
 //print_r($results);
 
-print_r($sessionToken);
+//print_r($sessionToken);
 
 ?>
 

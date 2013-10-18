@@ -34,10 +34,10 @@ function databases_query(search_string){
 		for (var i = 0; i < result_count; ++i){
 				// console.log(response.resources[i]);
 				$("#databases .box_results").append("<div id='resource_"+i+"' class='indiv-result'></div>");
-				$("#resource_"+i).append("<p class='title'><a href='"+response.resources[i].url+"'>"+response.resources[i].title+"</a></p>").highlight(search_string);
+				$("#resource_"+i).append("<p class='title'><a href='"+response.resources[i].url+"'>"+response.resources[i].title+"</a></p>");
 				if (response.resources[i].description !== null) {
 	if (response.resources[i].description.length > 100){
-						$("#resource_"+i).append("<div class='result-details'><p>"+response.resources[i].description.substr(0,100)+"...</p>").highlight(search_string);
+						$("#resource_"+i).append("<div class='result-details'><p>"+response.resources[i].description.substr(0,100)+"...</p>");
 					}
 					else {
 						$("#resource_"+i).append("<p>"+response.resources[i].description+"...</p>");

@@ -6,22 +6,28 @@ function updatePage(){
         $('#search_string').val(search_string);
         // unhide and run search on string
         $("#search-results").show();
-        searchCall();
+        searchCall("page_load");
     }
     else {
-      console.log('no hash, loading blank');
+  //    console.log('no hash, loading blank');
     }
     
 }
 
 //grab search term(s), run box queries
-function searchFunc(term){
+function searchFunc(type){
        
     //get search string
     var search_string = $('#search_string').val();
 
     // set URL has to query string
     window.location.hash = "#q="+encodeURIComponent(search_string);
+
+    // push query to Piwik
+    if (type != "page_load"){
+        Piwik.getAsyncTracker()['trackSiteSearch'](search_string);    
+    }
+    
 
     //clear previous results
     $(".box_results").empty();
@@ -43,9 +49,43 @@ function searchFunc(term){
 
 }
 
-function searchCall(){
+function searchCall(type){
     setTimeout(function(){
-        searchFunc();}, 250);
+        searchFunc(type);}, 250);
 }
+
+
+//Utility to pull hrefs from links clicked and push to Piwik
+$(document).ready(function(){
+    // jquery "on" function binds actions to parent (e.g. document), but reacts to children (e.g. anchor tags)
+    $(document).on('click', $("a"), function(event){            
+        var resourceURL = event.target.href;
+        console.log(resourceURL);        
+        // push to Piwik
+        if (resourceURL != undefined){
+            Piwik.getAsyncTracker()['trackLink'](resourceURL,'link');    
+        }        
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
