@@ -16,7 +16,7 @@ function digi_commons_query(search_string){
     $(document).ready(function(){
       $.ajax({
         type: "POST",
-        url: "php/digi_commons.php",
+        url: "../resources/quicksearch/php/digi_commons.php",
         dataType: "json", 
         data: dataObject,
         success: digi_commonsSuccess,

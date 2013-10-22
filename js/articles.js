@@ -6,7 +6,7 @@ function articles_query(search_string){
     dataObject.data_type = "html";
     dataObject.search_string = search_string;      
    // url = "php/ep-BentoBoxDemo/ep-results.php?lookfor=" + search_string + "&filter[2]=addlimiter(FT1:y)";
-    url = "php/bentobox/box.php?query=" + search_string + "&expander=fulltext&fieldcode=keyword&action[0]=addlimiter(RV:y)&action[1]=addlimiter(FT1:y)";
+    url = "../resources/quicksearch/php/bentobox/box.php?query=" + search_string + "&expander=fulltext&fieldcode=keyword&action[0]=addlimiter(RV:y)&action[1]=addlimiter(FT1:y)";
 
 //&filter[2]=addlimiter(RV:y)
     //returns json

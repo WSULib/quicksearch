@@ -23,16 +23,16 @@
     <meta name="author" content="">
     <!--<link rel="shortcut icon" href="../../assets/ico/favicon.png">-->
 
-    <title>WSU Library Bento Boxes</title>
+    <title>Wayne State University Libraries Quicksearch</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="inc/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../resources/quicksearch/inc/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- icons -->
-    <link rel="stylesheet" href="inc/ico/style.css" />
+    <link rel="stylesheet" href="../resources/quicksearch/inc/ico/style.css" />
 
     <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../resources/quicksearch/css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -53,31 +53,31 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     
     <!--icon hash table -->
-    <script type="text/javascript" src="js/icon_hash_table.js"></script>
+    <script type="text/javascript" src="../resources/quicksearch/js/icon_hash_table.js"></script>
 
     <!--load search query JS files-->
     <!--THESE CAN BE COMBINED LATER, EASIER TO WORK ON THIS WAY-->
-    <script type="text/javascript" src="js/lib_hours.js"></script>
-    <script type="text/javascript" src="js/articles.js"></script>
-    <script type="text/javascript" src="js/books.js"></script>
-    <script type="text/javascript" src="js/journals.js"></script>
-    <script type="text/javascript" src="js/databases.js"></script>
-    <script type="text/javascript" src="js/lib_guides.js"></script>
-    <script type="text/javascript" src="js/site_search.js"></script>
-    <script type="text/javascript" src="js/digi_collections.js"></script>
-    <script type="text/javascript" src="js/digi_commons.js"></script>       
+    <script type="text/javascript" src="../resources/quicksearch/js/lib_hours.js"></script>
+    <script type="text/javascript" src="../resources/quicksearch/js/articles.js"></script>
+    <script type="text/javascript" src="../resources/quicksearch/js/books.js"></script>
+    <script type="text/javascript" src="../resources/quicksearch/js/journals.js"></script>
+    <script type="text/javascript" src="../resources/quicksearch/js/databases.js"></script>
+    <script type="text/javascript" src="../resources/quicksearch/js/lib_guides.js"></script>
+    <script type="text/javascript" src="../resources/quicksearch/js/site_search.js"></script>
+    <script type="text/javascript" src="../resources/quicksearch/js/digi_collections.js"></script>
+    <script type="text/javascript" src="../resources/quicksearch/js/digi_commons.js"></script>       
 
     <!--load main JS -->
-    <script type="text/javascript" src="js/bento_queries.js"></script>
+    <script type="text/javascript" src="../resources/quicksearch/js/bento_queries.js"></script>
 
     <!--jquery cookie-->
-    <script src="js/jquery.cookie.js"></script>
+    <script src="../resources/quicksearch/js/jquery.cookie.js"></script>
 
 
     <!--load bootstrap js-->    
-    <script src="inc/bootstrap/js/bootstrap.js"></script>
-    <script src="inc/bootstrap/js/html5shiv.js"></script>
-    <script src="inc/bootstrap/js/respond.min.js"></script>
+    <script src="../resources/quicksearch/inc/bootstrap/js/bootstrap.js"></script>
+    <script src="../resources/quicksearch/inc/bootstrap/js/html5shiv.js"></script>
+    <script src="../resources/quicksearch/inc/bootstrap/js/respond.min.js"></script>
 
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'>
@@ -125,7 +125,7 @@ $().ready(function() {
   <body>
 
     <header>
-      <img src="img/warrior_logo1.png" alt="Wayne State University"/>
+      <img src="../resources/quicksearch/img/warrior_logo1.png" alt="Wayne State University"/>
     </header>
     <div class="container">      
       <div class="row-fluid">   

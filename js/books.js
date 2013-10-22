@@ -17,7 +17,7 @@ $(document).ready(function() {
 $(document).ready(function(){
     $.ajax({
         type: "POST",
-        url: "php/books.php",
+        url: "../resources/quicksearch/php/books.php",
         data: dataObject,
         dataType: "json",
         success: Success,
@@ -93,11 +93,11 @@ for (var i = 0; i < 3; i++) {
 
           //plunk the data into the books box
        // $("#books .box_results").append("<div id='result"+i+"' class=result_div></div>");
-        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a target='_blank' href='"+url+"'>"+title+"</a></p></div>");
+        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p></div>");
         // imageInsert(response, i);
         }
       
-        $("#books .box_results").append("<a target='_blank' href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  
+        $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  
     }
 }
 //If no results, then display no results found
