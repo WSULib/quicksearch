@@ -41,8 +41,7 @@
         display:none;
         }
         input[class=input-large] {
-        line-height: 18px;
-        padding: 10px 15px;
+        line-height: 1em;
         }
 
       </style>
@@ -123,7 +122,11 @@ $().ready(function() {
 
 
   <body>
-
+<div class="ribbon-wrapper-green">
+  <div class="ribbon-green">
+    <a href="https://www.surveymonkey.com/s/FXLC2CW" target="_blank">Give Us Feedback</a>
+  </div>
+</div>
     <header>
       <img src="../resources/quicksearch/img/warrior_logo1.png" alt="Wayne State University"/>
     </header>

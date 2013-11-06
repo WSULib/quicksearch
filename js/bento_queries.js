@@ -44,7 +44,7 @@ function searchFunc(type){
     databases_query(search_string);
     lib_guides_query(search_string);
     site_search_query(search_string);
-    digi_collections_query(search_string);
+   // digi_collections_query(search_string);
     digi_commons_query(search_string);
 
 }

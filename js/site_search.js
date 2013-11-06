@@ -65,7 +65,7 @@ function site_search_query(search_string){
                 $("#siteSearch_"+i).append("<p class='title'><a href='"+decodeURIComponent(site_searchJSON.responseData.results[i].url)+"'>"+site_searchJSON.responseData.results[i].title+"</a></p>");           
                 
             }
-            var moreResultsURL = "http://wayne.edu/search/?q=biology#site:lib.wayne.edu " + search_string; 
+            var moreResultsURL = "http://wayne.edu/search/#" + search_string; 
             $("#site_search .box_results").append("<a href='"+moreResultsURL+"'><em>View more results...</em></a>");
         }        
 

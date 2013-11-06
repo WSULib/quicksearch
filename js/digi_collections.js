@@ -1,4 +1,4 @@
-function digi_collections_query(search_string){
+/*function digi_collections_query(search_string){
 
 	dataObject = new Object();
         //get values from form
@@ -19,7 +19,7 @@ function digi_collections_query(search_string){
     $(document).ready(function(){
       var digi_collections_request = $.ajax({
         type: "POST",
-        url: "php/digi_collections.php",
+        url: "../resources/quicksearch/php/digi_collections.php",
         data: dataObject,
         dataType: "json",
         success: SolrSuccess,
@@ -66,4 +66,4 @@ function digi_collections_query(search_string){
 	console.log(response);
     }
 
-}
+}*/
