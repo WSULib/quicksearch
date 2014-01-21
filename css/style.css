@@ -358,10 +358,6 @@ p.title {
 
 #api_search_guides_iid692 {
 	margin-top: -15px;
-	color: #666;
-	font-size: .8em;
-	line-height: 1.4em;
-	font-weight: 300;
 }
 
 #api_search_guides_iid692 a {
@@ -370,6 +366,13 @@ p.title {
 	font-size: 1.25em;
 	margin-bottom: 10px;
 	font-weight: 400;
+}
+
+#api_search_guides_iid692 a:after {
+	color: #666;
+	font-size: .8em;
+	line-height: 1.4em;
+	font-weight: 300;
 }
 
 @media (max-width: 320px) {
