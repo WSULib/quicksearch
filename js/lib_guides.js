@@ -5,6 +5,7 @@ function lib_guides_query(search_string){
 
     dataObject.data_type = "html";
     dataObject.search_string = search_string;
+    search_string = search_string.replace("%27","");
     url = "../resources/quicksearch/php/lib_guides.php?search_string=" + search_string;
 
     //returns json
