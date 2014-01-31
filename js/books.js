@@ -5,9 +5,9 @@ var count = null;
 var z = null;
 
 function books_query(search_string){
+  search_string = search_string.replace(/:|\]|\[/g,'');
+  var json_books_response = null;
 
-
-    var json_books_response = null;
 $(document).ready(function() {
     dataObject = new Object();
     dataObject.data_type = "xml2json";
@@ -61,10 +61,36 @@ if (books_object.PAGEINFO.ENTRYCOUNT === '1') {
   var url = urlPrefix+recNum;
   }
   $("#books .box_results").append("<a href='"+url+"'>"+title+"</a><br/><br/>");
-  $("#books .box_results").append("<br/><span><a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"'><em>View more results...("+count+")</em></a></span>");  
+  $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  
 
 }
 
+else if (books_object.PAGEINFO.ENTRYCOUNT === '2'){
+
+for (var i = 0; i < 2; i++) {
+         //make some shortened variables for the data you want to mess with
+              
+              count = books_object.Heading.HeadingSize;
+              if ( isEmpty(books_object.Heading.Title[i].TitleField) === true) {
+                  title = "eResource - Click For Title";
+                }
+               else {         
+                title = books_object.Heading.Title[i].TitleField.VARFLDPRIMARYALTERNATEPAIR.VARFLDPRIMARY.VARFLD.DisplayForm;
+
+                }
+                var urlPrefix = "http://elibrary.wayne.edu/record=";
+              if (typeof books_object.Heading.Title[i].RecordId.RecordKey === "undefined") {
+                var url = "http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string;         
+                }
+                else {
+               var recNum = books_object.Heading.Title[i].RecordId.RecordKey;
+               var url = urlPrefix+recNum;
+              }
+        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p></div>");
+}
+        $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  
+
+}
 else {
 for (var i = 0; i < 3; i++) {
          //make some shortened variables for the data you want to mess with
@@ -85,16 +111,7 @@ for (var i = 0; i < 3; i++) {
                var recNum = books_object.Heading.Title[i].RecordId.RecordKey;
                var url = urlPrefix+recNum;
               }
-
-                
-          // check to see that there is a title
-
-          //check to see that there is a link to send a user to
-
-          //plunk the data into the books box
-       // $("#books .box_results").append("<div id='result"+i+"' class=result_div></div>");
         $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p></div>");
-        // imageInsert(response, i);
         }
       
         $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  

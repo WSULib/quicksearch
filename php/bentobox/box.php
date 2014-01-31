@@ -148,12 +148,7 @@ $i = $_REQUEST['i'];
 
 <?php if (empty($results['records'])) { ?>
 
-<div id="out<?php echo $i ?>" style="margin: 10px; height: 170px">
-  <div>
-    <h4 title="<?php echo $description[$i] ?>" style="margin-bottom: 10px; background-color: lightgrey"><?php echo $_REQUEST['bn'] ?></h4>
-  </div>         
-  <div>
-    <p>No articles results were found.  Please try another search in <a href="http://search.ebscohost.com/login.aspx?type=1&authtype=ip,guest&profile=eds&custid=s8440836&groupid=main">Research Warrior</a></p>
+<span>No article results were found.  Please try another search in <a href="http://search.ebscohost.com/login.aspx?type=1&authtype=ip,guest&profile=eds&custid=s8440836&groupid=main">Research Warrior</a></span>
   </div>
 </div>
 

@@ -52,7 +52,7 @@ function site_search_query(search_string){
         var site_searchJSON = response;
 
         if (site_searchJSON.responseData.results.length === 0){
-            $("#site_search .box_results").append("<div id='no_results' class='db_result'><p>No results found.</p></div>");
+            $("#site_search .box_results").append("<span>No results were found.</span>");
         }        
 
         else {
@@ -64,8 +64,8 @@ function site_search_query(search_string){
                 //$("#siteSearch_"+i).append("<img class='mime_icon' src='http://silo.lib.wayne.edu/fedora/objects/wayne:WSUDORThumbnails/datastreams/HTML/content' width=30 />");
                 $("#siteSearch_"+i).append("<p class='title'><a href='"+decodeURIComponent(site_searchJSON.responseData.results[i].url)+"'>"+site_searchJSON.responseData.results[i].title+"</a></p>");           
                 
-            }
-            var moreResultsURL = "http://wayne.edu/search/#" + search_string; 
+            }            
+            var moreResultsURL = "http://wayne.edu/search/?type=all&q=" + search_string; 
             $("#site_search .box_results").append("<a href='"+moreResultsURL+"'><em>View more results...</em></a>");
         }        
 
@@ -73,8 +73,10 @@ function site_search_query(search_string){
         $("#site_search .box_loading_animation").hide();        
 	}
 
-	function site_searchError(response){
-		$("#site_search .box_results").append("<p>Results are working somewhat, but need to double-check okay to use wayne.edu Google API search.</p>");	
+	function site_searchError(response){		
+        //turns off animation
+        $("#site_search .box_loading_animation").hide();        
+        $("#site_search .box_results").append("<div id='no_results' class='db_result'><p>No results found.</p></div>");	
 	}
 	
 

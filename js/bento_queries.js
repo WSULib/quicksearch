@@ -2,6 +2,10 @@ function updatePage(){
     if(window.location.hash) {
         // grab query string from URL hash
         var search_string = decodeURIComponent(window.location.hash.split("#")[1].split("=")[1]);
+        // tidy up for search box
+        search_string = search_string.replace("%27","'");
+        search_string = search_string.replace("%E9","é");
+
         // set input box to query string
         $('#search_string').val(search_string);
         // unhide and run search on string
@@ -19,6 +23,10 @@ function searchFunc(type){
        
     //get search string
     var search_string = $('#search_string').val();
+
+    // encode single quotes with %27
+    search_string = search_string.replace("'","%27");  
+    search_string = search_string.replace("é","%E9");
 
     // set URL has to query string
     window.location.hash = "#q="+encodeURIComponent(search_string);
@@ -67,25 +75,3 @@ $(document).ready(function(){
         }        
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

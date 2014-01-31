@@ -27,9 +27,9 @@
 
 //GLOBAL objects
 var libHoursJSON = null;
-var libSingleWord = {"pk": "pk", "p.k.": "pk", "purdy": "pk", "kresge": "pk", "oakland": "oak", "macomb": "mac", "undergraduate": "ugl", "undergrad": "ugl", "ugl": "ugl", "neef": "law", "law": "law", "science": "sel", "engineering": "sel", "sel": "sel", "commons": "maz", "maruzek": "maz", "applebaum": "app", "lrc": "app", "shiffman": "med", "medical": "med", "med": "med"};
+var libSingleWord = {"pk": "pk", "p.k.": "pk", "purdy": "pk", "kresge": "pk", "oakland": "oak", "macomb": "mac", "undergraduate": "ugl", "undergrad": "ugl", "ugl": "ugl", "neef": "law", "law": "law", "commons": "maz", "maruzek": "maz", "applebaum": "app", "lrc": "app", "shiffman": "med", "medical": "med", "med": "med"};
 var libMultiWord = {"purdy kresge": "pk", "p k": "pk", "p. k. ": "pk", "neef law": "law", "shiffman medical": "med", "law library": "law", "medical library": "med", "purdy kresge library": "pk", "ugl library": "ugl", "undergrad library": "ugl", "undergraduate library": "ugl"};
-var Hash = {"pk": "Purdy Kresge Library", "sel": "Science & Engineering Library", "ugl": "Undergraduate Library", "law": "Arthur Neef Law Library", "maz": "Shiffman/Maruzek Medical Education Commons", "app": "Shiffman/Applebaum LRC Pha/HS", "oak": "Oakland Center Library Resource Desk", "esc": "Extended Study Center", "mac": "Macomb Center Library Resource Desk"};
+var Hash = {"pk": "Purdy Kresge Library", "ugl": "Undergraduate Library", "law": "Arthur Neef Law Library", "maz": "Shiffman/Maruzek Medical Education Commons", "app": "Shiffman/Applebaum LRC Pha/HS", "oak": "Oakland Center Library Resource Desk", "esc": "Extended Study Center", "mac": "Macomb Center Library Resource Desk"};
 var combo = $.extend({},libSingleWord,libMultiWord);
 
 //Step 1

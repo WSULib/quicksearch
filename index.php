@@ -35,13 +35,14 @@
     <link href="../resources/quicksearch/css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
+    <!--[if IE]>
       <style>
         i {
         display:none;
         }
         input[class=input-large] {
-        line-height: 1em;
+        line-height: 16px;
+        padding:0;
         }
 
       </style>
@@ -90,6 +91,8 @@ $(function(){
     });  
     
 });
+
+
 });
 
 $().ready(function() {
@@ -122,11 +125,11 @@ $().ready(function() {
 
 
   <body>
-<div class="ribbon-wrapper-green">
+<!--<div class="ribbon-wrapper-green">
   <div class="ribbon-green">
     <a href="https://www.surveymonkey.com/s/FXLC2CW" target="_blank">Give Us Feedback</a>
   </div>
-</div>
+</div>-->
     <header>
       <img src="../resources/quicksearch/img/warrior_logo1.png" alt="Wayne State University"/>
     </header>
@@ -143,12 +146,12 @@ $().ready(function() {
               </form>  
                 
 
-              <div class="examples">
+              <!-- <div class="examples">
                 <p>Examples:
                 <a href="#" class="hours">ugl hours</a>,
                 <a href="#" class="gender">gender studies</a>,
                 <a href="#" class="journal">Journal of the Royal Society of Arts</a></p>
-              </div>
+              </div>-->
 
             </div>
 
@@ -156,6 +159,12 @@ $().ready(function() {
 
           <div id="boxes_rows" class="row-fluid">            
             <div id="search-results" style="display:none;" class="col-lg-12">
+
+              <div class="col-lg-12 row-fluid feedback">
+                <div class="ribbon-green">
+                  <a href="https://www.surveymonkey.com/s/FXLC2CW" target="_blank">Give Us Feedback About Quicksearch</a>
+                </div>
+              </div>
 
               <!-- <div id="boxes_middle" class="col-md-6 col-lg-4">
                 <div id="lib_hours" class="row-fluid pin-hours">
