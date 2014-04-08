@@ -50,7 +50,7 @@ function databases_query(search_string){
 		}
 
 		else{
-			$("#databases .box_results").append("<span>No results were found.</span>");
+			$("#databases .box_results").append("<div id='no_results' class='db_result'><p>No Database results were found.</p></div>");
 		}
 			
 		// hides loading animation

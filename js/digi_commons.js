@@ -3,10 +3,6 @@ function digi_commons_query(search_string){
     // encode the string
     encoded_search_string = search_string.replace(" ","+");
 
-    // // encode search_string for future use
-    // search_string = search_string.replace("'","%27");
-    // console.log(search_string);
-
     // create POST data object
     dataObject = {};
     dataObject.GETparams = {};    
@@ -65,6 +61,7 @@ function digi_commons_query(search_string){
                 if (typeof response.response.docs[i].dc_description !== 'undefined'){
                     $("#digi_commons"+i).append("<p class='result-details'>"+response.response.docs[i].dc_description[0].substr(0,100)+"...</p>");
                 }
+                
             }
 
             //more results
@@ -72,15 +69,13 @@ function digi_commons_query(search_string){
         }
 
         else{
-            $("#digi_commons .box_results").append("<span>No results were found.</span>");
+            $("#digi_commons .box_results").append("<p>No Results Found.</p>");
         }              
         
 	}
 
 	function digi_commonsError(response){
-	   // hides loading animation
-       $("#digi_commons .box_loading_animation").hide(); 
-       $("#digi_commons .box_results").append("<span>No results were found.</span>");
+		// console.log(response);
 	}
 	
 

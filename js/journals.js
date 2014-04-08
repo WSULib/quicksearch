@@ -2,7 +2,6 @@
     var journals_object = null;
 
 function journals_query(search_string){
-  search_string = search_string.replace(/:|\]|\[/g,'');
 
 
 $(document).ready(function() {
@@ -61,32 +60,8 @@ if (journal_object.PAGEINFO.ENTRYCOUNT !== '0') {
 
 }
 
-else if (journal_object.PAGEINFO.ENTRYCOUNT === '2'){
-    for (var i = 0; i < 2; i++) {
-  //make some shortened variables for the data you want to mess with
-                count = journal_object.Heading.HeadingSize;
-              if (typeof journal_object.Heading.Title[i].TitleField.VARFLDPRIMARYALTERNATEPAIR.VARFLDPRIMARY.VARFLD.DisplayForm === "undefined") {
-                  title = "Untitled";         
-                }
-               else {                
-                  title = journal_object.Heading.Title[i].TitleField.VARFLDPRIMARYALTERNATEPAIR.VARFLDPRIMARY.VARFLD.DisplayForm;
-                }
-                var urlPrefix = "http://elibrary.wayne.edu/record=";
-              if (typeof journal_object.Heading.Title[i].RecordId.RecordKey === "undefined") {
-                var url = "http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string;         
-                }
-                else {
-               var recNum = journal_object.Heading.Title[i].RecordId.RecordKey;
-               var url = urlPrefix+recNum;
-              }
-        $("#journals .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p></div>");
-        }
-        
-        $("#journals .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"&searchscope=17'><em>View more results...("+count+")</em></a>");
-}
-
 else {
-  for (var i = 0; i < 3; i++) {
+for (var i = 0; i < 3; i++) {
          //make some shortened variables for the data you want to mess with
                 count = journal_object.Heading.HeadingSize;
               if (typeof journal_object.Heading.Title[i].TitleField.VARFLDPRIMARYALTERNATEPAIR.VARFLDPRIMARY.VARFLD.DisplayForm === "undefined") {
@@ -103,9 +78,19 @@ else {
                var recNum = journal_object.Heading.Title[i].RecordId.RecordKey;
                var url = urlPrefix+recNum;
               }
+
+                
+          // check to see that there is a title
+
+          //check to see that there is a link to send a user to
+
+          //plunk the data into the books box
+       // $("#books .box_results").append("<div id='result"+i+"' class=result_div></div>");
         $("#journals .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p></div>");
+        // imageInsert(response, i);
         }
         
+
         $("#journals .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"&searchscope=17'><em>View more results...("+count+")</em></a>");  
     }
   }
