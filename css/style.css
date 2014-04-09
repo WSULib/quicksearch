@@ -6,7 +6,15 @@ body {
 	overflow-x: hidden;
 }
 
-/*.ribbon-wrapper-green {
+#reference {
+display: none;
+}
+
+#lib_hours  {
+display: none;
+}
+
+.ribbon-wrapper-green {
 width: 145px;
 height: 128px;
 overflow: hidden;
@@ -14,43 +22,33 @@ position: absolute;
 top: -3px;
 right: -3px;
 }
-*/
-.feedback {
-	display: block;
-	margin-left: 2px;
-	margin-bottom: 30px;
-	text-align: center;
-}
 
 .ribbon-green {
 font: bold 14px Sans-Serif;
 color: #333;
 text-align: center;
-/*-webkit-transform: rotate(45deg);
+-webkit-transform: rotate(45deg);
 -moz-transform:    rotate(45deg);
 -ms-transform:     rotate(45deg);
 -o-transform:      rotate(45deg);
 position: relative;
 padding: 5px 0;
 left: -5px;
-top: 45px;*/
-margin: 0 auto;
-width: 100%;
-padding: 10px;
-background-color: #dcdcdc;
-/*background-image: -webkit-gradient(linear, left top, left bottom, from(#fadb7d), to(#FFCC33)); 
+top: 45px;
+width: 190px;
+background-color: #FFCC33;
+background-image: -webkit-gradient(linear, left top, left bottom, from(#fadb7d), to(#FFCC33)); 
 background-image: -webkit-linear-gradient(top, #fadb7d, #FFCC33); 
 background-image:    -moz-linear-gradient(top, #fadb7d, #FFCC33); 
 background-image:     -ms-linear-gradient(top, #fadb7d, #FFCC33); 
-background-image:      -o-linear-gradient(top, #fadb7d, #FFCC33); */
-color: #333;
-/*-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+background-image:      -o-linear-gradient(top, #fadb7d, #FFCC33); 
+color: #eee;
+-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
 -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.5);
 box-shadow:         0px 0px 3px rgba(0,0,0,0.5);
-*/
-border: 1px dashed #A2BAB7;}
+}
 
-/*.ribbon-green:before, .ribbon-green:after {
+.ribbon-green:before, .ribbon-green:after {
 content: "";
 border-top:   3px solid #6e8900;   
 border-left:  3px solid transparent;
@@ -72,7 +70,7 @@ right: 0;
 	text-decoration: none;
 }
 
-*/.clear-search {
+.clear-search {
 	z-index: 20;
 	position: absolute;
 	top: 18px;
@@ -207,7 +205,6 @@ input[type="text"]:focus {
 .form-wrapper #submit {
 	z-index: 10;
 	position: absolute;
-	top:9px;
 	float: right;   
 	border: 1px solid #00748f;
 	height: 42px;
@@ -254,7 +251,7 @@ input[type="text"]:focus {
 }
 
 .box_loading_animation{
-	background-image: url(../php/ep-BentoBoxDemo/web/ajax_loading.gif);
+	background-image: url(../img/ajax_loading.gif);
 	background-repeat: no-repeat;
 	height:20px;		
 	display:none;
@@ -323,12 +320,6 @@ input[type="text"]:focus {
 	letter-spacing: .005em;
 }
 
-.box_results span {
-	font-size: .8em;
-	font-weight: 300;
-	color: #555;
-}
-
 #lib_guides .box_results {
 	padding: 5px 20px 20px 20px;
 	font-family: 'Roboto', sans-serif;
@@ -358,7 +349,7 @@ input[type="text"]:focus {
 	padding-left: 10px;
 	margin-top: 10px;
 	font-size: .8em;
-	color: #555;
+	color: #666;
 	line-height: 1.4em;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
@@ -373,8 +364,11 @@ p.title {
 	margin:0;
 }
 
-#api_search_guides_iid692 a,
-#api_search_guides_iid692 a:first-child {
+#api_search_guides_iid692 {
+	margin-top: -15px;
+}
+
+#api_search_guides_iid692 a {
 	display: block;
 	margin-top: 25px;
 	font-size: 1.25em;
@@ -382,21 +376,8 @@ p.title {
 	font-weight: 400;
 }
 
-#api_search_guides_iid692 a:first-child {
-	margin-top: 10px;
-	//color: #555;
-	//font-size: .8em;
-	//line-height: 1.4em;
-	//font-weight: 300;
-}
-
-#api_search_guides_iid692 a i {
-	font-style: italic;
-	font-size:1em;
-}
-
-#api_search_guides_iid692 {
-	color: #;
+#api_search_guides_iid692 a:after {
+	color: #666;
 	font-size: .8em;
 	line-height: 1.4em;
 	font-weight: 300;
@@ -405,7 +386,7 @@ p.title {
 @media (max-width: 320px) {
 input[class=input-large] {
   width: 215px;
-  border-color: #eee;     
+    border-color: #eee;     
 }
 
 .form-wrapper {
@@ -498,8 +479,8 @@ input[class=input-large] {
 
 @media (min-width: 600px) and (max-width: 767px) {
 input[class=input-large] {
-  width: 385px;  
-  border-color: #eee;   
+  width: 385px;   
+  border-color: #eee;  
 }
 
 .form-wrapper {
@@ -520,8 +501,8 @@ h4 {
 }
 
 input[class=input-large] {
-  width: 385px;  
-  border-color: #eee;   
+  width: 385px;   
+  border-color: #eee;  
 }
 
 .form-wrapper {

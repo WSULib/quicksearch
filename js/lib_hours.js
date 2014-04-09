@@ -143,4 +143,6 @@ function processData(response,libName, libDesignation) {
 			}
 			}
 	}
+		$("#lib_hours").show();
+
 }

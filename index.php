@@ -57,12 +57,13 @@
     <!--load search query JS files-->
     <!--THESE CAN BE COMBINED LATER, EASIER TO WORK ON THIS WAY-->
     <script type="text/javascript" src="../resources/quicksearch/js/lib_hours.js"></script>
+    <script type="text/javascript" src="../resources/quicksearch/js/articles.js"></script>
     <script type="text/javascript" src="../resources/quicksearch/js/books.js"></script>
     <script type="text/javascript" src="../resources/quicksearch/js/journals.js"></script>
     <script type="text/javascript" src="../resources/quicksearch/js/databases.js"></script>
     <script type="text/javascript" src="../resources/quicksearch/js/lib_guides.js"></script>
     <script type="text/javascript" src="../resources/quicksearch/js/site_search.js"></script>
-    <script type="text/javascript" src="../resources/quicksearch/js/summonjs.js"></script>
+    <script type="text/javascript" src="../resources/quicksearch/js/summon.js"></script>
     <script type="text/javascript" src="../resources/quicksearch/js/digi_collections.js"></script>
     <script type="text/javascript" src="../resources/quicksearch/js/digi_commons.js"></script>       
 
@@ -156,42 +157,35 @@ $().ready(function() {
 
           <div id="boxes_rows" class="row-fluid">            
             <div id="search-results" style="display:none;" class="col-lg-12">
-              <!--
-               <div id="boxes_middle" class="col-md-6 col-lg-4">
+
+              <!-- <div id="boxes_middle" class="col-md-6 col-lg-4">
                 <div id="lib_hours" class="row-fluid pin-hours">
                   <div id="hours" class="box_loading_animation"></div>
                   <div class="box_results"></div>
-                </div>               
-               </div>
+                </div>  -->             
+              <!-- </div> -->
 
-              <script type="text/javascript">
-                $('div.lib_hours:empty').hide()
-              </script>
-
+    <script type="text/javascript">
+// $('div.lib_hours:empty').hide()
+ </script>
               <!--column1-->
               <div id="boxes_left" class="col-md-6 col-lg-4">           
-              <!--  <div id ="articles" class="row-fluid pin">
+                <div id ="articles" class="row-fluid pin">
                   <h4><i class="icon-article"></i> Peer Reviewed Articles</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
-                </div>    
+                </div>   
                 <div id="summon" class="row-fluid pin">
-                  <h4><i class="icon-article"></i>Summon</h4>
+                  <h4>Summon</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
-                </div>-->   
-                
-
-                <div id="summonjs" class="row-fluid pin">
-                  <h4><i class="icon-article"></i>Articles</h4>
-                  <div class="box_loading_animation"></div>
-                  <div class="box_results"></div>
-                </div>           
+                </div>              
                 <div id="digi_commons" class="row-fluid pin">
                   <h4>DigitalCommons@WayneState</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div>  
+ 
               </div>
 
               <!--column2-->
@@ -213,19 +207,7 @@ $().ready(function() {
                 </div>               
               </div>
 
-
-
-              <div id="boxes_right" class="col-md-6 col-lg-4">
-                <div id="lib_hours" class="row-fluid pin-hours">
-                  <div id="hours" class="box_loading_animation"></div>
-                  <div class="box_results"></div>
-                </div>     
-                <div id="reference" class="row-fluid pin-hours">
-                  <div class="box_loading_animation"></div>
-                  <div id="ref_res" class="box_results"></div>
-                </div>
-
-             
+              <div id="boxes_right" class="col-md-6 col-lg-4">               
                 <div id="site_search" class="row-fluid pin">
                   <h4><i class="icon-globe"></i> WSU Site Search</h4>
                   <div class="box_loading_animation"></div>

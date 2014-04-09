@@ -61,7 +61,8 @@ class SerialsSolutions_Summon_Query
      * An array of filters to be applied
      * @var array
      */
-    protected $filters = array('s.fvf' => 'ContentType,Journal Article,false ', 'ContentType,Magazine Article,false' );
+ //   protected $filters = array('s.fvf' => 'ContentType,Journal Article,false ', 'ContentType,Magazine Article,false' );
+    protected $filters = array('s.fvf' => 'ContentType,Journal Article,false ');
 
     /**
      * An array of group filters to be applied
