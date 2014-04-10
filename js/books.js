@@ -33,7 +33,7 @@ function Success (response){
 
 //make a global variable with the books' ajax response
     books_object = response;
-
+    console.log(books_object);
     //function to test if object is empty
     function isEmpty(ob){
     for(var i in ob){ return false;}
@@ -41,11 +41,11 @@ function Success (response){
     }
 
 
-if (books_object.PAGEINFO.ENTRYCOUNT !== '0') {
+if (books_object.Heading.Title.length !== '0') {
 
 
-if (books_object.PAGEINFO.ENTRYCOUNT === '1') {
-  count = books_object.Heading.HeadingSize;
+if (books_object.Heading.Title.length === '1') {
+  count = books_object.Heading.Title.length;
   if ( isEmpty(books_object.Heading.Title.TitleField) === true) {
     title = "eResource - Click For Title";
   }
@@ -63,17 +63,30 @@ if (books_object.PAGEINFO.ENTRYCOUNT === '1') {
   var url = urlPrefix+rec;
  // var url = urlPrefix+recNum;
   }
-  $("#books .box_results").append("<a href='"+url+"'>"+title+"</a><br/><br/>");
+  if ( isEmpty(books_object.Heading.Title.holdings_info.holding.publicNote) === true) {
+    var avail = "";
+  }
+  else {         
+    avail = books_object.Heading.Title.holdings_info.holding.publicNote;
+  }
+  if ( isEmpty(books_object.Heading.Title.holdings_info.holding.callNumber) === true) {
+    var call_number = "";
+  }
+  else {
+    call_number = books_object.Heading.Title.holdings_info.holding.callNumber;
+  }
+
+  $("#books .box_results").append("<a href='"+url+"'>"+title+"</a><p>"+avail+"<br/>"+call_number+"</p><br/><br/>");
   $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  
 
 }
 
-else if (books_object.PAGEINFO.ENTRYCOUNT === '2'){
+else if (books_object.Heading.Title.length === '2'){
 
 for (var i = 0; i < 2; i++) {
          //make some shortened variables for the data you want to mess with
               
-              count = books_object.Heading.HeadingSize;
+              count = books_object.Heading.Title.length;
               if ( isEmpty(books_object.Heading.Title[i].TitleField) === true) {
                   title = "eResource - Click For Title";
                 }
@@ -91,7 +104,19 @@ for (var i = 0; i < 2; i++) {
                var url = urlPrefix+rec;
              //  var url = urlPrefix+recNum;
               }
-        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p></div>");
+              if ( isEmpty(books_object.Heading.Title[i].holdings_info.holding.publicNote) === true) {
+                var avail = "";
+              }
+              else {         
+              avail = books_object.Heading.Title[i].holdings_info.holding.publicNote;
+              }
+              if ( isEmpty(books_object.Heading.Title[i].holdings_info.holding.callNumber) === true) {
+                var call_number = "";
+              }
+              else {
+                call_number = books_object.Heading.Title[i].holdings_info.holding.callNumber;
+              }
+        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p><p>"+avail+"<br/>"+call_number+"</p></div>");
 }
         $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  
 
@@ -100,7 +125,7 @@ else {
 for (var i = 0; i < 3; i++) {
          //make some shortened variables for the data you want to mess with
               
-              count = books_object.Heading.HeadingSize;
+              count = books_object.Heading.Title.length;
               if ( isEmpty(books_object.Heading.Title[i].TitleField) === true) {
                   title = "eResource - Click For Title";
                 }
@@ -116,19 +141,31 @@ for (var i = 0; i < 3; i++) {
                 }
                 else {
                var recNum = books_object.Heading.Title[i].RecordId.RecordKey;
-               //1%2C1%2C
                var recAdd = i+1;
                var rec =  recAdd+"%2C"+recAdd+"%2C";
                var url = urlPrefix+rec;
               }
-        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p></div>");
+              if ( isEmpty(books_object.Heading.Title[i].holdings_info.holding.publicNote) === true) {
+                var avail = "";
+              }
+              else {         
+              avail = books_object.Heading.Title[i].holdings_info.holding.publicNote;
+              }
+              if ( isEmpty(books_object.Heading.Title[i].holdings_info.holding.callNumber) === true) {
+                var call_number = "";
+              }
+              else {
+                call_number = books_object.Heading.Title[i].holdings_info.holding.callNumber;
+              }
+
+        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p><p>"+avail+"<br/>"+call_number+"</p></div>");
         }
       
         $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  
     }
 }
 //If no results, then display no results found
-      if (books_object.PAGEINFO.ENTRYCOUNT === '0') {  
+      if (books_object.Heading.Title.length === '0') {  
           $("#books .box_results").append("<span>No material results were found.  Please try another search in the <a href='http://elibrary.wayne.edu'>Catalog</a></span>");    
       }
 }
