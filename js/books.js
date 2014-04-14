@@ -29,7 +29,7 @@ function Success (response){
     //clear previous results
     $("#books .box_results").empty();
     // hides loading animation
-	  $("#books .box_loading_animation").hide();
+    $("#books .box_loading_animation").hide();
 
 //make a global variable with the books' ajax response
     books_object = response;
@@ -69,6 +69,12 @@ if (books_object.Heading.Title.length === '1') {
   else {         
     avail = books_object.Heading.Title.holdings_info.holding.publicNote;
   }
+  if ( isEmpty(books_object.Heading.Title.holdings_info.holding.localLocation) === true) {
+    var item_location = "";
+  }
+  else {
+    item_location = books_object.Heading.Title.holdings_info.holding.localLocation;
+  }
   if ( isEmpty(books_object.Heading.Title.holdings_info.holding.callNumber) === true) {
     var call_number = "";
   }
@@ -76,7 +82,7 @@ if (books_object.Heading.Title.length === '1') {
     call_number = books_object.Heading.Title.holdings_info.holding.callNumber;
   }
 
-  $("#books .box_results").append("<a href='"+url+"'>"+title+"</a><p>"+avail+"<br/>"+call_number+"</p><br/><br/>");
+  $("#books .box_results").append("<a href='"+url+"'>"+title+"</a><p>"+avail+"<br/>"+item_location+"<br>"+call_number+"</p><br/><br/>");
   $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  
 
 }
@@ -110,13 +116,19 @@ for (var i = 0; i < 2; i++) {
               else {         
               avail = books_object.Heading.Title[i].holdings_info.holding.publicNote;
               }
+              if ( isEmpty(books_object.Heading.Title[i].holdings_info.holding.localLocation) === true) {
+                var item_location = "";
+              }
+              else {
+                item_location = books_object.Heading.Title[i].holdings_info.holding.localLocation;
+              }
               if ( isEmpty(books_object.Heading.Title[i].holdings_info.holding.callNumber) === true) {
                 var call_number = "";
               }
               else {
                 call_number = books_object.Heading.Title[i].holdings_info.holding.callNumber;
               }
-        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p><div class='holdings'><p class='avail'>"+avail+"<br>"+call_number+"</p></div></div>");
+        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p><div class='holdings'><p class='avail'>"+avail+"<br>"+item_location+"<br>"+call_number+"</p></div></div>");
 }
         $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  
 
@@ -151,6 +163,12 @@ for (var i = 0; i < 3; i++) {
               else {         
               avail = books_object.Heading.Title[i].holdings_info.holding.publicNote;
               }
+              if ( isEmpty(books_object.Heading.Title[i].holdings_info.holding.localLocation) === true) {
+                var item_location = "";
+              }
+              else {
+                item_location = books_object.Heading.Title[i].holdings_info.holding.localLocation;
+              }
               if ( isEmpty(books_object.Heading.Title[i].holdings_info.holding.callNumber) === true) {
                 var call_number = "";
               }
@@ -158,7 +176,7 @@ for (var i = 0; i < 3; i++) {
                 call_number = books_object.Heading.Title[i].holdings_info.holding.callNumber;
               }
 
-        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p><div class='holdings'><p class='avail'>"+avail+"<br>"+call_number+"</p></div></div>");
+        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p><div class='holdings'><p class='avail'>"+avail+"<br>"+item_location+"</p><p>"+call_number+"</p></div></div>");
         }
       
         $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  
