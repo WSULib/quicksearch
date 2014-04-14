@@ -116,7 +116,7 @@ for (var i = 0; i < 2; i++) {
               else {
                 call_number = books_object.Heading.Title[i].holdings_info.holding.callNumber;
               }
-        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p><p>"+avail+"<br/>"+call_number+"</p></div>");
+        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p><div class='holdings'><p class='avail'>"+avail+"<br>"+call_number+"</p></div></div>");
 }
         $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  
 
@@ -158,7 +158,7 @@ for (var i = 0; i < 3; i++) {
                 call_number = books_object.Heading.Title[i].holdings_info.holding.callNumber;
               }
 
-        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p><p>"+avail+"<br/>"+call_number+"</p></div>");
+        $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p><div class='holdings'><p class='avail'>"+avail+"<br>"+call_number+"</p></div></div>");
         }
       
         $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  

@@ -53,7 +53,7 @@ function summonjs_query(search_string){
             if (summonjs_object.documents[i].Title != undefined)  {
                 title = summonjs_object.documents[i].Title;
                 url = summonjs_object.documents[i].link;
-               $("#summonjs .box_results").append("<a href='"+url+"'>"+title+"</a></br>");
+               $("#summonjs .box_results").append("<p class='summonjs-title'><a href='"+url+"'>"+title+"</a></p>");
             if (summonjs_object.documents[i].Author != undefined)  {
                 author = summonjs_object.documents[i].Author[0];
                $("#summonjs .box_results").append("Authors: "+author+"</br>");
@@ -71,45 +71,44 @@ function summonjs_query(search_string){
                   }                  
                 }
             if (summonjs_object.documents[i].PublicationTitle != undefined)  {
-                $("#summonjs .box_results").append(summonjs_object.documents[i].PublicationTitle[0]+"</br>"); 
+                $("#summonjs .box_results").append(summonjs_object.documents[i].PublicationTitle[0]); 
                 }
                 else {
                 $("#summonjs .box_results").append("</br>"); 
                 } 
 
             if (summonjs_object.documents[i].Volume != undefined)  {
-                $("#summonjs .box_results").append("Volume: "+summonjs_object.documents[i].Volume[0]);
+                $("#summonjs .box_results").append(", "+summonjs_object.documents[i].Volume[0]);
                 }
                 else {
                 $("#summonjs .box_results").append(" "); 
                 }   
             if (summonjs_object.documents[i].Issue != undefined)  {
-                $("#summonjs .box_results").append(" Issue: "+summonjs_object.documents[i].Issue[0]+"</br>"); 
+                $("#summonjs .box_results").append("("+summonjs_object.documents[i].Issue[0]+")"); 
                 }
                 else {
                 $("#summonjs .box_results").append("</br>"); 
                 }             
             }
-            $("#summonjs .box_results").append("</br>"); 
+            $("#summonjs .box_results").append("<hr>"); 
     
         }
                $("#summonjs .box_results").append("<a href='http://wayne.summon.serialssolutions.com/#!/search?ho=t&fvf=ContentType,Journal Article,f&q="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");
 
         }
 
-        
+        //reference box
         if (summonjs_object.topicRecommendations != undefined) { 
 
-          $("#reference .box_results").append("From "+summonjs_object.topicRecommendations[0].sourceName+"</br>");          
-          $("#reference .box_results").append(summonjs_object.topicRecommendations[0].title+": ");
-          $("#reference .box_results").append(summonjs_object.topicRecommendations[0].snippet);
-          $("#reference .box_results").append("</br><a href='"+summonjs_object.topicRecommendations[0].sourceLink+"'>Read more</a>");
+          $("#reference .box_results").append("<p class='ref-from'>From "+summonjs_object.topicRecommendations[0].sourceName+":</p>");          
+          $("#reference .box_results").append("<p>"+summonjs_object.topicRecommendations[0].snippet);
+          $("#reference .box_results").append("</p><hr><a href='"+summonjs_object.topicRecommendations[0].sourceLink+"''><em>Read more about "+search_string+"...</em></a>");
           $("#reference").show();
         }
 
         // else {
-        // 	$('#reference').hide()
-        // 	// alert("stuff");
+        //  $('#reference').hide()
+        //  // alert("stuff");
         // }
 
 

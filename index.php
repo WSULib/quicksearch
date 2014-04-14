@@ -112,14 +112,8 @@ $().ready(function() {
     });
 });
 
-
 </script>
-
-
 </head>
-
-
-
 
   <body>
 <div class="ribbon-wrapper-green">
@@ -154,44 +148,21 @@ $().ready(function() {
 
           </div> <!--closes search row -->
 
-          <div id="boxes_rows" class="row-fluid">            
-            <div id="search-results" style="display:none;" class="col-lg-12">
-              <!--
-               <div id="boxes_middle" class="col-md-6 col-lg-4">
-                <div id="lib_hours" class="row-fluid pin-hours">
-                  <div id="hours" class="box_loading_animation"></div>
-                  <div class="box_results"></div>
-                </div>               
-               </div>
-
-              <script type="text/javascript">
-                $('div.lib_hours:empty').hide()
-              </script>
+          <div id="search-results" style="display:none;">
 
               <!--column1-->
-              <div id="boxes_left" class="col-md-6 col-lg-4">           
-              <!--  <div id ="articles" class="row-fluid pin">
-                  <h4><i class="icon-article"></i> Peer Reviewed Articles</h4>
-                  <div class="box_loading_animation"></div>
-                  <div class="box_results"></div>
-                </div>    
-                <div id="summon" class="row-fluid pin">
-                  <h4><i class="icon-article"></i>Summon</h4>
-                  <div class="box_loading_animation"></div>
-                  <div class="box_results"></div>
-                </div>-->   
-                
-
+              <div id="boxes_left" class="col-md-6 col-lg-4" style="padding-left:0;">           
                 <div id="summonjs" class="row-fluid pin">
                   <h4><i class="icon-article"></i>Articles</h4>
                   <div class="box_loading_animation"></div>
-                  <div class="box_results"></div>
-                </div>           
-                <div id="digi_commons" class="row-fluid pin">
-                  <h4>DigitalCommons@WayneState</h4>
+                  <div class="box_results">
+                  </div>
+                </div> 
+                <div id="databases" class="row-fluid pin">
+                  <h4><i class="icon-server"></i> Databases</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
-                </div>  
+                </div>   
               </div>
 
               <!--column2-->
@@ -213,41 +184,36 @@ $().ready(function() {
                 </div>               
               </div>
 
-
-
-              <div id="boxes_right" class="col-md-6 col-lg-4">
-                <div id="lib_hours" class="row-fluid pin-hours">
+              <!--column3-->
+              <div id="boxes_right" class="col-md-6 col-lg-4" style="padding-right:0;">
+                <div id="lib_hours" class="row-fluid pin">
+                  <h4><i class="icon-clock"></i>Today's Hours</h4>
                   <div id="hours" class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div>     
-                <div id="reference" class="row-fluid pin-hours">
+                <div id="reference" class="row-fluid pin">
+                  <h4><i class="icon-info"></i>General Information</h4>
                   <div class="box_loading_animation"></div>
                   <div id="ref_res" class="box_results"></div>
                 </div>
-
-             
                 <div id="site_search" class="row-fluid pin">
                   <h4><i class="icon-globe"></i> WSU Site Search</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
-                </div>  
-                <div id="databases" class="row-fluid pin">
-                  <h4><i class="icon-server"></i> Databases</h4>
+                </div>   
+                <div id="digi_commons" class="row-fluid pin">
+                  <h4>DigitalCommons@WayneState</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
-                </div>                
+                </div>      
               </div>
 
-              <!--column3-->
-
              </div> <!--closes boxes_container-->
-           </div> <!--closes boxes_row-->     
-        
-        </div><!--content col-lg-12-->
+           </div> <!--closes search-results-->    
 
       </div> <!--all encompassing row -->
 
-    <!--</div>/.fluid-container-->   
+   </div><!--/.fluid-container-->   
    
   </body>
 
