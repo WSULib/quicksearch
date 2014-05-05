@@ -17,7 +17,7 @@ foreach ($data as $param => $value) {
 $GETparams = http_build_query($data);
 
 //assemble GET URL
-$URL = $baseURL.$GETparams;
+$URL = $baseURL.urldecode($GETparams); // decoding for Solr
 // echo $URL;
 
 $datastream_bits = file_get_contents($URL);	
