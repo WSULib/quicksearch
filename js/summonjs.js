@@ -1,5 +1,5 @@
 var summonjs_object = null;
-
+var author = null;
 
 function summonjs_query(search_string){
 
