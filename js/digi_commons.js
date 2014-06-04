@@ -1,7 +1,7 @@
 function digi_commons_query(search_string){
 
     // encode the string
-    encoded_search_string = search_string.replace(" ","+");
+    encoded_search_string = search_string.replace(/\s/g,'+');
 
     // create POST data object
     dataObject = {};
