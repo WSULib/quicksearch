@@ -112,7 +112,7 @@ else {
 //If no results, then display no results found
            if (journal_object.PAGEINFO.ENTRYCOUNT === '0') {  
 
-          $("#journals .box_results").append("<span>No Journal results were found.  Please try another search in the <a href='http://elibrary.wayne.edu/search~S17'>Catalog</a></span>");    
+          $("#journals .box_results").append("<span class=\"no-res\">No Journal results were found.  Please try another search in the <a href='http://elibrary.wayne.edu/search~S17'>Catalog</a></span>");    
       }
 }
 

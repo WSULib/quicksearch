@@ -5,7 +5,7 @@ function databases_query(search_string){
 
 	// construct query	
 	// var baseURL = "http://www.lib.wayne.edu/tmp/BB_graham_testing/rest/resource_database.php?q=";
-	var baseURL = "../resources/quicksearch/php/databases.php?search_string=";
+	var baseURL = "/resources/quicksearch/php/databases.php?search_string=";
 	var queryURL = baseURL + search_string;
 
 	//returns json	
@@ -36,8 +36,8 @@ function databases_query(search_string){
 				$("#databases .box_results").append("<div id='resource_"+i+"' class='indiv-result'></div>");
 				$("#resource_"+i).append("<p class='title'><a href='"+response.resources[i].url+"'>"+response.resources[i].title+"</a></p>");
 				if (response.resources[i].description !== null) {
-	if (response.resources[i].description.length > 100){
-						$("#resource_"+i).append("<div class='result-details'><p>"+response.resources[i].description.substr(0,100)+"...</p>");
+	if (response.resources[i].description.length > 130){
+						$("#resource_"+i).append("<div class='result-details'><p>"+response.resources[i].description.substr(0,130)+"...</p>");
 					}
 					else {
 						$("#resource_"+i).append("<p>"+response.resources[i].description+"...</p>");
@@ -46,7 +46,7 @@ function databases_query(search_string){
 			}
 
 			//more results everytime
-			$("#databases .box_results").append("<span><a href='http://www.lib.wayne.edu/resources/databases/search.php?q="+search_string+"&b=Search'><em>View more results...</em></a></span");
+			$("#databases .box_results").append("<span><a href='http://library.wayne.edu/resources/databases/search.php?q="+search_string+"&b=Search'><em>View more results...</em></a></span");
 		}
 
 		else{

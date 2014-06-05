@@ -1,38 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-<!-- Piwik -->
-<script type="text/javascript">
-  var _paq = _paq || [];
-  _paq.push(["trackPageView"]);
-  _paq.push(["enableLinkTracking"]);
+<head>
+  <!-- Piwik -->
+  <script type="text/javascript">
+    var _paq = _paq || [];
+    _paq.push(["trackPageView"]);
+    _paq.push(["enableLinkTracking"]);
 
-  (function() {
-    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://cgi.lib.wayne.edu/stats/piwik/";
-    _paq.push(["setTrackerUrl", u+"piwik.php"]);
-    _paq.push(["setSiteId", "16"]);
-    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Piwik Code -->
+    (function() {
+      var u=(("https:" == document.location.protocol) ? "https" : "http") + "://cgi.lib.wayne.edu/stats/piwik/";
+      _paq.push(["setTrackerUrl", u+"piwik.php"]);
+      _paq.push(["setSiteId", "16"]);
+      var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+      g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <!-- End Piwik Code -->
+  <?php include_once($_SERVER['DOCUMENT_ROOT'].'inc/varset.php'); ?>
+  <meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="Wayne State University, WSU, Library System, Libraries" />
+  <meta name="description" content="The online resources and services of the Wayne State University Libraries" />
+  <meta name="author" content="libwebmaster@wayne.edu" />
+  <meta name="Copyright" content="Copyright (c) <?php echo(date('Y')); ?> Wayne State University" />
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!--<link rel="shortcut icon" href="../../assets/ico/favicon.png">-->
+  <link rel="icon" href="/inc/img/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/ico/style.css">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/pattern-lib/css/style.css">
 
-    <title>Wayne State University Libraries Quicksearch</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../resources/quicksearch/inc/bootstrap/css/bootstrap.css" rel="stylesheet">
-
-    <!-- icons -->
-    <link rel="stylesheet" href="../resources/quicksearch/inc/ico/style.css" />
 
     <!-- Custom styles for this template -->
-    <link href="../resources/quicksearch/css/style.css" rel="stylesheet">
+    <link href="/resources/quicksearch/css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -52,34 +51,34 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     
     <!--icon hash table -->
-    <script type="text/javascript" src="../resources/quicksearch/js/icon_hash_table.js"></script>
+    <script type="text/javascript" src="/resources/quicksearch/js/icon_hash_table.js"></script>
 
     <!--load search query JS files-->
     <!--THESE CAN BE COMBINED LATER, EASIER TO WORK ON THIS WAY-->
-    <script type="text/javascript" src="../resources/quicksearch/js/lib_hours.js"></script>
-    <script type="text/javascript" src="../resources/quicksearch/js/books.js"></script>
-    <script type="text/javascript" src="../resources/quicksearch/js/journals.js"></script>
-    <script type="text/javascript" src="../resources/quicksearch/js/databases.js"></script>
-    <script type="text/javascript" src="../resources/quicksearch/js/lib_guides.js"></script>
-    <script type="text/javascript" src="../resources/quicksearch/js/site_search.js"></script>
-    <script type="text/javascript" src="../resources/quicksearch/js/summonjs.js"></script>
-    <script type="text/javascript" src="../resources/quicksearch/js/digi_collections.js"></script>
-    <script type="text/javascript" src="../resources/quicksearch/js/digi_commons.js"></script>       
+    <script type="text/javascript" src="/resources/quicksearch/js/lib_hours.js"></script>
+    <script type="text/javascript" src="/resources/quicksearch/js/books.js"></script>
+    <script type="text/javascript" src="/resources/quicksearch/js/journals.js"></script>
+    <script type="text/javascript" src="/resources/quicksearch/js/databases.js"></script>
+    <script type="text/javascript" src="/resources/quicksearch/js/lib_guides.js"></script>
+    <script type="text/javascript" src="/resources/quicksearch/js/site_search.js"></script>
+    <script type="text/javascript" src="/resources/quicksearch/js/summonjs.js"></script>
+    <script type="text/javascript" src="/resources/quicksearch/js/digi_collections.js"></script>
+    <script type="text/javascript" src="/resources/quicksearch/js/digi_commons.js"></script>       
 
     <!--load main JS -->
-    <script type="text/javascript" src="../resources/quicksearch/js/bento_queries.js"></script>
+    <script type="text/javascript" src="/resources/quicksearch/js/bento_queries.js"></script>
 
     <!--jquery cookie-->
-    <script src="../resources/quicksearch/js/jquery.cookie.js"></script>
+    <script src="/resources/quicksearch/js/jquery.cookie.js"></script>
+    <script src="/resources/quicksearch/js/jquery.ba-replacetext.min.js"></script>
 
 
-    <!--load bootstrap js-->    
-    <script src="../resources/quicksearch/inc/bootstrap/js/bootstrap.js"></script>
-    <script src="../resources/quicksearch/inc/bootstrap/js/html5shiv.js"></script>
-    <script src="../resources/quicksearch/inc/bootstrap/js/respond.min.js"></script>
+    <!--load bootstrap js   
+    <script src="../resources/quicksearch/inc/bootstrap/js/bootstrap.js"></script>-->
+    <script src="/resources/quicksearch/inc/bootstrap/js/html5shiv.js"></script>
+    <script src="/resources/quicksearch/inc/bootstrap/js/respond.min.js"></script> 
 
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> 
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'>
+    <script src="/pattern-lib/js/enquire.min.js"></script>
 
 <script type='text/javascript'>
 $(window).load(function(){
@@ -89,77 +88,40 @@ $(function(){
         $('#search-results').show();
     });  
     
+    
 });
 });
 
-$().ready(function() {
-    $(".hours").click(function() {
-        $("#search_string").val('ugl hours').trigger("submit");
-        $("#search-results").show();
-
-    });
-    $(".gender").click(function() {
-        $("#search_string").val('gender studies').trigger("submit");
-        $("#search-results").show();
-    });
-    $(".journal").click(function() {
-        $("#search_string").val('Journal of the Royal Society of Arts').trigger("submit");
-        $("#search-results").show();
-    });
-
-    $(".clear-search").on("click", function() {
-        $("#search_string").val("")
-    });
-});
 
 </script>
+
+  <title>Wayne State University Libraries</title>
+
+  <style>
+  article.search-results {
+    background:transparent;
+    border:none;
+  }
+  </style>
 </head>
+<body>
+  <div class="page" id="wrap">
+      <?php include($_SERVER['DOCUMENT_ROOT'].'inc/header.php'); ?>
+    <div id="main" class="container">
+      <article class="search-results">
 
-  <body>
-<div class="ribbon-wrapper-green">
-  <div class="ribbon-green">
-    <a href="https://www.surveymonkey.com/s/FXLC2CW" target="_blank">Give Us Feedback</a>
-  </div>
-</div>
-    <header>
-      <img src="../resources/quicksearch/img/warrior_logo1.png" alt="Wayne State University"/>
-    </header>
-    <div class="container">      
-      <div class="row-fluid">   
-        
-          <div id="search_row" class="row-fluid">
-
-            <div id="searchForm" class="col-lg-12">
-              <form id="search" class="form-wrapper" onsubmit="searchCall(); return false;">
-                <input id="search_string" type="text" class="input-large" placeholder="Find articles, books, journals and more">
-                <span class="clear-search">X</span>
-                <button id="submit" type="submit" class="btn">Find</button>
-              </form>  
-                
-
-              <div class="examples">
-                <p>Examples:
-                <a href="#" class="hours">ugl hours</a>,
-                <a href="#" class="gender">gender studies</a>,
-                <a href="#" class="journal">Journal of the Royal Society of Arts</a></p>
-              </div>
-
-            </div>
-
-          </div> <!--closes search row -->
-
-          <div id="search-results" style="display:none;">
+            <div id="search-results" style="display:none;">
 
               <!--column1-->
               <div id="boxes_left" class="col-md-6 col-lg-4" style="padding-left:0;">           
                 <div id="summonjs" class="row-fluid pin">
-                  <h4><i class="icon-article"></i>Articles</h4>
+                  <h4><i class="icon-articles"></i>Articles</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results">
                   </div>
                 </div> 
                 <div id="databases" class="row-fluid pin">
-                  <h4><i class="icon-server"></i> Databases</h4>
+                  <h4><i class="icon-database"></i> Databases</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div>   
@@ -168,17 +130,17 @@ $().ready(function() {
               <!--column2-->
               <div id="boxes_middle" class="col-md-6 col-lg-4">
                 <div id="books" class="row-fluid pin">
-                  <h4><i class="icon-book"></i> Books and Media</h4>
+                  <h4><i class="icon-books"></i> Books and Media</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div>
                 <div id="journals" class="row-fluid pin">
-                  <h4><i class="icon-notebook"></i> Journals</h4>
+                  <h4><i class="icon-journals"></i> Journals</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div>                                
                 <div id="lib_guides" class="row-fluid pin">
-                  <h4><i class="icon-map"></i> Research Guides</h4>
+                  <h4><i class="icon-guide"></i> Research Guides</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div>               
@@ -197,7 +159,7 @@ $().ready(function() {
                   <div id="ref_res" class="box_results"></div>
                 </div>
                 <div id="site_search" class="row-fluid pin">
-                  <h4><i class="icon-globe"></i> WSU Site Search</h4>
+                  <h4><i class="icon-site"></i> WSU Site Search</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div>   
@@ -209,34 +171,67 @@ $().ready(function() {
               </div>
 
              </div> <!--closes boxes_container-->
-           </div> <!--closes search-results-->    
+           </div> <!--closes search-results-->     
+          
+      </article>
+    </div>
+  </div>
+  <?php include($_SERVER['DOCUMENT_ROOT'].'inc/footer.php'); ?>
+  <script src="/pattern-lib/js/jquery.min.js"></script>
+  <script src="/pattern-lib/js/bootstrap.min.js"></script>
+  <script src="/pattern-lib/js/main.js"></script>
 
-      </div> <!--all encompassing row -->
+  <script type="text/javascript">
 
-   </div><!--/.fluid-container-->   
+  enquire.register("screen and (min-width:1168px)", {
+            match : function() { 
+                    
+            },
+            unmatch : function() {
+                    
+            }
+        });
+
+    enquire.register("(min-width:896px) and (max-width:1167px)", {
+            match : function() { 
+                    $('#reference').insertBefore('#books');
+                    $('#lib_hours').insertBefore('#reference');
+                    $('#journals').insertAfter('#databases');
+                    $('#digi_commons').insertAfter('#journals');
+                    $('#site_search').insertAfter('#lib_guides');
+            },
+            unmatch : function() {
+                    $('#reference').insertAfter('#lib_hours');
+                    $('#journals').insertBefore('#lib_guides');
+                    $('#digi_commons').insertAfter('#site_search');
+                    $('#site_search').insertAfter('#reference');
+                    $('#lib_hours').insertBefore('#reference');
+            }
+        });
+
+    enquire.register("screen and (max-width:895px)", {
+            match : function() { 
+                    $('#reference').insertBefore('#summonjs');
+                    $('#lib_hours').insertBefore('#reference');
+                    $('#books').insertAfter('#summonjs');
+                    $('#journals').insertAfter('#databases');
+                    $('#lib_guides').insertAfter('#journals');
+                    $('#digi_commons').insertAfter('#lib_guides');
+                    $('#site_search').insertAfter('#digi_commons');
+            },
+            unmatch : function() {
+                    $('#reference').insertAfter('#lib_hours');
+                    $('#journals').insertBefore('#lib_guides');
+                    $('#digi_commons').insertAfter('#site_search');
+                    $('#site_search').insertAfter('#reference');
+                    $('#lib_hours').insertBefore('#reference');
+            }
+        });
+
+    </script>
    
-  </body>
-
- <script type="text/javascript">
+</body>
+<script type="text/javascript">
     updatePage();
   </script>
-  
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

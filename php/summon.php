@@ -37,7 +37,7 @@ if (count($result['documents']) >= 3) {
 for ($z = 0; $z < $n; $z++) {
  // print_r($result['documents'][$z]); 
   if (!empty($result['documents'][$z]['Title'])) {
-  	?> <a href = "<?php echo $result['documents'][$z]['link']?>"><?php echo $result['documents'][$z]['Title'][0]; ?></a></br>
+  	?> <div class="indiv-result"><a href = "<?php echo $result['documents'][$z]['link']?>"><?php echo $result['documents'][$z]['Title'][0]; ?></a></br>
    	<?php }
   if (!empty($result['documents'][$z]['Author'])) {
    	echo 'Author: ' . $result['documents'][$z]['Author'][0] . '</br>';
@@ -65,7 +65,7 @@ for ($z = 0; $z < $n; $z++) {
   } else {
     echo '</br>';
   }
-  echo '</br>';
+  echo '</div>';
 }
 
 echo '<a href="http://wayne.summon.serialssolutions.com/#!/search?ho=t&fvf=ContentType,Journal Article,f|ContentType,Magazine Article,f&q=' . $terms . '"> View more results...(' . $result['recordCount'] . ')</a>'; 

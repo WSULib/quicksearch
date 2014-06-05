@@ -1,9 +1,13 @@
 body {
-	background: url('../img/bedge_grunge.png') repeat;
-	font-family: 'Lato', sans-serif;
-	font-size: 14px;
-	line-height: 1.4em;
-	overflow-x: hidden;
+	/*background: url('../img/bedge_grunge.png') repeat;*/
+	/*font-family: 'Lato', sans-serif;*/
+	/*font-size: 16px;*/
+	/*line-height: 1.4em;*/
+	/*overflow-x: hidden;*/
+}
+
+p a {
+	border-bottom: none;
 }
 
 #reference {
@@ -21,17 +25,6 @@ display: none;
 }
 
 #lib_hours p {
-	margin: 0;
-	font-size: 0.875em;
-}
-
-.holdings {
-	/*border-left: 4px solid gray;*/
-	padding-left: 10px;
-	margin-top: 10px;
-}
-
-.holdings p {
 	margin: 0;
 	font-size: 0.875em;
 }
@@ -116,7 +109,7 @@ i {
     z-index: -5;
 }
 
-.header {
+/*.header {
 	background-color: #999;
 	width: 100%;
 }
@@ -133,7 +126,7 @@ header img {
 	left: -75px;
 	margin-left: 50%;
 	position: relative;
-}
+}*/
 
 a,
 a:visited,
@@ -147,7 +140,8 @@ a:active {
 }
 
 h4 {
-	background-color: #ffdf80;
+	/*background-color: #ffdf80;*/
+	background: #dee6e6;
 	margin-top: 0;
 	padding: 15px;
 	font-size: 20px;
@@ -156,7 +150,7 @@ h4 {
 
 /* Search Box */
 
-input[class=input-large] {
+/*input[class=input-large] {
   width: 75%;
   height: 44px ;
  // line-height: 1.4em;
@@ -265,9 +259,8 @@ input[type="text"]:focus {
 	word-spacing: 3px;
 	margin-top: -20px;
 	margin-bottom: 30px;
-}
+}*/
 
-/*databases*/
 .result_div{
 	margin-bottom:10px;
 }
@@ -296,35 +289,16 @@ input[type="text"]:focus {
 	display: inline-block;
 	width: 100%;
 	background: #FEFEFE;
-	//border: 2px solid #FAFAFA;
-	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+	border: 1px solid #eee;
+	/*border: 2px solid #FAFAFA;*/
+	/*border: 1px solid #ddd;*/
+	/*box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);*/
 	margin: 0 2px 15px;
 	-webkit-column-break-inside: avoid;
 	-moz-column-break-inside: avoid;
 	column-break-inside: avoid;
-	//padding: 15px;
-	//padding-bottom: 5px;
-	background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
-	opacity: 1;
-
-	-webkit-transition: all .2s ease;
-	-moz-transition: all .2s ease;
-	-o-transition: all .2s ease;
-	transition: all .2s ease;
-}
-
-.pin-hours {
-	width: 97.5%;
-	background: #FEFEFE;
-	border: 2px solid #FAFAFA;
-	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
-	margin: 0 auto;
-	margin-bottom: 35px;
-	-webkit-column-break-inside: avoid;
-	-moz-column-break-inside: avoid;
-	column-break-inside: avoid;
-	padding: 15px;
-	padding-bottom: 5px;
+	/*padding: 15px;*/
+	/*padding-bottom: 5px;*/
 	background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
 	opacity: 1;
 
@@ -336,7 +310,7 @@ input[type="text"]:focus {
 
 .box_results {
 	padding: 5px 20px 20px 20px;
-	font-family: 'Roboto', sans-serif;
+	/*font-family: 'Roboto', sans-serif;*/
 	font-weight: normal;
 	font-size: 1em;
 	letter-spacing: .005em;
@@ -349,17 +323,13 @@ input[type="text"]:focus {
 
 #lib_guides .box_results {
 	padding: 5px 20px 20px 20px;
-	font-family: 'Roboto', sans-serif;
+	/*font-family: 'Roboto', sans-serif;*/
 	font-weight: 400;
 	font-size: 1em;
 	letter-spacing: .005em;
 }
 
-#ref_res, #summonjs, #lib_guides  {
-	font-size: 1em;
-}
-
-#books .no-res, #journals .no-res, #api_search_guides_iid692 a em, #databases a em, #digi_commons a em {
+#ref_res, #summonjs, #lib_guides, #books .no-res, #journals .no-res, #books a em, #journals a em, #site_search a em, #api_search_guides_iid692 a em, #databases a em, #digi_commons a em {
 	font-size: 0.875em;
 }
 
@@ -392,10 +362,6 @@ input[type="text"]:focus {
 	margin-bottom: 2em;
 }
 
-hr {
-	margin: 15px 0;
-}
-
 #lib_hours h4,
 #summonjs h4, 
 #databases h4, 
@@ -421,7 +387,7 @@ hr {
 	font-size: .8em;
 	/*color: #666;*/
 	line-height: 1.4em;
-	font-family: 'Roboto', sans-serif;
+	/*font-family: 'Roboto', sans-serif;*/
 	font-weight: 300;
 }
 
@@ -434,13 +400,17 @@ p.title {
 	margin:0;
 }
 
-#api_search_guides_iid692 {
-	margin-top: -15px;
+#api_search_guides_iid692 a:first-child {
+	margin-top: 0;
+	border:none;
+	padding-top: 0;
 }
 
 #api_search_guides_iid692 a {
 	display: block;
-	margin-top: 25px;
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid #eee;
 	font-size: 1em;
 	margin-bottom: 10px;
 	font-weight: 400;
@@ -456,6 +426,11 @@ p.title {
 	line-height: 1.4em;
 	font-weight: 300;
 }
+
+#no_results p {
+	margin-bottom: 0;
+}
+
 @media (max-width: 320px) {
 input[class=input-large] {
   width: 215px;
@@ -636,4 +611,10 @@ input[class=input-large] {
 .clear-search {
 	left: 960px;
 }
+}
+.footer a {
+	color: #ddd;
+}
+.navbar-right>li>a{
+	color: #fff;
 }

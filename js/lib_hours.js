@@ -99,7 +99,7 @@ function ajaxCall(libName,libDesignation) {
 	     	$.ajax({
 			type: "POST",
 			cache: false,
-			url: "php/lib_hours.php",
+			url: "../resources/quicksearch/php/lib_hours.php",
 			dataType: "json",
 			success: function(response) {
 				processData(response, libName, libDesignation);
@@ -113,7 +113,7 @@ function processData(response,libName, libDesignation) {
 	libHoursJSON = response;
 	if (libDesignation == "library") {
 	for (var key in libHoursJSON) {
-		$("#lib_hours .box_results").append("<h4>"+Hash[key]+"</h4><p>"+libHoursJSON[key]+"<p>");
+		$("#lib_hours .box_results").append("<h3>"+Hash[key]+"</h3><p>"+libHoursJSON[key]+"<p><br>");
 	}
 	}
 	else {

@@ -1,5 +1,5 @@
 var summonjs_object = null;
-var author = null;
+
 
 function summonjs_query(search_string){
 
@@ -13,7 +13,7 @@ function summonjs_query(search_string){
     $(document).ready(function(){
       $.ajax({
         type: "POST",
-        url: "../resources/quicksearch/php/summonjs.php",
+        url: "/resources/quicksearch/php/summonjs.php",
         dataType: "json", 
         data: dataObject,
         success: summonjs_Success,
@@ -107,8 +107,8 @@ function summonjs_query(search_string){
         }
 
         // else {
-        //  $('#reference').hide()
-        //  // alert("stuff");
+        // 	$('#reference').hide()
+        // 	// alert("stuff");
         // }
 
 
