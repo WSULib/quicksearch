@@ -5,7 +5,7 @@ function databases_query(search_string){
 
 	// construct query	
 	// var baseURL = "http://www.lib.wayne.edu/tmp/BB_graham_testing/rest/resource_database.php?q=";
-	var baseURL = "/resources/quicksearch/php/databases.php?search_string=";
+	var baseURL = "php/databases.php?search_string=";
 	var queryURL = baseURL + search_string;
 
 	//returns json	

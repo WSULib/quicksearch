@@ -13,7 +13,7 @@ function summonjs_query(search_string){
     $(document).ready(function(){
       $.ajax({
         type: "POST",
-        url: "/resources/quicksearch/php/summonjs.php",
+        url: "php/summonjs.php",
         dataType: "json", 
         data: dataObject,
         success: summonjs_Success,

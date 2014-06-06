@@ -1,25 +1,16 @@
-/*function digi_collections_query(search_string){
-
-	dataObject = new Object();
-        //get values from form
-    dataObject.GETparams = new Object();
-    dataObject.GETparams.core = "mods";
-    dataObject.GETparams.q = search_string;
-    dataObject.GETparams.start = "0";
-    dataObject.GETparams.rows = "3"; //returns only three results
-    dataObject.GETparams.wt = "json"; //sets response to JSON
-    // dataObject.GETparams.fq = $('#fq').val();
-    // dataObject.GETparams.fl = $('#fl').val();
-
-    //assemble URL
-    dataObject.baseURL = "http://silo.lib.wayne.edu/solr4/"+dataObject.GETparams.core+"/select?";
-    
-    // console.log(dataObject);
+function digi_collections_query(search_string){
+	dataObject = new Object();  	   	    
+    dataObject.q = search_string
+    console.log(dataObject.q);
+    dataObject.start = "0";
+    dataObject.rows = "3"; //returns only three results
+    dataObject.wt = "json"; //sets response to JSON   
+    dataObject['functions[]'] = "solrSearch";
     
     $(document).ready(function(){
       var digi_collections_request = $.ajax({
         type: "POST",
-        url: "../resources/quicksearch/php/digi_collections.php",
+        url: "http://digital.library.wayne.edu/WSUAPI?",
         data: dataObject,
         dataType: "json",
         success: SolrSuccess,
@@ -31,39 +22,42 @@
 
         //clear previous results
         $("#digi_collections .box_results").empty();
+        // hides loading animation
+        $("#digi_collections .box_loading_animation").hide();
 
-	if ( response.response.docs.length > 0){
-		// console.log(response);
+    	if ( response.solrSearch.response.docs.length > 0){
+    		
 
-	for (var i = 0; i < response.response.docs.length; ++i){
-		//get PID and title
-		var PID = response.response.docs[i].id;
-          if (typeof response.response.docs[i].mods_title_ms === 'undefined'){
+    	for (var i = 0; i < response.solrSearch.response.docs.length; ++i){
+        	// get PID and title
+        	var PID = response.solrSearch.response.docs[i].id;
+            if (typeof response.solrSearch.response.docs[i].dc_title === 'undefined'){
                 var title = "[unknown title]";
             }
-           else{
-                var title = response.response.docs[i].mods_title_ms[0];
+            else{
+                var title = response.solrSearch.response.docs[i].dc_title[0];
             }
+            // get content model as type
+            var type = response.solrSearch.response.docs[i].rels_hasContentModel[0];
+            type = type.substring(type.lastIndexOf(":") + 1, type.length);
 
-            $("#digi_collections .box_results").append("<div id='digiCollections_"+i+"' class='result_div'></div>");
-            $("#digiCollections_"+i).append("<img class='mime_icon' src='http://silo.lib.wayne.edu/fedora/objects/"+PID+"/datastreams/THUMBNAIL/content' width=45  />");
-            $("#digiCollections_"+i).append("<a href='http://silo.lib.wayne.edu/fedora/objects/"+PID+"'>"+title+"</a></br>");            
+            // append to DOM
+            $("#digi_collections .box_results").append("<div id='digiCollections_"+i+"' class='indiv-result'></div>");
+            $("#digiCollections_"+i).append("<a href='http://digital.library.wayne.edu/digitalcollections/item?id="+PID+"'><img class='mime_icon' src='http://digital.library.wayne.edu/fedora/objects/"+PID+"/datastreams/THUMBNAIL/content' width=65  /></a>");
+            $("#digiCollections_"+i).append(" - <a class='title' href='http://digital.library.wayne.edu/digitalcollections/item?id="+PID+"'>"+title+" ["+type+"]</a>");            
         }
 
-            //more results
-            $("#digi_collections .box_results").append("<p><em>View More Results (soon)...</em></p>");
+        //more results
+            $("#digi_collections .box_results").append("<p><a href='http://digital.library.wayne.edu/digitalcollections/search.php?q="+dc_search_string+"'><em>View more results...("+response.solrSearch.response.numFound+")</em></a></p>");
         }
 
-        else{
-	$("#digi_collections .box_results").append("<p>No Results Found.</p>");
-        }
-
-        // hides loading animation
-		$("#digi_collections .box_loading_animation").hide();
+        else {
+            $("#digi_collections .box_results").append("<p>No Results Found.</p>");
+        }            
     }
 
     function SolrError(response){
-	console.log(response);
+	   console.log(response);
     }
 
-}*/
+}

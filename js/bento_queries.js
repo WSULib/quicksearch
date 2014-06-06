@@ -34,7 +34,7 @@ function searchFunc(type){
     //search_string = search_string.replace(/:|\]|\[/g,'');
 
     // set URL has to query string
-    window.location.href = "/quicksearch#q="+encodeURIComponent(search_string); // for library.wayne
+    // window.location.href = "/quicksearch_graham#q="+encodeURIComponent(search_string); // for library.wayne
     window.location.hash = "#q="+encodeURIComponent(search_string);
 
     // push query to Piwik
@@ -57,7 +57,7 @@ function searchFunc(type){
     databases_query(search_string);
     lib_guides_query(search_string);
     site_search_query(search_string);
-   // digi_collections_query(search_string);
+    digi_collections_query(search_string);
     digi_commons_query(search_string);
     summonjs_query(search_string);
 

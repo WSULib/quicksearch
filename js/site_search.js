@@ -13,7 +13,7 @@ function site_search_query(search_string){
     $(document).ready(function(){
       $.ajax({
         type: "POST",
-        url: "../resources/quicksearch/php/site_search.php",
+        url: "php/site_search.php",
         dataType: "json", //with no callback
         data: dataObject,
         success: site_searchSuccess,

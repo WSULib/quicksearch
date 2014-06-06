@@ -14,7 +14,7 @@ $(document).ready(function() {
 $(document).ready(function(){
     $.ajax({
         type: "POST",
-        url: "../resources/quicksearch/php/journals.php",
+        url: "php/journals.php",
         data: dataObject,
         dataType: "json",
         success: Success,

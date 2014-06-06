@@ -31,7 +31,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="/resources/quicksearch/css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -51,32 +51,29 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     
     <!--icon hash table -->
-    <script type="text/javascript" src="/resources/quicksearch/js/icon_hash_table.js"></script>
+    <script type="text/javascript" src="js/icon_hash_table.js"></script>
 
     <!--load search query JS files-->
     <!--THESE CAN BE COMBINED LATER, EASIER TO WORK ON THIS WAY-->
-    <script type="text/javascript" src="/resources/quicksearch/js/lib_hours.js"></script>
-    <script type="text/javascript" src="/resources/quicksearch/js/books.js"></script>
-    <script type="text/javascript" src="/resources/quicksearch/js/journals.js"></script>
-    <script type="text/javascript" src="/resources/quicksearch/js/databases.js"></script>
-    <script type="text/javascript" src="/resources/quicksearch/js/lib_guides.js"></script>
-    <script type="text/javascript" src="/resources/quicksearch/js/site_search.js"></script>
-    <script type="text/javascript" src="/resources/quicksearch/js/summonjs.js"></script>
-    <script type="text/javascript" src="/resources/quicksearch/js/digi_collections.js"></script>
-    <script type="text/javascript" src="/resources/quicksearch/js/digi_commons.js"></script>       
-
-    <!--load main JS -->
-    <script type="text/javascript" src="/resources/quicksearch/js/bento_queries.js"></script>
+    <script type="text/javascript" src="js/lib_hours.js"></script>
+    <script type="text/javascript" src="js/books.js"></script>
+    <script type="text/javascript" src="js/journals.js"></script>
+    <script type="text/javascript" src="js/databases.js"></script>
+    <script type="text/javascript" src="js/lib_guides.js"></script>
+    <script type="text/javascript" src="js/site_search.js"></script>
+    <script type="text/javascript" src="js/summonjs.js"></script>
+    <script type="text/javascript" src="js/digi_collections.js"></script>
+    <script type="text/javascript" src="js/digi_commons.js"></script>    
 
     <!--jquery cookie-->
-    <script src="/resources/quicksearch/js/jquery.cookie.js"></script>
-    <script src="/resources/quicksearch/js/jquery.ba-replacetext.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/jquery.ba-replacetext.min.js"></script>
 
 
     <!--load bootstrap js   
-    <script src="../resources/quicksearch/inc/bootstrap/js/bootstrap.js"></script>-->
-    <script src="/resources/quicksearch/inc/bootstrap/js/html5shiv.js"></script>
-    <script src="/resources/quicksearch/inc/bootstrap/js/respond.min.js"></script> 
+    <script src="..inc/bootstrap/js/bootstrap.js"></script>-->
+    <script src="inc/bootstrap/js/html5shiv.js"></script>
+    <script src="inc/bootstrap/js/respond.min.js"></script> 
 
     <script src="/pattern-lib/js/enquire.min.js"></script>
 
@@ -122,6 +119,11 @@ $(function(){
                 </div> 
                 <div id="databases" class="row-fluid pin">
                   <h4><i class="icon-database"></i> Databases</h4>
+                  <div class="box_loading_animation"></div>
+                  <div class="box_results"></div>
+                </div>
+                <div id="digi_collections" class="row-fluid pin">
+                  <h4><i class="icon-database"></i> Digital Collections</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div>   
@@ -231,6 +233,8 @@ $(function(){
     </script>
    
 </body>
+<!--load main JS at bottom, overrides header for dev-->
+<script type="text/javascript" src="js/bento_queries.js"></script>
 <script type="text/javascript">
     updatePage();
   </script>
