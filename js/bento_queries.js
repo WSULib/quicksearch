@@ -11,11 +11,7 @@ function updatePage(){
         // unhide and run search on string
         $("#search-results").show();
         searchCall("page_load");
-    }
-    else {
-  //    console.log('no hash, loading blank');
-    }
-    
+    }    
 }
 
 //grab search term(s), run box queries
@@ -66,7 +62,6 @@ function searchFunc(type){
 function searchCall(type){
     setTimeout(function(){
         searchFunc(type);}, 250);
-
 }
    
 

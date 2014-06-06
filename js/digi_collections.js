@@ -48,7 +48,7 @@ function digi_collections_query(search_string){
         }
 
         //more results
-            $("#digi_collections .box_results").append("<p><a href='http://digital.library.wayne.edu/digitalcollections/search.php?q="+dc_search_string+"'><em>View more results...("+response.solrSearch.response.numFound+")</em></a></p>");
+            $("#digi_collections .box_results").append("<p><a href='http://digital.library.wayne.edu/digitalcollections/search.php?q="+search_string+"'><em>View more results...("+response.solrSearch.response.numFound+")</em></a></p>");
         }
 
         else {
