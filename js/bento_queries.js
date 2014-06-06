@@ -34,7 +34,7 @@ function searchFunc(type){
     //search_string = search_string.replace(/:|\]|\[/g,'');
 
     // set URL has to query string
-    window.location.href = "/quicksearch_graham#q="+encodeURIComponent(search_string); // for library.wayne
+    window.location.href = "/quicksearch#q="+encodeURIComponent(search_string); // for library.wayne
     window.location.hash = "#q="+encodeURIComponent(search_string);
 
     // push query to Piwik
