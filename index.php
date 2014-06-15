@@ -88,8 +88,6 @@ $(function(){
     
 });
 });
-
-
 </script>
 
   <title>Wayne State University Libraries</title>
@@ -122,11 +120,11 @@ $(function(){
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div>
-                <div id="digi_collections" class="row-fluid pin">
-                  <h4><i class="icon-database"></i> Digital Collections</h4>
+                <div id="digi_commons" class="row-fluid pin">
+                  <h4>DigitalCommons@WayneState</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
-                </div>   
+                </div> 
               </div>
 
               <!--column2-->
@@ -164,12 +162,12 @@ $(function(){
                   <h4><i class="icon-site"></i> WSU Site Search</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
-                </div>   
-                <div id="digi_commons" class="row-fluid pin">
-                  <h4>DigitalCommons@WayneState</h4>
+                </div> 
+                <div id="digi_collections" class="row-fluid pin">
+                  <h4><i class="icon-box"></i> Digital Collections</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
-                </div>      
+                </div>   
               </div>
 
              </div> <!--closes boxes_container-->
@@ -199,8 +197,10 @@ $(function(){
                     $('#reference').insertBefore('#books');
                     $('#lib_hours').insertBefore('#reference');
                     $('#journals').insertAfter('#databases');
-                    $('#digi_commons').insertAfter('#journals');
+                    $('#lib_guides').insertAfter('#journals');
                     $('#site_search').insertAfter('#lib_guides');
+                    $('#digi_collections').insertAfter('#books');
+                    $('#digi_commons').insertAfter('#digi_collections');
             },
             unmatch : function() {
                     $('#reference').insertAfter('#lib_hours');
@@ -218,7 +218,7 @@ $(function(){
                     $('#books').insertAfter('#summonjs');
                     $('#journals').insertAfter('#databases');
                     $('#lib_guides').insertAfter('#journals');
-                    $('#digi_commons').insertAfter('#lib_guides');
+                    $('#digi_commons').insertAfter('#digi_collections');
                     $('#site_search').insertAfter('#digi_commons');
             },
             unmatch : function() {
