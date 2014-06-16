@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <!-- Piwik -->
+  <base href="/resources/quicksearch/"> <!-- Comment out base tag for development -->
   <script type="text/javascript">
     var _paq = _paq || [];
     _paq.push(["trackPageView"]);
