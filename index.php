@@ -1,8 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Piwik -->
-  <base href="/resources/quicksearch/"> <!-- Comment out base tag for development -->
+  <!-- Piwik -->  
   <script type="text/javascript">
     var _paq = _paq || [];
     _paq.push(["trackPageView"]);
@@ -100,11 +99,13 @@ $(function(){
   }
   </style>
 </head>
-<body>
+<body>  
   <div class="page" id="wrap">
-      <?php include($_SERVER['DOCUMENT_ROOT'].'inc/header.php'); ?>
-    <div id="main" class="container">
-      <article class="search-results">
+      <?php 
+        include($_SERVER['DOCUMENT_ROOT'].'inc/header.php'); 
+      ?>
+    <div id="main" class="container">     
+      <article class="search-results">        
 
             <div id="search-results" style="display:none;">
 
@@ -234,9 +235,9 @@ $(function(){
     </script>
    
 </body>
-<!--load main JS at bottom, overrides header for dev-->
+<!--load main JS at bottom, overrides load from /inc/header.php for dev-->
 <script type="text/javascript" src="js/bento_queries.js"></script>
 <script type="text/javascript">
-    updatePage();
+    updatePage("local");
   </script>
 </html>

@@ -4,7 +4,7 @@ var books_sorted = null;
 var count = null;
 var z = null;
 
-function books_query(search_string){
+function books_query(search_string){  
   search_string = search_string.replace(/:|\]|\[/g,'');
   var json_books_response = null;
 

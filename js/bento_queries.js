@@ -1,4 +1,11 @@
-function updatePage(){
+var local_load = false;
+
+function updatePage(origin){
+    // trigger local_load when index.php is loaded
+    if (origin == "local"){
+        local_load = true;
+    }
+
     if(window.location.hash) {
         // grab query string from URL hash
         var search_string = decodeURIComponent(window.location.hash.split("#")[1].split("=")[1]);
@@ -10,12 +17,12 @@ function updatePage(){
         $('#search_string').val(search_string);
         // unhide and run search on string
         $("#search-results").show();
-        searchCall("page_load");
+        searchCall("page_load",origin);
     }    
 }
 
 //grab search term(s), run box queries
-function searchFunc(type){
+function searchFunc(type,origin){    
        
    $("#reference").hide();
    $("#lib_hours").hide();
@@ -29,8 +36,16 @@ function searchFunc(type){
     search_string = search_string.replace(/é/g,"%E9");
     //search_string = search_string.replace(/:|\]|\[/g,'');
 
-    // set URL has to query string
-    window.location.href = ".#q="+encodeURIComponent(search_string); // for library.wayne
+
+
+    // set URL - redirect based on origin
+    if (local_load == true){
+        var redirect_path = ".#q="+encodeURIComponent(search_string);    
+    } 
+    else {
+        var redirect_path = "/quicksearch/#q="+encodeURIComponent(search_string);
+    }       
+    window.location.href = redirect_path; 
     window.location.hash = "#q="+encodeURIComponent(search_string);
 
     // push query to Piwik
@@ -59,9 +74,9 @@ function searchFunc(type){
 
 }
 
-function searchCall(type){
+function searchCall(type,origin){
     setTimeout(function(){
-        searchFunc(type);}, 250);
+        searchFunc(type,origin);}, 250);
 }
    
 
