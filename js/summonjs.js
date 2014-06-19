@@ -93,7 +93,7 @@ function summonjs_query(search_string){
             $("#summonjs .box_results").append("<hr>"); 
     
         }
-               $("#summonjs .box_results").append("<a href='http://wayne.summon.serialssolutions.com/#!/search?ho=t&fvf=ContentType,Journal Article,f&q="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");
+               $("#summonjs .box_results").append("<a href='http://wayne.summon.serialssolutions.com/#!/search?q="+search_string+"&ho=t&fvf=ContentType,Journal Article,f' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");
 
         }
 
