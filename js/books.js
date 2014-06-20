@@ -56,7 +56,7 @@ if (books_object.bookTotal === 1) {
           var hasMultipleHoldings = $.isArray(books_object.holdings_info[0].holding) ? true : false;
           var TypeofHoldingStatus = (hasMultipleHoldings) ? books_object.holdings_info[0].holding[0].publicNote : books_object.holdings_info[0].holding.publicNote;
           var holdingStatus = (isEmpty(TypeofHoldingStatus)) ? "" : TypeofHoldingStatus;
-          var stackviewLink = (books_object.MatType[0] == "PRINT" && books_object.lc[i] !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+books_object.lc[0]+"' target='_blank'> <b>See on Shelf</b> <i class='glyphicon glyphicon-share-alt'></i></a><br/>": " <br/>";
+          var stackviewLink = (books_object.MatType[0] == "PRINT" && books_object.lc[i] !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+books_object.lc[0]+"' target='_blank'> <b>See on Shelf</b> <span class='icon-forward'></span></a><br/>": " <br/>";
           var lc = (books_object.lc[i] == null) ? "" : "<br/>"+books_object.lc[i]+"";
           $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a>"+stackviewLink+holdingStatus+lc+"</p></div>");
   }
@@ -80,7 +80,7 @@ for (var i = 0; i < 2; i++) {
           var hasMultipleHoldings = $.isArray(books_object.holdings_info[i].holding) ? true : false;
           var TypeofHoldingStatus = (hasMultipleHoldings) ? books_object.holdings_info[i].holding[0].publicNote : books_object.holdings_info[i].holding.publicNote;
           var holdingStatus = (isEmpty(TypeofHoldingStatus)) ? "" : TypeofHoldingStatus;
-          var stackviewLink = (books_object.MatType[i] == "PRINT" && books_object.lc[i] !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+books_object.lc[i]+"' target='_blank'> <b>See on Shelf</b> <i class='glyphicon glyphicon-share-alt'></i></a><br/>": " <br/>";
+          var stackviewLink = (books_object.MatType[i] == "PRINT" && books_object.lc[i] !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+books_object.lc[i]+"' target='_blank'> <b>See on Shelf</b> <span class='icon-forward'></span></a><br/>": " <br/>";
           var lc = (books_object.lc[i] == null) ? "" : "<br/>"+books_object.lc[i]+"";
           $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a>"+stackviewLink+holdingStatus+lc+"</p></div>");
         }
@@ -103,7 +103,7 @@ for (var i = 0; i < 3; i++) {
           var hasMultipleHoldings = $.isArray(books_object.holdings_info[i].holding) ? true : false;
           var TypeofHoldingStatus = (hasMultipleHoldings) ? books_object.holdings_info[i].holding[0].publicNote : books_object.holdings_info[i].holding.publicNote;
           var holdingStatus = (isEmpty(TypeofHoldingStatus)) ? "" : TypeofHoldingStatus;
-          var stackviewLink = (books_object.MatType[i] == "PRINT" && books_object.lc[i] !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+books_object.lc[i]+"' target='_blank'> <b>See on Shelf</b> <i class='glyphicon glyphicon-share-alt'></i></a><br/>": " <br/>";
+          var stackviewLink = (books_object.MatType[i] == "PRINT" && books_object.lc[i] !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+books_object.lc[i]+"' target='_blank'> <b>See on Shelf</b> <span class='icon-forward'></span></a><br/>": " <br/>";
           var lc = (books_object.lc[i] == null) ? "" : "<br/>"+books_object.lc[i]+"";
           $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a>"+stackviewLink+holdingStatus+lc+"</p></div>");
          }
