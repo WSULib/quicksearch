@@ -1,4 +1,3 @@
 #that which shall be ignored
-sftp-config.json
-sftp*.*
 *.json
+sftp*

@@ -1,7 +1,6 @@
 function digi_collections_query(search_string){
 	dataObject = new Object();  	   	    
-    dataObject.q = search_string
-    console.log(dataObject.q);
+    dataObject.q = search_string    
     dataObject.start = "0";
     dataObject.rows = "3"; //returns only three results
     dataObject.wt = "json"; //sets response to JSON   
