@@ -26,7 +26,6 @@ function searchFunc(type,origin){
        
    $("#reference").hide();
    $("#lib_hours").hide();
-
    
     //get search string
     var search_string = $('#search_string').val();
@@ -35,8 +34,6 @@ function searchFunc(type,origin){
     search_string = search_string.replace(/'/g,"%27");  
     search_string = search_string.replace(/é/g,"%E9");
     //search_string = search_string.replace(/:|\]|\[/g,'');
-
-
 
     // set URL - redirect based on origin
     if (local_load == true){
@@ -51,8 +48,7 @@ function searchFunc(type,origin){
     // push query to Piwik
     if (type != "page_load"){
         Piwik.getAsyncTracker()['trackSiteSearch'](search_string);    
-    }
-    
+    }    
 
     //clear previous results
     $(".box_results").empty();

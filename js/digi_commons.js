@@ -15,7 +15,7 @@ function digi_commons_query(search_string){
     $(document).ready(function(){
       var digi_collections_request = $.ajax({
         type: "POST",
-        url: "http://digital.library.wayne.edu/WSUAPI-dev?",
+        url: "http://digital.library.wayne.edu/WSUAPI?",
         data: dataObject,
         dataType: "json",
         success: SolrSuccess,
@@ -25,7 +25,7 @@ function digi_commons_query(search_string){
 
 	function SolrSuccess(response){
 		console.log(response);
-		
+
         //clear previous results
         $("#digi_commons .box_results").empty();        
         // hides loading animation
