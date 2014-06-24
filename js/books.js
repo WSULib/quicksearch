@@ -53,13 +53,21 @@ if (books_object.bookTotal === 1) {
   else {
           var recNum = books_object.bibNum[0];
           var url = urlPrefix+recNum;
+
+          if (!typeof books_object.holdings_info.holding === 'undefined') {
           var hasMultipleHoldings = $.isArray(books_object.holdings_info[0].holding) ? true : false;
-          var TypeofHoldingStatus = (hasMultipleHoldings) ? books_object.holdings_info[0].holding[0].publicNote : books_object.holdings_info[0].holding.publicNote;
+          var TypeofHoldingStatus = (hasMultipleHoldings === true) ? books_object.holdings_info[0].holding[0].publicNote : books_object.holdings_info[0].holding.publicNote;
           var holdingStatus = (isEmpty(TypeofHoldingStatus)) ? "" : TypeofHoldingStatus;
           var stackviewLink = (books_object.MatType[0] == "PRINT" && books_object.lc[i] !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+books_object.lc[0]+"' target='_blank'> <b>See on Shelf</b> <span class='icon-forward'></span></a><br/>": " <br/>";
-          var lc = (books_object.lc[i] == null) ? "" : "<br/>"+books_object.lc[i]+"";
+          var lc = (books_object.lc[i] === null) ? "" : "<br/>"+books_object.lc[i]+"";
           $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a>"+stackviewLink+holdingStatus+lc+"</p></div>");
-  }
+          }
+          else {
+            var lc = (books_object.lc === null) ? "" : "<br/>"+books_object.lc+"";
+            $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p></div>");
+          }
+
+  } //else
   $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  
 
 }
@@ -77,14 +85,21 @@ for (var i = 0; i < 2; i++) {
       else {
           var recNum = books_object.bibNum[i];
           var url = urlPrefix+recNum;
-          var hasMultipleHoldings = $.isArray(books_object.holdings_info[i].holding) ? true : false;
-          var TypeofHoldingStatus = (hasMultipleHoldings) ? books_object.holdings_info[i].holding[0].publicNote : books_object.holdings_info[i].holding.publicNote;
-          var holdingStatus = (isEmpty(TypeofHoldingStatus)) ? "" : TypeofHoldingStatus;
-          var stackviewLink = (books_object.MatType[i] == "PRINT" && books_object.lc[i] !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+books_object.lc[i]+"' target='_blank'> <b>See on Shelf</b> <span class='icon-forward'></span></a><br/>": " <br/>";
-          var lc = (books_object.lc[i] == null) ? "" : "<br/>"+books_object.lc[i]+"";
-          $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a>"+stackviewLink+holdingStatus+lc+"</p></div>");
-        }
-      }
+          
+          if (!typeof books_object.holdings_info[i].holding === 'undefined') {
+            var hasMultipleHoldings = $.isArray(books_object.holdings_info[i].holding) ? true : false;
+            var TypeofHoldingStatus = (hasMultipleHoldings) ? books_object.holdings_info[i].holding[0].publicNote : books_object.holdings_info[i].holding.publicNote;
+            var holdingStatus = (isEmpty(TypeofHoldingStatus)) ? "" : TypeofHoldingStatus;
+            var stackviewLink = (books_object.MatType[i] == "PRINT" && books_object.lc[i] !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+books_object.lc[i]+"' target='_blank'> <b>See on Shelf</b> <span class='icon-forward'></span></a><br/>": " <br/>";
+            var lc = (books_object.lc[i] === null) ? "" : "<br/>"+books_object.lc[i]+"";
+            $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a>"+stackviewLink+holdingStatus+lc+"</p></div>");
+          }
+          else {
+            var lc = (books_object.lc[i] === null) ? "" : "<br/>"+books_object.lc[i]+"";
+            $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p></div>");
+          }
+          } //else        }
+      }  //for
         $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  
 
 }
@@ -97,17 +112,26 @@ for (var i = 0; i < 3; i++) {
         var url = "http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string;         
         $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p></div>");
         }
+
         else {
           var recNum = books_object.bibNum[i];
           var url = urlPrefix+recNum;
-          var hasMultipleHoldings = $.isArray(books_object.holdings_info[i].holding) ? true : false;
-          var TypeofHoldingStatus = (hasMultipleHoldings) ? books_object.holdings_info[i].holding[0].publicNote : books_object.holdings_info[i].holding.publicNote;
-          var holdingStatus = (isEmpty(TypeofHoldingStatus)) ? "" : TypeofHoldingStatus;
-          var stackviewLink = (books_object.MatType[i] == "PRINT" && books_object.lc[i] !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+books_object.lc[i]+"' target='_blank'> <b>See on Shelf</b> <span class='icon-forward'></span></a><br/>": " <br/>";
-          var lc = (books_object.lc[i] == null) ? "" : "<br/>"+books_object.lc[i]+"";
-          $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a>"+stackviewLink+holdingStatus+lc+"</p></div>");
-         }
-      }
+          
+          if (!typeof books_object.holdings_info[i].holding === 'undefined') {
+            var hasMultipleHoldings = $.isArray(books_object.holdings_info[i].holding) ? true : false;
+            var TypeofHoldingStatus = (hasMultipleHoldings) ? books_object.holdings_info[i].holding[0].publicNote : books_object.holdings_info[i].holding.publicNote;
+            var holdingStatus = (isEmpty(TypeofHoldingStatus)) ? "" : TypeofHoldingStatus;
+            var stackviewLink = (books_object.MatType[i] == "PRINT" && books_object.lc[i] !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+books_object.lc[i]+"' target='_blank'> <b>See on Shelf</b> <span class='icon-forward'></span></a><br/>": " <br/>";
+            var lc = (books_object.lc[i] === null) ? "" : "<br/>"+books_object.lc[i]+"";
+            $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a>"+stackviewLink+holdingStatus+lc+"</p></div>");
+          }
+          else {
+            var lc = (books_object.lc[i] === null) ? "" : "<br/>"+books_object.lc[i]+"";
+            $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a></p></div>");
+          }
+
+         } //else
+      } //for
         $("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  
     }
 }
