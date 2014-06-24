@@ -54,7 +54,7 @@ if (books_object.bookTotal === 1) {
           var recNum = books_object.bibNum[0];
           var url = urlPrefix+recNum;
 
-          if (!typeof books_object.holdings_info.holding === 'undefined') {
+          if (typeof books_object.holdings_info.holding !== 'undefined') {
           var hasMultipleHoldings = $.isArray(books_object.holdings_info[0].holding) ? true : false;
           var TypeofHoldingStatus = (hasMultipleHoldings === true) ? books_object.holdings_info[0].holding[0].publicNote : books_object.holdings_info[0].holding.publicNote;
           var holdingStatus = (isEmpty(TypeofHoldingStatus)) ? "" : TypeofHoldingStatus;
@@ -86,7 +86,7 @@ for (var i = 0; i < 2; i++) {
           var recNum = books_object.bibNum[i];
           var url = urlPrefix+recNum;
           
-          if (!typeof books_object.holdings_info[i].holding === 'undefined') {
+          if (typeof books_object.holdings_info[i].holding !== 'undefined') {
             var hasMultipleHoldings = $.isArray(books_object.holdings_info[i].holding) ? true : false;
             var TypeofHoldingStatus = (hasMultipleHoldings) ? books_object.holdings_info[i].holding[0].publicNote : books_object.holdings_info[i].holding.publicNote;
             var holdingStatus = (isEmpty(TypeofHoldingStatus)) ? "" : TypeofHoldingStatus;
@@ -117,7 +117,7 @@ for (var i = 0; i < 3; i++) {
           var recNum = books_object.bibNum[i];
           var url = urlPrefix+recNum;
           
-          if (!typeof books_object.holdings_info[i].holding === 'undefined') {
+          if (typeof books_object.holdings_info[i].holding !== 'undefined') {
             var hasMultipleHoldings = $.isArray(books_object.holdings_info[i].holding) ? true : false;
             var TypeofHoldingStatus = (hasMultipleHoldings) ? books_object.holdings_info[i].holding[0].publicNote : books_object.holdings_info[i].holding.publicNote;
             var holdingStatus = (isEmpty(TypeofHoldingStatus)) ? "" : TypeofHoldingStatus;
