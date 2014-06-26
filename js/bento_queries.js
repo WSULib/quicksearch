@@ -11,21 +11,30 @@ function updatePage(origin){
         var search_string = decodeURIComponent(window.location.hash.split("#")[1].split("=")[1]);
         // tidy up for search box
         search_string = search_string.replace(/%27/g,"'");
-        search_string = search_string.replace(/%E9/g,"é");
-
+        search_string = search_string.replace(/%E9/g,"é");  
         // set input box to query string
         $('#search_string').val(search_string);
-        // unhide and run search on string
-        $("#search-results").show();
-        searchCall("page_load",origin);
-    }    
+        // If cached results exist, and queries match, load
+        if (localStorage.getItem("qsCache") !== null && localStorage.getItem("qsQuery") == search_string) {                          
+          $("#main.container").html(localStorage.getItem("qsCache"));
+        }   
+        // else, perform search
+        else {        
+            // unhide and run search on string
+            $("#search-results").show();
+            searchCall("page_load",origin);
+        }
+    }            
 }
 
 //grab search term(s), run box queries
-function searchFunc(type,origin){    
+function searchFunc(type,origin){   
+
+    // blows away cached version
+    localStorage.clear();
        
-   $("#reference").hide();
-   $("#lib_hours").hide();
+    $("#reference").hide();
+    $("#lib_hours").hide();
    
     //get search string
     var search_string = $('#search_string').val();
@@ -53,8 +62,7 @@ function searchFunc(type,origin){
     //clear previous results
     $(".box_results").empty();
 
-    // turns on animation
-    // $(".box_loading_animation").fadeToggle();
+    // turns on animation    
     $(".box_loading_animation").show();
 
     //run box queries
@@ -87,3 +95,16 @@ $(document).ready(function(){
         }        
     });
 });
+
+
+// Cache results on click-out
+$(document).ready(function(){
+    // jquery "on" function binds actions to parent (e.g. document), but reacts to children (e.g. anchor tags)
+    $(document).on('click', $("#main .container a"), function(){            
+        var pageHTML = $("#main.container").html();
+        localStorage.setItem('qsCache',pageHTML);
+        localStorage.setItem('qsQuery',decodeURIComponent(window.location.hash.split("#")[1].split("=")[1]))        
+    });
+});
+
+
