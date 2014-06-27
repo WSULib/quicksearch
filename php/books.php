@@ -68,7 +68,7 @@ if ($data_type == "xml2json"){
 				$hasMultipleHoldings = isset($books["holdings_info"][$i]["holding"][0]["localLocation"]) ? true : false;
 				if ($hasMultipleHoldings === true) {
 
-					if ($books["holdings_info"][$i]["holding"][0]["localLocation"] == "Purdy-Kresge Library Juvenile Fiction" || $books["holdings_info"][$i]["holding"][0]["localLocation"] == "Purdy-Kresge Library Ramsey Collection" || $books["holdings_info"][$i]["holding"][0]["localLocation"] == "Purdy-Kresge Library Juvenile Biography") {
+					if ($books["holdings_info"][$i]["holding"][0]["localLocation"] == "Purdy-Kresge Library Juvenile Fiction" || $books["holdings_info"][$i]["holding"][0]["localLocation"] == "Purdy-Kresge Library Ramsey Collection" || $books["holdings_info"][$i]["holding"][0]["localLocation"] == "Purdy-Kresge Library Juvenile Biography" || $books["holdings_info"][$i]["holding"][0]["localLocation"] == "Law Library CIS Microform Collection") {
 						$books["lc"][$i] = null;
 						}
 					else {
@@ -76,7 +76,7 @@ if ($data_type == "xml2json"){
 						}
 				}
 				else {
-					if ($books["holdings_info"][$i]["holding"]["localLocation"] == "Purdy-Kresge Library Juvenile Fiction" || $books["holdings_info"][$i]["holding"]["localLocation"] == "Purdy-Kresge Library Ramsey Collection" || $books["holdings_info"][$i]["holding"]["localLocation"] == "Purdy-Kresge Library Juvenile Biography") {
+					if ($books["holdings_info"][$i]["holding"]["localLocation"] == "Purdy-Kresge Library Juvenile Fiction" || $books["holdings_info"][$i]["holding"]["localLocation"] == "Purdy-Kresge Library Ramsey Collection" || $books["holdings_info"][$i]["holding"]["localLocation"] == "Purdy-Kresge Library Juvenile Biography" || $books["holdings_info"][$i]["holding"]["localLocation"] == "Law Library CIS Microform Collection") {
 							$books["lc"][$i] = null;
 						}
 					else {
@@ -138,7 +138,7 @@ if ($data_type == "xml2json"){
 				$hasMultipleHoldings = isset($books["holdings_info"][$i]["holding"][0]["localLocation"]) ? true : false;
 				if ($hasMultipleHoldings === true) {
 
-					if ($books["holdings_info"][$i]["holding"][0]["localLocation"] == "Purdy-Kresge Library Juvenile Fiction" || $books["holdings_info"][$i]["holding"][0]["localLocation"] == "Purdy-Kresge Library Ramsey Collection" || $books["holdings_info"][$i]["holding"][0]["localLocation"] == "Purdy-Kresge Library Juvenile Biography") {
+					if ($books["holdings_info"][$i]["holding"][0]["localLocation"] == "Purdy-Kresge Library Juvenile Fiction" || $books["holdings_info"][$i]["holding"][0]["localLocation"] == "Purdy-Kresge Library Ramsey Collection" || $books["holdings_info"][$i]["holding"][0]["localLocation"] == "Purdy-Kresge Library Juvenile Biography" || $books["holdings_info"][$i]["holding"][0]["localLocation"] == "Law Library CIS Microform Collection") {
 						$books["lc"][$i] = null;
 						}
 					else {
@@ -146,7 +146,7 @@ if ($data_type == "xml2json"){
 						}
 				}
 				else {
-					if ($books["holdings_info"][$i]["holding"]["localLocation"] == "Purdy-Kresge Library Juvenile Fiction" || $books["holdings_info"][$i]["holding"]["localLocation"] == "Purdy-Kresge Library Ramsey Collection" || $books["holdings_info"][$i]["holding"]["localLocation"] == "Purdy-Kresge Library Juvenile Biography") {
+					if ($books["holdings_info"][$i]["holding"]["localLocation"] == "Purdy-Kresge Library Juvenile Fiction" || $books["holdings_info"][$i]["holding"]["localLocation"] == "Purdy-Kresge Library Ramsey Collection" || $books["holdings_info"][$i]["holding"]["localLocation"] == "Purdy-Kresge Library Juvenile Biography" || $books["holdings_info"][$i]["holding"]["localLocation"] == "Law Library CIS Microform Collection") {
 							$books["lc"][$i] = null;
 						}
 					else {
