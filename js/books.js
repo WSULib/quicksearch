@@ -54,12 +54,12 @@ if (books_object.bookTotal === 1) {
           var recNum = books_object.bibNum[0];
           var url = urlPrefix+recNum;
 
-          if (typeof books_object.holdings_info.holding !== 'undefined') {
+          if (typeof books_object.holdings_info[0].holding !== 'undefined') {
           var hasMultipleHoldings = $.isArray(books_object.holdings_info[0].holding) ? true : false;
           var TypeofHoldingStatus = (hasMultipleHoldings === true) ? books_object.holdings_info[0].holding[0].publicNote : books_object.holdings_info[0].holding.publicNote;
           var holdingStatus = (isEmpty(TypeofHoldingStatus)) ? "" : TypeofHoldingStatus;
-          var stackviewLink = (books_object.MatType[0] == "PRINT" && books_object.lc[i] !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+books_object.lc[0]+"' target='_blank'> <b>See on Shelf</b> <span class='icon-forward'></span></a><br/>": " <br/>";
-          var lc = (books_object.lc[i] === null) ? "" : "<br/>"+books_object.lc[i]+"";
+          var stackviewLink = (books_object.MatType[0] == "PRINT" && books_object.lc[0] !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+books_object.lc[0]+"' target='_blank'> <b>See on Shelf</b> <span class='icon-forward'></span></a><br/>": " <br/>";
+          var lc = (books_object.lc[0] === null) ? "" : "<br/>"+books_object.lc[0]+"";
           $("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+url+"'>"+title+"</a>"+stackviewLink+holdingStatus+lc+"</p></div>");
           }
           else {
