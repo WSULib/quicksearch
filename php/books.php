@@ -205,8 +205,17 @@ else {
         $result = utf8_encode($result);
         $xml = simplexml_load_string($result);
 
-        if ($xml->holdings == true) {
-        	return $xml->holdings;
+        if ($xml->holdings->holding == true) {
+        	if (count($xml->holdings->holding) == 1) {
+        		// return count($xml->holdings->holding);
+        		return array(
+        			"holding" => array
+        			(
+        				$xml->holdings->holding));
+        	}
+        	else {
+	        	return $xml->holdings;
+        	}
         }
         else {
         	$xml = '';
