@@ -1,7 +1,7 @@
 function digi_commons_query(search_string){
     
-    // "dc_subject:"+encoded_search_string+"^2+"+encoded_search_string;    
-
+    
+    // ajax attempt
     var dataObject = {};
     dataObject = new Object();  	   	    
     dataObject.q = search_string    
@@ -18,12 +18,14 @@ function digi_commons_query(search_string){
         url: "http://digital.library.wayne.edu/WSUAPI?",
         data: dataObject,
         dataType: "json",
-        success: SolrSuccess,
-        error: SolrError
+        success: digi_commons_success,
+        error: digi_commons_ajax_error
       });
     });
 
-	function SolrSuccess(response){
+    
+
+	function digi_commons_success(response){
 		console.log(response);
 
         //clear previous results
@@ -74,9 +76,36 @@ function digi_commons_query(search_string){
         
 	}
 
-	function SolrError(response){
-		console.log(response);
+	function digi_commons_ajax_error(response){		
+		// attempt PHP tunnel for when cross-domain ajax fails (< IE8)
+
+        // ajax with PHP tunnel 
+        var dataObject = {};
+        dataObject = new Object();              
+        dataObject.q = search_string    
+        dataObject.q = "dc_subject:"+search_string+"^2+"+encoded_search_string;
+        dataObject.start = "0";
+        dataObject.rows = "3"; //returns only three results
+        dataObject.wt = "json"; //sets response to JSON   
+        dataObject['solrCore'] = "DCOAI";
+        dataObject['function'] = "solrCoreGeneric";
+        dataObject['baseURL'] = "http://digital.library.wayne.edu/WSUAPI?";
+        
+        $(document).ready(function(){
+          $.ajax({
+            type: "POST",
+            url: "php/digital_library_tunnel.php",
+            data: dataObject,
+            dataType: "json",
+            success: digi_commons_success,
+            error: digi_commons_critical_error
+          });
+        });
 	}
+
+    function digi_commons_critical_error(){
+        console.log("Digital Collections Critical Error, fallback method unsuccessful.");
+    }
 	
 
 }
