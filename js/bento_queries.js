@@ -1,5 +1,18 @@
 var local_load = false;
 
+// determine localstorage capabilities
+function lsTest(){
+    var test = 'test';
+    try {
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return true;
+    } catch(e) {
+        return false;
+    }
+}
+
+
 function updatePage(origin){
     // trigger local_load when index.php is loaded
     if (origin == "local"){
@@ -13,13 +26,15 @@ function updatePage(origin){
         search_string = search_string.replace(/%27/g,"'");
         search_string = search_string.replace(/%E9/g,"é");  
         // set input box to query string
-        $('#search_string').val(search_string);
-        // If cached results exist, and queries match, load
-        if (localStorage.getItem("qsCache") !== null && localStorage.getItem("qsQuery") == search_string) {                          
-          $("#main.container").html(localStorage.getItem("qsCache"));
-        }   
+        $('#search_string').val(search_string);  
+
+        // if localStorage available AND cached results exist, queries match, load:                
+        if (lsTest() === true && localStorage.getItem("qsCache") !== null && localStorage.getItem("qsQuery") == search_string) {                          
+            $("#main.container").html(localStorage.getItem("qsCache"));                        
+        }
+
         // else, perform search
-        else {        
+        else {                    
             // unhide and run search on string
             $("#search-results").show();
             searchCall("page_load",origin);
@@ -31,7 +46,9 @@ function updatePage(origin){
 function searchFunc(type,origin){   
 
     // blows away cached version
-    localStorage.clear();
+    if(lsTest() === true){ 
+        localStorage.clear();
+    }
        
     $("#reference").hide();
     $("#lib_hours").hide();
@@ -81,8 +98,7 @@ function searchFunc(type,origin){
 function searchCall(type,origin){
     setTimeout(function(){
         searchFunc(type,origin);}, 250);
-}
-   
+}   
 
 //Utility to pull hrefs from links clicked and push to Piwik
 $(document).ready(function(){
@@ -97,14 +113,18 @@ $(document).ready(function(){
 });
 
 
-// Cache results on click-out
-$(document).ready(function(){
-    // jquery "on" function binds actions to parent (e.g. document), but reacts to children (e.g. anchor tags)
-    $(document).on('click', $("#main .container a"), function(){            
-        var pageHTML = $("#main.container").html();
-        localStorage.setItem('qsCache',pageHTML);
-        localStorage.setItem('qsQuery',decodeURIComponent(window.location.hash.split("#")[1].split("=")[1]))        
+// Cache results on click-out IF localStorage available
+if(lsTest() === true){
+    $(document).ready(function(){
+        // jquery "on" function binds actions to parent (e.g. document), but reacts to children (e.g. anchor tags)
+        $(document).on('click', $("#main .container a"), function(){                     
+            var pageHTML = $("#main.container").html();
+            localStorage.setItem('qsCache',pageHTML);
+            if (window.location.hash != ""){
+                localStorage.setItem('qsQuery',decodeURIComponent(window.location.hash.split("#")[1].split("=")[1]))                    
+            }
+        });
     });
-});
+}
 
 
