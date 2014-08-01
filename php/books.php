@@ -234,7 +234,15 @@ else {
     }
 
     else {
-        return "no results";
+        	$xml = '';
+        	return $xml = array (
+            "holding" => array
+                (
+                    0 => array
+                        (
+                            "status" => "no holdings records",
+                        	"publicNote" =>  "")
+                        ));
     	} 
 	yaz_close($session);
 		}
