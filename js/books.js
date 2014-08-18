@@ -45,10 +45,10 @@ for (var i = 0; i < books_object.bookTotal; i++) {
 							lc = "";
 						}
 						else {
-							lc = (books_object.holdings_info[i].holding[0].callNumber === null) ? "" : "<br/>"+books_object.holdings_info[i].holding[0].callNumber+"";
+							lc = (books_object.holdings_info[i].holding[0].callNumber === null) ? "" : books_object.holdings_info[i].holding[0].callNumber;
 						}
 						var stackviewLink = (books_object.MatType[i] == "PRINT" && books_object.holdings_info[i].holding[0].callNumber !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+lc+"' target='_blank'> <b>See on Shelf</b> <span class='icon-forward'></span></a><br/>": " <br/>";
-						$("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+book_url+"'>"+books_object.title[i]+"</a>"+stackviewLink+holdingStatus+lc+" <br/>"+location+"</p></div>");
+						$("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+book_url+"'>"+books_object.title[i]+"</a>"+stackviewLink+holdingStatus+"<br/>"+lc+" <br/>"+location+"</p></div>");
 					}
 					else {
 						$("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+book_url+"'>"+books_object.title[i]+"</a></p></div>");
