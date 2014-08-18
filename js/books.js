@@ -39,25 +39,27 @@ for (var i = 0; i < books_object.bookTotal; i++) {
 	
 					if (typeof books_object.holdings_info[i].holding[0] !== 'undefined') {
 						var holdingStatus = (isEmpty(books_object.holdings_info[i].holding[0].publicNote)) ? "" : books_object.holdings_info[i].holding[0].publicNote;
+						var location = books_object.holdings_info[i].holding[0].localLocation;
+						var lc = '';
 						if (!books_object.holdings_info[i].holding[0].callNumber) {
 							lc = "";
 						}
 						else {
-							var lc = (books_object.holdings_info[i].holding[0].callNumber === null) ? "" : "<br/>"+books_object.holdings_info[i].holding[0].callNumber+"";
+							lc = (books_object.holdings_info[i].holding[0].callNumber === null) ? "" : "<br/>"+books_object.holdings_info[i].holding[0].callNumber+"";
 						}
 						var stackviewLink = (books_object.MatType[i] == "PRINT" && books_object.holdings_info[i].holding[0].callNumber !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+lc+"' target='_blank'> <b>See on Shelf</b> <span class='icon-forward'></span></a><br/>": " <br/>";
-						$("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+book_url+"'>"+books_object.title[i]+"</a>"+stackviewLink+holdingStatus+lc+"</p></div>");
+						$("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+book_url+"'>"+books_object.title[i]+"</a>"+stackviewLink+holdingStatus+lc+" <br/>"+location+"</p></div>");
 					}
 					else {
 						$("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+book_url+"'>"+books_object.title[i]+"</a></p></div>");
 					}
 			}  //for
-				$("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");  
+				$("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");
 
 }
 //If no results, then display no results found
-			if (books_object.bookTotal === 0) {  
-					$("#books .box_results").append("<span class=\"no-res\">No material results were found.  Please try another search in the <a href='http://elibrary.wayne.edu'>Catalog</a></span>");    
+			if (books_object.bookTotal === 0) {
+					$("#books .box_results").append("<span class=\"no-res\">No material results were found.  Please try another search in the <a href='http://elibrary.wayne.edu'>Catalog</a></span>");
 			}
 }
 
