@@ -34,17 +34,18 @@ if (books_object.bookTotal !== 0) {
 	count = books_object.bookTotalComplete;
 
 for (var i = 0; i < books_object.bookTotal; i++) {
+			var book_title = books_object.title[i];
 			var book_url = makeLink(books_object, i);
 	
 					if (typeof books_object.holdings_info[i].holding[0] !== 'undefined') {
 						var holdingStatus = (isEmpty(books_object.holdings_info[i].holding[0].publicNote)) ? "" : books_object.holdings_info[i].holding[0].publicNote;
-						if (!books_object.lc) {
+						if (!books_object.holdings_info[i].holding[0].callNumber) {
 							lc = "";
 						}
 						else {
-							var lc = (books_object.lc[i] === null) ? "" : "<br/>"+books_object.lc[i]+"";
+							var lc = (books_object.holdings_info[i].holding[0].callNumber === null) ? "" : "<br/>"+books_object.holdings_info[i].holding[0].callNumber+"";
 						}
-						var stackviewLink = (books_object.MatType[i] == "PRINT" && books_object.lc[i] !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+books_object.lc[i]+"' target='_blank'> <b>See on Shelf</b> <span class='icon-forward'></span></a><br/>": " <br/>";
+						var stackviewLink = (books_object.MatType[i] == "PRINT" && books_object.holdings_info[i].holding[0].callNumber !== null) ? "<a href='http://www.lib.wayne.edu/resources/stackview/?q="+lc+"' target='_blank'> <b>See on Shelf</b> <span class='icon-forward'></span></a><br/>": " <br/>";
 						$("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+book_url+"'>"+books_object.title[i]+"</a>"+stackviewLink+holdingStatus+lc+"</p></div>");
 					}
 					else {
