@@ -39,7 +39,7 @@ for (var i = 0; i < books_object.bookTotal; i++) {
 	
 					if (typeof books_object.holdings_info[i].holding[0] !== 'undefined') {
 						var holdingStatus = (isEmpty(books_object.holdings_info[i].holding[0].publicNote)) ? "" : books_object.holdings_info[i].holding[0].publicNote;
-						var location = books_object.holdings_info[i].holding[0].localLocation;
+						var location = (isEmpty(books_object.holdings_info[i].holding[0].localLocation)) ? "" : books_object.holdings_info[i].holding[0].localLocation;
 						var lc = '';
 						if (!books_object.holdings_info[i].holding[0].callNumber) {
 							lc = "";
@@ -59,7 +59,7 @@ for (var i = 0; i < books_object.bookTotal; i++) {
 }
 //If no results, then display no results found
 			if (books_object.bookTotal === 0) {
-					$("#books .box_results").append("<span class=\"no-res\">No material results were found.  Please try another search in the <a href='http://elibrary.wayne.edu'>Catalog</a></span>");
+					$("#books .box_results").append("<span class=\"no-res\">No material results were found.  Please try another search in the <a href='http://elibrary.wayne.edu'>Catalog</a> or search <a href='http://wild.worldcat.org/search?q="+search_string+"&qt=results_page&dblist=638' target='_blank'>Worldcat<a/> or <a href='http://elibrary.mel.org/search/a?searchtype=X&searcharg="+search_string+"&SORT=D' target='_blank'>MeLCat</a></span>");
 			}
 }
 
