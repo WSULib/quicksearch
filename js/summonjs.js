@@ -55,8 +55,8 @@ function summonjs_query(search_string){
                 url = summonjs_object.documents[i].link;
                $("#summonjs .box_results").append("<p class='summonjs-title'><a href='"+url+"'>"+title+"</a></p>");
             if (summonjs_object.documents[i].Author != undefined)  {
-                author = summonjs_object.documents[i].Author[0];
-               $("#summonjs .box_results").append("Authors: "+author+"</br>");
+                summon_author = summonjs_object.documents[i].Author_xml[0].fullname;
+               $("#summonjs .box_results").append("Authors: "+summon_author+"</br>");
                 }
             if (summonjs_object.documents[i].PublicationDate_xml[0] != undefined)  {
                 $("#summonjs .box_results").append("Date: "); 
@@ -93,8 +93,12 @@ function summonjs_query(search_string){
             $("#summonjs .box_results").append("<hr>"); 
     
         }
-               $("#summonjs .box_results").append("<a href='http://wayne.summon.serialssolutions.com/#!/search?q="+search_string+"&ho=t&fvf=ContentType,Journal Article,f' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");
+        	   // old style
+               // $("#summonjs .box_results").append("<a href='http://wayne.summon.serialssolutions.com/#!/search?q="+search_string+"&ho=t&fvf=ContentType,Journal%20Article,f' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");
 
+        	   // new style (10/28/2014)
+        	   var search_string_encoded = encodeURI(search_string);
+               $("#summonjs .box_results").append("<a href='http://wayne.summon.serialssolutions.com/#!/search?q="+search_string_encoded+"&ho=t&fvf=ContentType,Journal%20Article,f' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");        	   
         }
 
         //reference box

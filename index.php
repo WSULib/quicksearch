@@ -1,21 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <!-- Piwik -->  
-  <script type="text/javascript">
-    var _paq = _paq || [];
-    _paq.push(["trackPageView"]);
-    _paq.push(["enableLinkTracking"]);
-
-    (function() {
-      var u=(("https:" == document.location.protocol) ? "https" : "http") + "://cgi.lib.wayne.edu/stats/piwik/";
-      _paq.push(["setTrackerUrl", u+"piwik.php"]);
-      _paq.push(["setSiteId", "16"]);
-      var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-      g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
-    })();
-  </script>
-  <!-- End Piwik Code -->
+<head>  
   <?php include_once($_SERVER['DOCUMENT_ROOT'].'inc/varset.php'); ?>
   <meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +9,8 @@
   <meta name="author" content="libwebmaster@wayne.edu" />
   <meta name="Copyright" content="Copyright (c) <?php echo(date('Y')); ?> Wayne State University" />
 
-  <link rel="icon" href="/inc/img/favicon.ico" type="image/x-icon" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="icon" href="/inc/img/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="/ico/style.css">
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/pattern-lib/css/style.css">
@@ -67,8 +53,6 @@
 
     <!--jquery cookie-->
     <script src="js/jquery.cookie.js"></script>
-    <script src="js/jquery.ba-replacetext.min.js"></script>
-
 
     <!--load bootstrap js   
     <script src="..inc/bootstrap/js/bootstrap.js"></script>-->
@@ -77,18 +61,18 @@
 
     <script src="/pattern-lib/js/enquire.min.js"></script>
 
-<script type='text/javascript'>
-$(window).load(function(){
-$(function(){   
-        
-    $("#submit").click(function(){
-        $('#search-results').show();
-    });  
-    
-    
-});
-});
-</script>
+  <script type='text/javascript'>
+  $(window).load(function(){
+  $(function(){   
+          
+      $("#submit").click(function(){
+          $('#search-results').show();
+      });  
+      
+      
+  });
+  });
+  </script>
 
   <title>Wayne State University Libraries</title>
 
@@ -236,6 +220,21 @@ $(function(){
    
 </body>
 <!--load main JS at bottom, overrides load from /inc/header.php for dev-->
+<!-- Piwik -->  
+  <script type="text/javascript">
+    var _paq = _paq || [];
+    _paq.push(["trackPageView"]);
+    _paq.push(["enableLinkTracking"]);
+
+    (function() {
+      var u=(("https:" == document.location.protocol) ? "https" : "http") + "://cgi.lib.wayne.edu/stats/piwik/";
+      _paq.push(["setTrackerUrl", u+"piwik.php"]);
+      _paq.push(["setSiteId", "16"]);
+      var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+      g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <!-- End Piwik Code -->
 <script type="text/javascript" src="js/bento_queries.js"></script>
 <script type="text/javascript">
     updatePage("local");

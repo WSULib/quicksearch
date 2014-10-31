@@ -1,7 +1,7 @@
 function digi_commons_query(search_string){
     
     
-    // ajax attempt
+	// ajax attempt
     var dataObject = {};
     dataObject = new Object();  	   	    
     dataObject.q = search_string    
@@ -15,7 +15,7 @@ function digi_commons_query(search_string){
     $(document).ready(function(){
       var digi_collections_request = $.ajax({
         type: "POST",
-        url: "http://digital.library.wayne.edu/WSUAPI?",
+        url: "http://digital.library.wayne.edu/WSUAPI",
         data: dataObject,
         dataType: "json",
         success: digi_commons_success,
@@ -25,8 +25,7 @@ function digi_commons_query(search_string){
 
     
 
-	function digi_commons_success(response){
-		console.log(response);
+	function digi_commons_success(response){		
 
         //clear previous results
         $("#digi_commons .box_results").empty();        

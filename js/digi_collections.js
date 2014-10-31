@@ -1,9 +1,9 @@
 function digi_collections_query(search_string){
 	
-    // ajax attempt
-    dataObject = new Object();  	   	    
-    dataObject.q = search_string
-    dataObject.start = "0";
+	  // ajax attempt
+  	dataObject = new Object();  	   	    
+   	dataObject.q = search_string
+  	dataObject.start = "0";
     dataObject.rows = "3"; //returns only three results
     dataObject.wt = "json"; //sets response to JSON   
     dataObject['functions[]'] = "solrSearch";
@@ -80,8 +80,8 @@ function digi_collections_query(search_string){
       });
     }
 
-    function digi_collections_critical_error(){
-	console.log("Digital Collections Critical Error, fallback method unsuccessful.");
-    }
+	function digi_collections_critical_error(){
+		console.log("Digital Collections Critical Error, fallback method unsuccessful.");
+	}
 
 }

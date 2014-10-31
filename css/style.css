@@ -10,6 +10,9 @@ p a {
 	border-bottom: none;
 }
 
+.wsu-logo {
+        max-width: 260px; }
+
 #reference {
 display: none;
 }
@@ -575,6 +578,11 @@ input[class=input-large] {
 }
 }
 
+@media (max-width: 896px) {
+.wsu-logo {
+	max-width: 100%; }
+
+}
 @media (min-width: 768px) and (max-width: 896px) {
 h4 {
 	font-size: 14px;
@@ -634,6 +642,8 @@ input[class=input-large] {
 }
 
 @media (min-width: 1200px) {
+.bento-search {
+        float: right; }
 
 input[class=input-large] {
   width: 985px;   
@@ -655,4 +665,14 @@ input[class=input-large] {
 }
 .navbar-right>li>a{
 	color: #fff;
+}
+
+@media (min-width: 1530px) {
+.bento-search {
+        min-width: 80%; }
+}
+
+@media (min-width: 1920px) {
+.bento-search  {
+	min-width: 83%; }
 }

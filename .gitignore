@@ -1,3 +1,4 @@
 #that which shall be ignored
 *.json
-sftp*
+sftp*.*
+*.sh

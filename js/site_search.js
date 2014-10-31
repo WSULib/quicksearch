@@ -6,7 +6,7 @@ function site_search_query(search_string){
     // create POST data object
     dataObject = new Object();
     dataObject.data_type = "html";
-    dataObject.search_string = encoded_search_string;
+    dataObject.search_string = encoded_search_string;    
     // console.log("site search string: ",encoded_search_string);
 
     //returns dirty json
@@ -14,7 +14,7 @@ function site_search_query(search_string){
       $.ajax({
         type: "POST",
         url: "php/site_search.php",
-        dataType: "json", //with no callback
+        dataType: "json", 
         data: dataObject,
         success: site_searchSuccess,
         error: site_searchError

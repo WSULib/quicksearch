@@ -8,9 +8,9 @@ $liburl = "";
 <header class="header" role="banner">
   <div class="container">
     <div class="col-md-3 wsu-logo">
-      <a href="/"><img src="/pattern-lib/images/green_gold.png" class="logo" alt="Wayne State University" /></a>
+    <a href="http://wayne.edu"><img src="/pattern-lib/images/green_gold_wayne_left.png" class="logo wayne-left" alt="Wayne State University" /></a><a href="/"><img src="/pattern-lib/images/green_gold_lib_right.png" class="logo lib-right" alt="Wayne State University Libraries" /></a>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9 bento-search">
       <form action="#" onsubmit="searchCall(); return false;" class="inline-form search-form">
         <fieldset>
           <legend class="is-vishidden">Search</legend>

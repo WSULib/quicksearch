@@ -104,7 +104,8 @@ function searchCall(type,origin){
 $(document).ready(function(){
     // jquery "on" function binds actions to parent (e.g. document), but reacts to children (e.g. anchor tags)
     $(document).on('click', $("a"), function(event){            
-        var resourceURL = event.target.href;
+        var resourceURL = event.target.href;      
+        // console.log("firing");  
         // push to Piwik
         if (resourceURL != undefined){
             Piwik.getAsyncTracker()['trackLink'](resourceURL,'link');    
