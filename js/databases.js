@@ -50,7 +50,7 @@ function databases_query(search_string){
 		}
 
 		else{
-			$("#databases .box_results").append("<div id='no_results' class='db_result'><p>No Database results were found. Please try another search in the <a href='http://library.wayne.edu/resources/databases/#q="+search_string+"'>Databases Listing</a></p></div>");
+			$("#databases .box_results").append("<div id='no_results' class='db_result'><p>No Database results were found. Please try another search in <a href='http://library.wayne.edu/resources/databases/#q="+search_string+"'>Databases</a></p></div>");
 		}
 			
 		// hides loading animation
