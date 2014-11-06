@@ -4,7 +4,7 @@ include_once 'htmlParser/simple_html_dom.php';
 //Get Variables
 // $URL = 'http://elibrary.wayne.edu/xmlopac/X';
 // $data_type = 'xml2json';
-// $searchTerm = 'cell';
+// $searchTerm = 'the hobbit';
 // $search = 'house'.'?noexclude=WXROOT.Heading.Title.IIIRECORD';
 
 $URL = $_POST['encodedURL'];
@@ -48,7 +48,6 @@ if ($data_type == "xml2json"){
 		$books["bookTotal"] = (int)$bookTotal;
 		$books["bookTotalComplete"] = (int)$resultCount[0][0];
 
-
 	// NOW Scrape catalog pages using bibNumbers
 
 	foreach ($books['bibNum'] as $key => $value) {
@@ -64,12 +63,25 @@ if ($data_type == "xml2json"){
 		else {
 			$title = $html->find(".bibInfoData", 1);
 			$title = $title->plaintext;
-			$info = $html->find(".bibItemsEntry", 0);
-			$location = trim(str_replace("&nbsp;", '', $info->children(0)->plaintext));
-			$lc = trim(str_replace("&nbsp;", '', $info->children(1)->plaintext));
-			$status = trim(str_replace("&nbsp;", '', $info->children(2)->plaintext));
+
+			$checker = $html->find(".bibItemsHeader", 0);
+			if (empty($checker)) {
+				$location = null;
+				$lc = null;
+				$status = null;				
+			}
+			else {
+				$info = $html->find(".bibItemsEntry", 0);
+				$location = $info->children(0);
+				$location = trim(str_replace("&nbsp;", '', $info->children(0)->plaintext));
+				$lc = trim(str_replace("&nbsp;", '', $info->children(1)->plaintext));
+				$status = trim(str_replace("&nbsp;", '', $info->children(2)->plaintext));
+			}
 
 			if ($location == "Purdy-Kresge Library Juvenile Fiction" || $location == "Purdy-Kresge Library Ramsey Collection" || $location == "Purdy-Kresge Library Juvenile Biography" || $location == "Law Library CIS Microform Collection") {
+				$showStackView = "no";
+			}
+			elseif ($lc == null) {
 				$showStackView = "no";
 			}
 			else {
@@ -82,6 +94,10 @@ if ($data_type == "xml2json"){
 		$books['status'][$key] = $status;
 		$books['showStackView'][$key] = $showStackView;
 	}
+
+	// Memory management
+	$html->clear(); 
+	unset($html);
 
 		//convert and encode in json
 		$json_response = json_encode($books);
