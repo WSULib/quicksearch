@@ -43,7 +43,7 @@ function digi_collections_query(search_string){
 
 	            // append to DOM
 	            $("#digi_collections .box_results").append("<div id='digiCollections_"+i+"' class='indiv-result'></div>");
-	            $("#digiCollections_"+i).append("<div class='dc-img'><a href='http://digital.library.wayne.edu/digitalcollections/item?id="+PID+"'><img class='mime_icon' src='http://digital.library.wayne.edu/fedora/objects/"+PID+"/datastreams/THUMBNAIL/content' /></a></div>");
+	            $("#digiCollections_"+i).append("<div class='dc-img'><a href='http://digital.library.wayne.edu/digitalcollections/item?id="+PID+"'><img class='mime_icon' src='http://digital.library.wayne.edu/imageServer?obj="+PID+"&ds=THUMBNAIL' /></a></div>");
 	            $("#digiCollections_"+i).append("<a class='title' href='http://digital.library.wayne.edu/digitalcollections/item?id="+PID+"'>"+title+" ["+type+"]</a>");            
 	        }
 
