@@ -5,6 +5,8 @@ include_once 'htmlParser/simple_html_dom.php';
 // $URL = 'http://elibrary.wayne.edu/xmlopac/X';
 // $data_type = 'xml2json';
 // $searchTerm = 'the hobbit';
+// $searchTerm = 'google scholar';
+// $searchTerm = 'jstor';
 // $search = 'house'.'?noexclude=WXROOT.Heading.Title.IIIRECORD';
 
 $URL = $_POST['encodedURL'];
@@ -61,8 +63,14 @@ if ($data_type == "xml2json"){
 			$showStackView = "no";
 		}
 		else {
-			$title = $html->find(".bibInfoData", 1);
-			$title = $title->plaintext;
+				$titleCheck = $html->find("table td[class=bibInfoLabel]");
+				foreach ($titleCheck as $titleKey=>$titleValue) {
+					if ($titleValue->plaintext == "Title") {
+						$titleText = $html->find(".bibInfoData", $titleKey);
+						$titleText = $titleText->plaintext;
+						$title = $titleText;
+					}
+				}
 
 			$checker = $html->find(".bibItemsHeader", 0);
 			if (empty($checker)) {
