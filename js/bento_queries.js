@@ -1,4 +1,5 @@
 var local_load = false;
+var search_string_global = false;
 
 // determine localstorage capabilities
 function lsTest(){
@@ -25,12 +26,20 @@ function updatePage(origin){
         // tidy up for search box
         search_string = search_string.replace(/%27/g,"'");
         search_string = search_string.replace(/%E9/g,"é");  
+        // set to global variable
+        search_string_global = search_string
         // set input box to query string
         $('#search_string').val(search_string);  
 
         // if localStorage available AND cached results exist, queries match, load:                
         if (lsTest() === true && localStorage.getItem("qsCache") !== null && localStorage.getItem("qsQuery") == search_string) {                          
-            $("#main.container").html(localStorage.getItem("qsCache"));                        
+            $("#main.container").html(localStorage.getItem("qsCache"));    
+
+            // holdings checkbox     
+            if (localStorage.getItem('holdings') == "false"){
+                $("#holdings_checkbox").prop("checked",true);
+            }        
+            
         }
 
         // else, perform search
@@ -41,6 +50,7 @@ function updatePage(origin){
         }
     }            
 }
+
 
 //grab search term(s), run box queries
 function searchFunc(type,origin){   
@@ -60,6 +70,9 @@ function searchFunc(type,origin){
     search_string = search_string.replace(/'/g,"%27");  
     search_string = search_string.replace(/é/g,"%E9");
     //search_string = search_string.replace(/:|\]|\[/g,'');
+
+    // set to global variable
+    search_string_global = search_string
 
     // set URL - redirect based on origin
     if (local_load == true){
@@ -124,6 +137,14 @@ if(lsTest() === true){
             if (window.location.hash != ""){
                 localStorage.setItem('qsQuery',decodeURIComponent(window.location.hash.split("#")[1].split("=")[1]))                    
             }
+            // save holdings selection
+            if ($("#holdings_checkbox:checked").length > 0){
+                var holdings = false;
+            }
+            else {
+                var holdings = true;
+            }
+            localStorage.setItem('holdings',holdings);
         });
     });
 }
