@@ -55,7 +55,7 @@ function Success (response){
 	}
 	//If no results, then display no results found
 	if (books_object.bookTotal === 0) {
-			$("#books .box_results").append("<span class=\"no-res\">No material results were found.  Please try another search in the <a href='http://elibrary.wayne.edu'>Catalog</a> or search <a href='http://wild.worldcat.org/search?q="+search_string+"&qt=results_page&dblist=638' target='_blank'>WorldCat<a/> or <a href='http://elibrary.mel.org/search/a?searchtype=X&searcharg="+search_string+"&SORT=D' target='_blank'>MeLCat</a></span>");
+			$("#books .box_results").append("<span class=\"no-res\">No material results were found.  Please try another search in the <a href='http://elibrary.wayne.edu'>Catalog</a> or search <a href='http://wild.on.worldcat.org/search?queryString="+search_string+"&qt=results_page&dblist=638' target='_blank'>WorldCat<a/> or <a href='http://elibrary.mel.org/search/a?searchtype=X&searcharg="+search_string+"&SORT=D' target='_blank'>MeLCat</a></span>");
 	}
 }
 
@@ -64,7 +64,7 @@ function Error (response){
 		$("#books .box_results").empty();
 		// hides loading animation
 		$("#books .box_loading_animation").hide();
-		$("#books .box_results").append("<span class=\"no-res\">No material results were found.  Please try another search in the <a href='http://elibrary.wayne.edu'>Catalog</a> or search <a href='http://wild.worldcat.org/search?q="+search_string+"&qt=results_page&dblist=638' target='_blank'>WorldCat<a/> or <a href='http://elibrary.mel.org/search/a?searchtype=X&searcharg="+search_string+"&SORT=D' target='_blank'>MeLCat</a></span>");
+		$("#books .box_results").append("<span class=\"no-res\">No material results were found.  Please try another search in the <a href='http://elibrary.wayne.edu'>Catalog</a> or search <a href='http://wild.on.worldcat.org/search?queryString="+search_string+"&qt=results_page&dblist=638' target='_blank'>WorldCat<a/> or <a href='http://elibrary.mel.org/search/a?searchtype=X&searcharg="+search_string+"&SORT=D' target='_blank'>MeLCat</a></span>");
 		}
 
 }
