@@ -25,6 +25,7 @@ function site_search_query(search_string){
         //clear previous results
         $("#site_search .box_results").empty();    
 
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//scoop json from results - where callback
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,6 +52,12 @@ function site_search_query(search_string){
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         var site_searchJSON = response;
 
+        // fallback to error message
+        if (site_searchJSON.responseStatus == 403){
+        	site_searchError(403);
+        }
+
+
         if (site_searchJSON.responseData.results.length === 0){
             $("#site_search .box_results").append("<div id='no_results' class='db_result'><p>No results found.</p></div>");
         }        
@@ -74,7 +81,9 @@ function site_search_query(search_string){
 	}
 
 	function site_searchError(response){
-		$("#site_search .box_results").append("<p>Results are working somewhat, but need to double-check okay to use wayne.edu Google API search.</p>");	
+		//turns off animation
+        $("#site_search .box_loading_animation").hide();   
+		$("#site_search .box_results").append("<p>Site Search is temporarily unavailable.</p>");
 	}
 	
 
