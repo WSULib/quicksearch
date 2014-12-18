@@ -39,7 +39,7 @@ function site_search_query(search_string){
             for (var i = 0; i < site_searchJSON.results.length && i < 3; ++i){            
                 $("#site_search .box_results").append("<div id='siteSearch_"+i+"' class='result_div indiv-result'></div>");
                 // with content snippet
-                $("#siteSearch_"+i).append("<p class='title'><a href='"+decodeURIComponent(site_searchJSON.results[i].url)+"'>"+site_searchJSON.results[i].title+"</a><br><span><em>"+site_searchJSON.results[i].content+"</em></span></p>");
+                $("#siteSearch_"+i).append("<p class='title'><a href='"+decodeURIComponent(site_searchJSON.results[i].url)+"'>"+site_searchJSON.results[i].title+"</a><br><span style='font-size:85%;'><em>"+site_searchJSON.results[i].content+"</em></span></p>");
             	// without content snippet
                 // $("#siteSearch_"+i).append("<p class='title'><a href='"+decodeURIComponent(site_searchJSON.results[i].url)+"'>"+site_searchJSON.results[i].title+"</a></p>");           
                 
