@@ -25,6 +25,8 @@ function updatePage(origin){
         // tidy up for search box
         search_string = search_string.replace(/%27/g,"'");
         search_string = search_string.replace(/%E9/g,"é");  
+        // set to global variable
+        search_string_global = search_string;
         // set input box to query string
         $('#search_string').val(search_string);  
 
@@ -60,6 +62,9 @@ function searchFunc(type,origin){
     search_string = search_string.replace(/'/g,"%27");  
     search_string = search_string.replace(/é/g,"%E9");
     //search_string = search_string.replace(/:|\]|\[/g,'');
+
+    // set to global variable
+    search_string_global = search_string
 
     // set URL - redirect based on origin
     /* 
