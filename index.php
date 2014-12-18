@@ -3,7 +3,7 @@
 <head>  
   <?php include_once($_SERVER['DOCUMENT_ROOT'].'inc/varset.php'); ?>
   <meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="keywords" content="Wayne State University, WSU, Library System, Libraries" />
   <meta name="description" content="The online resources and services of the Wayne State University Libraries" />
   <meta name="author" content="libwebmaster@wayne.edu" />
