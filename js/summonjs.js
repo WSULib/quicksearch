@@ -1,55 +1,31 @@
 var summonjs_object = null;
-var summonData = null;
 
-
-// simple function to update summonjs_query when holdings box checked
-function update_summonjs_query(){
-	//clear previous results
-    $("#summonjs .box_results").empty();
-    // hides loading animation
-    $("#summonjs .box_loading_animation").show(); 
-	// used saved search term for update search
-	summonjs_query(search_string_global);
-	$(".summon_still_missing").slideToggle();
-}
 
 function summonjs_query(search_string){
 
-	/*
-	Function expects a secondary parameter "holdings", as determined by checkbox on index.php
-	This true / false is propogated to the summon query, returning items ONLY in holdings, or all of summon
-	*/
 
-	// determine holdings status, re-check box if previously set
-	if ($("#holdings_checkbox:checked").length > 0){
-		var holdings = false;
-	}
-	else {
-		var holdings = true;
-	}
-	
-    // create POST json data sting.
-    summonData =  {
-	    terms: search_string,
-	    holdings: holdings
-    };
-    summonData = JSON.stringify(summonData);
 
+    // create POST data object
+
+    dataObject.search_string = search_string;    
+   
     //returns dirty json
     $(document).ready(function(){
       $.ajax({
         type: "POST",
         url: "php/summonjs.php",
         dataType: "json", 
-        data: {myJson: summonData},
+        data: dataObject,
         success: summonjs_Success,
         error: summonjs_Error
       });
     });
 
     function summonjs_Success(response){
+      //  console.log(response);
         //clear previous results
         $("#summonjs .box_results").empty();
+        // console.log(response);
         // hides loading animation
         $("#summonjs .box_loading_animation").hide();              
         summonjs_object = response;
@@ -79,8 +55,8 @@ function summonjs_query(search_string){
                 url = summonjs_object.documents[i].link;
                $("#summonjs .box_results").append("<p class='summonjs-title'><a href='"+url+"'>"+title+"</a></p>");
             if (summonjs_object.documents[i].Author != undefined)  {
-                author = summonjs_object.documents[i].Author[0];
-               $("#summonjs .box_results").append("Authors: "+author+"</br>");
+                summon_author = summonjs_object.documents[i].Author_xml[0].fullname;
+               $("#summonjs .box_results").append("Authors: "+summon_author+"</br>");
                 }
             if (summonjs_object.documents[i].PublicationDate_xml[0] != undefined)  {
                 $("#summonjs .box_results").append("Date: "); 
@@ -117,9 +93,12 @@ function summonjs_query(search_string){
             $("#summonjs .box_results").append("<hr>"); 
     
         }
-               var search_string_encoded = encodeURI(search_string);
-               $("#summonjs .box_results").append("<a href='http://wayne.summon.serialssolutions.com/#!/search?q="+search_string_encoded+"&ho=t&fvf=ContentType,Journal Article,f' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");
+        	   // old style
+               // $("#summonjs .box_results").append("<a href='http://wayne.summon.serialssolutions.com/#!/search?q="+search_string+"&ho=t&fvf=ContentType,Journal%20Article,f' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");
 
+        	   // new style (10/28/2014)
+        	   var search_string_encoded = encodeURI(search_string);
+               $("#summonjs .box_results").append("<a href='http://wayne.summon.serialssolutions.com/#!/search?q="+search_string_encoded+"&ho=t&fvf=ContentType,Journal%20Article,f' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");        	   
         }
 
         //reference box
@@ -130,6 +109,13 @@ function summonjs_query(search_string){
           $("#reference .box_results").append("</p><hr><a href='"+summonjs_object.topicRecommendations[0].sourceLink+"''><em>Read more about "+search_string+"...</em></a>");
           $("#reference").show();
         }
+
+        // else {
+        // 	$('#reference').hide()
+        // 	// alert("stuff");
+        // }
+
+
 
     }
 

@@ -548,27 +548,14 @@ input[class=input-large] {
 #searchForm {
 	padding: 0;
 }
-
 .ribbon-wrapper-green {
 	display: none;
 }
-
 #search-results,
 .col-md-6 {
 	padding: 0;
 }
 }
-
-.summon_expand {
-	padding:10px 0px 0px 0px;
-}
-
-.summon_still_missing {
-	display:none;
-}
-
-
-/* Media Queries */
 
 @media (min-width: 600px) and (max-width: 767px) {
 input[class=input-large] {
