@@ -1,21 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <!-- Piwik -->  
-  <script type="text/javascript">
-    var _paq = _paq || [];
-    _paq.push(["trackPageView"]);
-    _paq.push(["enableLinkTracking"]);
-
-    (function() {
-      var u=(("https:" == document.location.protocol) ? "https" : "http") + "://cgi.lib.wayne.edu/stats/piwik/";
-      _paq.push(["setTrackerUrl", u+"piwik.php"]);
-      _paq.push(["setSiteId", "16"]);
-      var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-      g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
-    })();
-  </script>
-  <!-- End Piwik Code -->
+<head>  
   <?php include_once($_SERVER['DOCUMENT_ROOT'].'inc/varset.php'); ?>
   <meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,8 +53,6 @@
 
     <!--jquery cookie-->
     <script src="js/jquery.cookie.js"></script>
-    <script src="js/jquery.ba-replacetext.min.js"></script>
-
 
     <!--load bootstrap js   
     <script src="..inc/bootstrap/js/bootstrap.js"></script>-->
@@ -78,18 +61,18 @@
 
     <script src="/pattern-lib/js/enquire.min.js"></script>
 
-<script type='text/javascript'>
-$(window).load(function(){
-$(function(){   
-        
-    $("#submit").click(function(){
-        $('#search-results').show();
-    });  
-    
-    
-});
-});
-</script>
+  <script type='text/javascript'>
+  $(window).load(function(){
+  $(function(){   
+          
+      $("#submit").click(function(){
+          $('#search-results').show();
+      });  
+      
+      
+  });
+  });
+  </script>
 
   <title>Wayne State University Libraries</title>
 
@@ -111,38 +94,24 @@ $(function(){
             <div id="search-results" style="display:none;">
 
               <!--column1-->
-              <div id="boxes_left" class="col-md-6 col-lg-4" style="padding-left:0;">
-
+              <div id="boxes_left" class="col-md-6 col-lg-4" style="padding-left:0;">           
                 <div id="summonjs" class="row-fluid pin">
-                  <h4><i class="icon-articles"></i>Articles
-                  	<div class="summon_expand">
-                  	<form style="font-size:12px;">
-                  		<input id="holdings_checkbox" name="holdings" type="checkbox" onclick="update_summonjs_query();">Article not below? Include articles beyond University Libraries</input>
-                  	</form>
-                    <div class="summon_still_missing" style="font-size:12px; padding-top:5px;">
-                    	<span>Still missing a specific article title? Request with <a href="https://wayne.illiad.oclc.org/illiad/illiad.dll">Interlibrary Loan.</a></span>
-                    </div>
-                  </div>
-                  </h4>
-
-
+                  <h4><i class="icon-articles"></i>Articles</h4>
                   <div class="box_loading_animation"></div>
-                  <div class="box_results"></div>
+                  <div class="box_results">
+                  </div>
                 </div> 
-
                 <div id="databases" class="row-fluid pin">
                   <h4><i class="icon-database"></i> Databases</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div>
-
                 <div id="digi_commons" class="row-fluid pin">
                   <h4>DigitalCommons@WayneState</h4>
                   <div class="box_loading_animation"></div>
                   <div class="box_results"></div>
                 </div> 
-                              
-          	</div>
+              </div>
 
               <!--column2-->
               <div id="boxes_middle" class="col-md-6 col-lg-4">
@@ -251,6 +220,21 @@ $(function(){
    
 </body>
 <!--load main JS at bottom, overrides load from /inc/header.php for dev-->
+<!-- Piwik -->  
+  <script type="text/javascript">
+    var _paq = _paq || [];
+    _paq.push(["trackPageView"]);
+    _paq.push(["enableLinkTracking"]);
+
+    (function() {
+      var u=(("https:" == document.location.protocol) ? "https" : "http") + "://cgi.lib.wayne.edu/stats/piwik/";
+      _paq.push(["setTrackerUrl", u+"piwik.php"]);
+      _paq.push(["setSiteId", "16"]);
+      var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+      g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <!-- End Piwik Code -->
 <script type="text/javascript" src="js/bento_queries.js"></script>
 <script type="text/javascript">
     updatePage("local");
