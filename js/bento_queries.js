@@ -75,12 +75,22 @@ function searchFunc(type,origin){
     search_string_global = search_string
 
     // set URL - redirect based on origin
+    /* 
+    UPDATE 12/2014
+    Now that lib website header is showing up on other pages (e.g. LibGuides),
+    needed to have javascript redirect to library.wayne.edu when NOT on library.wayne
+    or library2.wayne.  This checks host, if not equal, rewrites.
+    */
+    var host = window.location.hostname;    
+    if (host != "library.wayne.edu" && host != "library2.wayne.edu"){
+        host = "library.wayne.edu";
+    }
     if (local_load == true){
         var redirect_path = ".#q="+encodeURIComponent(search_string);    
     } 
     else {
-        var redirect_path = "/quicksearch/#q="+encodeURIComponent(search_string);
-    }       
+        var redirect_path = "http://"+host+"/quicksearch/#q="+encodeURIComponent(search_string);
+    }
     window.location.href = redirect_path; 
     window.location.hash = "#q="+encodeURIComponent(search_string);
 
