@@ -10,7 +10,7 @@
   <meta name="Copyright" content="Copyright (c) <?php echo(date('Y')); ?> Wayne State University" />
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="icon" href="/inc/img/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="/inc/img/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="/ico/style.css">
   <link href="//library.wayne.edu/inc/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/pattern-lib/css/style.css">
@@ -84,135 +84,151 @@
   </style>
 </head>
 <body>  
+
   <div class="page" id="wrap">
       <?php 
         include($_SERVER['DOCUMENT_ROOT'].'inc/header.php'); 
       ?>
-    <div id="main" class="container">     
-      <article class="search-results">        
+    <div id="main" class="container">
+      <article class="search-results">
+        <div id="search-results" style="display:none;">
 
-            <div id="search-results" style="display:none;">
-
-              <!--column1-->
-              <div id="boxes_left" class="col-md-6 col-lg-4" style="padding-left:0;">           
-                <div id="summonjs" class="row-fluid pin">
-                  <h4><i class="icon-articles"></i>Articles</h4>
-                  <div class="box_loading_animation"></div>
-                  <div class="box_results">
-                  </div>
-                </div> 
-                <div id="databases" class="row-fluid pin">
-                  <h4><i class="icon-database"></i> Databases</h4>
-                  <div class="box_loading_animation"></div>
-                  <div class="box_results"></div>
-                </div>
-                <div id="digi_commons" class="row-fluid pin">
-                  <h4>DigitalCommons@WayneState</h4>
-                  <div class="box_loading_animation"></div>
-                  <div class="box_results"></div>
-                </div> 
+          <!--column1-->
+          <div id="boxes_left" class="col-md-6 col-lg-4" style="padding-left:0;">           
+            <div id="summonjs" class="row-fluid pin">
+              <h4><i class="icon-articles"></i>Articles</h4>
+              <div class="box_loading_animation"></div>
+              <div class="box_results">
               </div>
+            </div> 
+            <div id="databases" class="row-fluid pin">
+              <h4><i class="icon-database"></i>Databases</h4>
+              <div class="box_loading_animation"></div>
+              <div class="box_results"></div>
+            </div>
+            <div id="digi_commons" class="row-fluid pin">
+              <h4>DigitalCommons@WayneState</h4>
+              <div class="box_loading_animation"></div>
+              <div class="box_results"></div>
+            </div> 
+          </div>
 
-              <!--column2-->
-              <div id="boxes_middle" class="col-md-6 col-lg-4">
-                <div id="books" class="row-fluid pin">
-                  <h4><i class="icon-books"></i> Books and Media</h4>
-                  <div class="box_loading_animation"></div>
-                  <div class="box_results"></div>
-                </div>
-                <div id="journals" class="row-fluid pin">
-                  <h4><i class="icon-journals"></i> Journals</h4>
-                  <div class="box_loading_animation"></div>
-                  <div class="box_results"></div>
-                </div>                                
-                <div id="lib_guides" class="row-fluid pin">
-                  <h4><i class="icon-guide"></i> Research Guides</h4>
-                  <div class="box_loading_animation"></div>
-                  <div class="box_results"></div>
-                </div>               
-              </div>
+          <!--column2-->
+          <div id="boxes_middle" class="col-md-6 col-lg-4">
+            <div id="books" class="row-fluid pin">
+              <h4><i class="icon-books"></i> Books and Media</h4>
+              <div class="box_loading_animation"></div>
+              <div class="box_results"></div>
+            </div>
+            <div id="journals" class="row-fluid pin">
+              <h4><i class="icon-journals"></i> Journals</h4>
+              <div class="box_loading_animation"></div>
+              <div class="box_results"></div>
+            </div>                                
+            <div id="lib_guides" class="row-fluid pin">
+              <h4><i class="icon-guide"></i> Research Guides</h4>
+              <div class="box_loading_animation"></div>
+              <div class="box_results"></div>
+            </div>               
+          </div>
 
-              <!--column3-->
-              <div id="boxes_right" class="col-md-6 col-lg-4" style="padding-right:0;">
-                <div id="lib_hours" class="row-fluid pin">
-                  <h4><i class="icon-clock"></i>Today's Hours</h4>
-                  <div id="hours" class="box_loading_animation"></div>
-                  <div class="box_results"></div>
-                </div>     
-                <div id="reference" class="row-fluid pin">
-                  <h4><i class="icon-info"></i>General Information</h4>
-                  <div class="box_loading_animation"></div>
-                  <div id="ref_res" class="box_results"></div>
-                </div>
-                <div id="site_search" class="row-fluid pin">
-                  <h4><i class="icon-site"></i> WSU Site Search</h4>
-                  <div class="box_loading_animation"></div>
-                  <div class="box_results"></div>
-                </div> 
-                <div id="digi_collections" class="row-fluid pin">
-                  <h4><i class="icon-box"></i> Digital Collections</h4>
-                  <div class="box_loading_animation"></div>
-                  <div class="box_results"></div>
-                </div>   
-              </div>
+          <!--column3-->
+          <div id="boxes_right" class="col-md-6 col-lg-4" style="padding-right:0;">
+            <div id="lib_hours" class="row-fluid pin">
+              <h4><i class="icon-clock"></i>Today's Hours</h4>
+              <div id="hours" class="box_loading_animation"></div>
+              <div class="box_results"></div>
+            </div>     
+            <div id="reference" class="row-fluid pin">
+              <h4><i class="icon-info"></i>General Information</h4>
+              <div class="box_loading_animation"></div>
+              <div id="ref_res" class="box_results"></div>
+            </div>
+            <div id="site_search" class="row-fluid pin">
+              <h4><i class="icon-site"></i> WSU Site Search</h4>
+              <div class="box_loading_animation"></div>
+              <div class="box_results"></div>
+            </div> 
+            <div id="digi_collections" class="row-fluid pin">
+              <h4><i class="icon-box"></i> Digital Collections</h4>
+              <div class="box_loading_animation"></div>
+              <div class="box_results"></div>
+            </div>   
+          </div>
 
-             </div> <!--closes boxes_container-->
-           </div> <!--closes search-results-->     
-          
+         </div> <!-- closes search-results -->                     
       </article>
-    </div>
-  </div>
+    </div> <!-- closes id main -->
+
+  </div> <!-- closes id page wrap -->
+
   <?php include($_SERVER['DOCUMENT_ROOT'].'inc/footer.php'); ?>
   <script src="/pattern-lib/js/jquery.min.js"></script>
   <script src="/pattern-lib/js/bootstrap.min.js"></script>
-  <script src="/pattern-lib/js/main.js"></script>
+  <script src="/pattern-lib/js/main.js"></script> 
 
-  <script type="text/javascript">
+    <script type="text/javascript">
 
-  enquire.register("screen and (min-width:1168px)", {
-            match : function() { 
-                    
+    enquire.register("screen and (min-width:1168px)", {
+            match : function() {
+              // left
+              $("#summonjs").appendTo("#boxes_left");
+              $("#databases").appendTo("#boxes_left");
+              $("#digi_commons").appendTo("#boxes_left");
+
+              // middle
+              $("#books").appendTo("#boxes_middle");
+              $("#journals").appendTo("#boxes_middle");
+              $("#lib_guides").appendTo("#boxes_middle");
+
+              // right
+              $("#lib_hours").appendTo("#boxes_right");
+              $("#reference").appendTo("#boxes_right");
+              $("#site_search").appendTo("#boxes_right");
+              $("#digi_collections").appendTo("#boxes_right");
             },
             unmatch : function() {
-                    
+
             }
         });
 
     enquire.register("(min-width:896px) and (max-width:1167px)", {
             match : function() { 
-                    $('#reference').insertBefore('#books');
-                    $('#lib_hours').insertBefore('#reference');
-                    $('#journals').insertAfter('#databases');
-                    $('#lib_guides').insertAfter('#journals');
-                    $('#site_search').insertAfter('#lib_guides');
-                    $('#digi_collections').insertAfter('#books');
-                    $('#digi_commons').insertAfter('#digi_collections');
+              // left              
+              $("#summonjs").appendTo("#boxes_left");
+              $("#databases").appendTo("#boxes_left");
+              $("#journals").appendTo("#boxes_left");
+              $("#lib_guides").appendTo("#boxes_left");
+              $("#site_search").appendTo("#boxes_left");
+
+              // middle
+              $("#lib_hours").appendTo("#boxes_middle");
+              $("#reference").appendTo("#boxes_middle");
+              $("#books").appendTo("#boxes_middle");
+              $("#digi_collections").appendTo("#boxes_middle");              
+              $("#digi_commons").appendTo("#boxes_middle");
             },
             unmatch : function() {
-                    $('#reference').insertAfter('#lib_hours');
-                    $('#journals').insertBefore('#lib_guides');
-                    $('#digi_commons').insertAfter('#site_search');
-                    $('#site_search').insertAfter('#reference');
-                    $('#lib_hours').insertBefore('#reference');
+              
             }
         });
 
     enquire.register("screen and (max-width:895px)", {
             match : function() { 
-                    $('#reference').insertBefore('#summonjs');
-                    $('#lib_hours').insertBefore('#reference');
-                    $('#books').insertAfter('#summonjs');
-                    $('#journals').insertAfter('#databases');
-                    $('#lib_guides').insertAfter('#journals');
-                    $('#digi_commons').insertAfter('#digi_collections');
-                    $('#site_search').insertAfter('#digi_commons');
+              // left              
+              $("#lib_hours").appendTo("#boxes_left");
+              $("#reference").appendTo("#boxes_left");
+              $("#summonjs").appendTo("#boxes_left");
+              $("#books").appendTo("#boxes_left");
+              $("#databases").appendTo("#boxes_left");
+              $("#journals").appendTo("#boxes_left");
+              $("#lib_guides").appendTo("#boxes_left");
+              $("#digi_collections").appendTo("#boxes_left");
+              $("#digi_commons").appendTo("#boxes_left");              
+              $("#site_search").appendTo("#boxes_left");
             },
             unmatch : function() {
-                    $('#reference').insertAfter('#lib_hours');
-                    $('#journals').insertBefore('#lib_guides');
-                    $('#digi_commons').insertAfter('#site_search');
-                    $('#site_search').insertAfter('#reference');
-                    $('#lib_hours').insertBefore('#reference');
+              
             }
         });
 
