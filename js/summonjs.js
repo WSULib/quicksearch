@@ -27,7 +27,7 @@ function summonjs_query(search_string){
 	else {
 		var holdings = true;
 	}
-	
+
     // create POST json data sting.
     summonData =  {
 	    terms: search_string,
