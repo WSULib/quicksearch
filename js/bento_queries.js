@@ -35,6 +35,11 @@ function updatePage(origin){
             $("#main.container").html(localStorage.getItem("qsCache"));                        
         }
 
+        // recheck ILL box if checked previously
+        if ($(".summon_still_missing").is(":visible") ){
+            $("#holdings_checkbox").prop('checked', true);
+        }
+
         // else, perform search
         else {                    
             // unhide and run search on string
