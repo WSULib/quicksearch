@@ -15,6 +15,9 @@ function update_summonjs_query(){
 
 function summonjs_query(search_string){
 
+	// encode search string
+	var search_string_encoded = encodeURI(search_string);
+
 	/*
 	Function expects a secondary parameter "holdings", as determined by checkbox on index.php
 	This true / false is propogated to the summon query, returning items ONLY in holdings, or all of summon
@@ -22,10 +25,14 @@ function summonjs_query(search_string){
 
 	// determine holdings status, re-check box if previously set
 	if ($("#holdings_checkbox:checked").length > 0){
+		// box IS checked
 		var holdings = false;
+		var view_more_link = "<a href='http://wayne.summon.serialssolutions.com/#!/search?q="+search_string_encoded+"&ho=f&fvf=ContentType,Journal Article,f' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>";
 	}
 	else {
+		// box IS NOT checked
 		var holdings = true;
+		var view_more_link = "<a href='http://wayne.summon.serialssolutions.com/#!/search?q="+search_string_encoded+"&ho=t&fvf=ContentType,Journal Article,f' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>";
 	}
 
     // create POST json data sting.
@@ -117,8 +124,7 @@ function summonjs_query(search_string){
             $("#summonjs .box_results").append("<hr>"); 
     
         }
-               var search_string_encoded = encodeURI(search_string);
-               $("#summonjs .box_results").append("<a href='http://wayne.summon.serialssolutions.com/#!/search?q="+search_string_encoded+"&ho=f&fvf=ContentType,Journal Article,f' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");
+               $("#summonjs .box_results").append(view_more_link);
 
         }
 
