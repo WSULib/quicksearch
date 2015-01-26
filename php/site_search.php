@@ -3,8 +3,16 @@
 // retrieve search_string
 $search_string = $_POST['search_string'];
 
-// construct query string from wayne.edu's custom search element ajax call
-$baseURL = "https://www.googleapis.com/customsearch/v1element?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=filtered_cse&num=10&hl=en&prettyPrint=false&source=gcsc&gss=.com&sig=23952f7483f1bca4119a89c020d13def&cx=008693872176005135416:hd9kmpeywgi&q=$search_string&sort=&googlehost=www.google.com&nocache=1418925969190";
+//with callback
+// $baseURL = "http://www.google.com/uds/GwebSearch?callback=google.search.WebSearch.RawCompletion&rsz=large&hl=en&source=gsc&gss=.com&sig=dafe20cc2afc0dcfa10b802f251c72d0&cx=008693872176005135416:mcgpkfekrf0&gl=www.google.com&qid=13e7052fa8d369068&context=1&key=notsupplied&v=1.0&nocache=1367680573915&q=site:lib.wayne.edu%20-site:guides.lib.wayne.edu%20";
+
+//without callback
+//with domain specific
+// $baseURL = "http://www.google.com/uds/GwebSearch?rsz=large&hl=en&source=gsc&gss=.com&sig=dafe20cc2afc0dcfa10b802f251c72d0&cx=008693872176005135416:mcgpkfekrf0&gl=www.google.com&qid=13e7052fa8d369068&context=1&key=notsupplied&v=1.0&nocache=1367680573915&q=site:lib.wayne.edu%20OR%20site:otl.lib.wayne.edu%20-site:guides.lib.wayne.edu";
+
+//university wide
+$baseURL = "http://www.google.com/uds/GwebSearch?rsz=large&hl=en&source=gsc&gss=.com&sig=dafe20cc2afc0dcfa10b802f251c72d0&cx=008693872176005135416:mcgpkfekrf0&gl=www.google.com&qid=13e7052fa8d369068&context=1&key=notsupplied&v=1.0&nocache=1367680573915&q=";
+
 
 $queryURL = $baseURL . $search_string;
 $results = file_get_contents($queryURL);

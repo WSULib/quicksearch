@@ -18,7 +18,7 @@
   <!-- End Piwik Code -->
   <?php include_once($_SERVER['DOCUMENT_ROOT'].'inc/varset.php'); ?>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="keywords" content="Wayne State University, WSU, Library System, Libraries" />
   <meta name="description" content="The online resources and services of the Wayne State University Libraries" />
   <meta name="author" content="libwebmaster@wayne.edu" />
@@ -68,7 +68,7 @@
 
     <!--jquery cookie-->
     <script src="js/jquery.cookie.js"></script>
-    <script src="js/jquery.ba-replacetext.min.js"></script>
+    <!--<script src="js/jquery.ba-replacetext.min.js"></script>-->
 
 
     <!--load bootstrap js   
@@ -115,12 +115,12 @@ $(function(){
 
                 <div id="summonjs" class="row-fluid pin">
                   <h4><i class="icon-articles"></i>Articles
-                    <div class="summon_expand">
-                    <form style="font-size:12px;">
-                      <input id="holdings_checkbox" name="holdings" type="checkbox" onclick="update_summonjs_query();">Article not below? Include articles beyond University Libraries</input>
-                    </form>
+                  	<div class="summon_expand">
+                  	<form style="font-size:12px;">
+                  		<input id="holdings_checkbox" name="holdings" type="checkbox" onclick="update_summonjs_query();">Article not below? Include articles beyond University Libraries</input>
+                  	</form>
                     <div class="summon_still_missing" style="font-size:12px; padding-top:5px;">
-                      <span>Still missing a specific article title? Request with <a href="https://wayne.illiad.oclc.org/illiad/illiad.dll">Interlibrary Loan.</a></span>
+                    	<span>Still missing a specific article title? Request with <a href="https://wayne.illiad.oclc.org/illiad/illiad.dll">Interlibrary Loan.</a></span>
                     </div>
                   </div>
                   </h4>
@@ -142,7 +142,7 @@ $(function(){
                   <div class="box_results"></div>
                 </div> 
                               
-            </div>
+          	</div>
 
               <!--column2-->
               <div id="boxes_middle" class="col-md-6 col-lg-4">
