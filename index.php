@@ -120,7 +120,7 @@ $(function(){
                   		<input id="holdings_checkbox" name="holdings" type="checkbox" onclick="update_summonjs_query();">Article not below? Include articles beyond University Libraries</input>
                   	</form>
                     <div class="summon_still_missing" style="font-size:12px; padding-top:5px;">
-                    	<span>Still missing a specific article title? Request with <a href="https://wayne.illiad.oclc.org/illiad/illiad.dll">Interlibrary Loan.</a></span>
+                    	<span>Still missing a specific article title? Request with <a href="https://wayne.illiad.oclc.org/illiad/illiad.dll"><span style="text-decoration:underline;">Interlibrary Loan</span>.</a></span>
                     </div>
                   </div>
                   </h4>

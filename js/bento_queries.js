@@ -32,12 +32,16 @@ function updatePage(origin){
 
         // if localStorage available AND cached results exist, queries match, load:                
         if (lsTest() === true && localStorage.getItem("qsCache") !== null && localStorage.getItem("qsQuery") == search_string) {                          
+            console.log('loading cached version');
             $("#main.container").html(localStorage.getItem("qsCache"));                        
         }
 
-        // recheck ILL box if checked previously
-        if ($(".summon_still_missing").is(":visible") ){
+        // special case when ILL checkbox checked
+        if ($(".summon_still_missing").is(":visible") ){            
             $("#holdings_checkbox").prop('checked', true);
+            $(".summon_still_missing").height("15px"); // small hack to show
+            $(".summon_still_missing").css("padding-top","5px"); // small hack to show
+            summonjs_query(search_string);            
         }
 
         // else, perform search
