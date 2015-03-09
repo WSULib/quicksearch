@@ -1,5 +1,5 @@
 var local_load = false;
-
+var sessionID=document.cookie.split(";")[0].split("=")[1];
 // determine localstorage capabilities
 function lsTest(){
     var test = 'test';
@@ -8,7 +8,7 @@ function lsTest(){
         localStorage.removeItem(test);
         return true;
     } catch(e) {
-        return false;
+        return false; 
     }
 }
 
@@ -25,23 +25,13 @@ function updatePage(origin){
         // tidy up for search box
         search_string = search_string.replace(/%27/g,"'");
         search_string = search_string.replace(/%E9/g,"é");  
-        // set to global variable
-        search_string_global = search_string;
         // set input box to query string
         $('#search_string').val(search_string);  
 
+
         // if localStorage available AND cached results exist, queries match, load:                
         if (lsTest() === true && localStorage.getItem("qsCache") !== null && localStorage.getItem("qsQuery") == search_string) {                          
-            console.log('loading cached version');
             $("#main.container").html(localStorage.getItem("qsCache"));                        
-        }
-
-        // special case when ILL checkbox checked
-        if ($(".summon_still_missing").is(":visible") ){            
-            $("#holdings_checkbox").prop('checked', true);
-            $(".summon_still_missing").height("15px"); // small hack to show
-            $(".summon_still_missing").css("padding-top","5px"); // small hack to show
-            summonjs_query(search_string);            
         }
 
         // else, perform search
@@ -72,26 +62,13 @@ function searchFunc(type,origin){
     search_string = search_string.replace(/é/g,"%E9");
     //search_string = search_string.replace(/:|\]|\[/g,'');
 
-    // set to global variable
-    search_string_global = search_string
-
     // set URL - redirect based on origin
-    /* 
-    UPDATE 12/2014
-    Now that lib website header is showing up on other pages (e.g. LibGuides),
-    needed to have javascript redirect to library.wayne.edu when NOT on library.wayne
-    or library2.wayne.  This checks host, if not equal, rewrites.
-    */
-    var host = window.location.hostname;    
-    if (host != "library.wayne.edu" && host != "library2.wayne.edu"){
-        host = "library.wayne.edu";
-    }
     if (local_load == true){
         var redirect_path = ".#q="+encodeURIComponent(search_string);    
     } 
     else {
-        var redirect_path = "http://"+host+"/quicksearch/#q="+encodeURIComponent(search_string);
-    }
+        var redirect_path = "/quicksearch/#q="+encodeURIComponent(search_string);
+    }       
     window.location.href = redirect_path; 
     window.location.hash = "#q="+encodeURIComponent(search_string);
 
@@ -101,6 +78,10 @@ function searchFunc(type,origin){
     }    
 
     //clear previous results
+ //   $("#some_content .my_results").empty();
+
+ //   $("#some_content .my_results").append(search_string);
+
     $(".box_results").empty();
 
     // turns on animation    
@@ -115,7 +96,8 @@ function searchFunc(type,origin){
     site_search_query(search_string);
     digi_collections_query(search_string);
     digi_commons_query(search_string);
-    summonjs_query(search_string);
+     summonjs_query(search_string);
+//    other_links();
 
 }
 
@@ -125,18 +107,63 @@ function searchCall(type,origin){
 }   
 
 //Utility to pull hrefs from links clicked and push to Piwik
+var flag=0, flag_load=0;
+var resourceURL,url_search,searchTerm,linkText,category='-1';
 $(document).ready(function(){
-    // jquery "on" function binds actions to parent (e.g. document), but reacts to children (e.g. anchor tags)
-    $(document).on('click', $("a"), function(event){            
-        var resourceURL = event.target.href;      
-        // console.log("firing");  
-        // push to Piwik
-        if (resourceURL != undefined){
-            Piwik.getAsyncTracker()['trackLink'](resourceURL,'link');    
-        }        
-    });
+    // To restrict the page to load only once
+    if(flag_load===0)
+    {
+        // jquery "on" function binds actions to parent (e.g. document), but reacts to children (e.g. anchor tags)
+        $('#search-results').on('mousedown', $("a"), function(event){      
+            
+                // To get the category of the clicked link
+                category=$(event.target).closest('div[class^="row-fluid"]').attr('id');
+                
+                linkText=$(event.target).text();
+                searchTerm = decodeURIComponent(window.location.hash.split("#")[1].split("=")[1]);
+                dummy_URL = decodeURIComponent(event.target.href);
+                var pos = dummy_URL.search("lg.php")
+
+                //If URL is already rewritten then set target href to current URL
+                // if(!(pos===63))
+                if( dummy_URL.indexOf("lg.php") < 0 )
+                {
+                    resourceURL=dummy_URL;
+                    /*
+                    If current host == "library.wayne.edu", then make the host below "quicksearch.library.wayne.edu"
+                    */
+                    if (location.host == "library.wayne.edu" && location.pathname == "/quicksearch/"){
+                        var url_prefix = "http://quicksearch.library.wayne.edu/resources/quicksearch/";
+                    }
+                    else if (location.host == "library2.wayne.edu" && location.pathname == "/quicksearch/"){
+                        var url_prefix = "http://quicksearch2.library.wayne.edu/resources/quicksearch/";
+                    }
+                    else {
+                        var url_prefix = "";   
+                    }
+                    
+                    url_search=url_prefix+"php/lg.php?url="+resourceURL+"&linkText=\'"+linkText+"\'&searchTerm=\'"+searchTerm+"\'&category="+category;
+                    getClicked1(url_search,event);
+                }
+                else
+                {
+                    getClicked1(dummy_URL,event);
+                }
+            
+            if (resourceURL != undefined)
+            {
+                // Manually log a click from the code
+                Piwik.getAsyncTracker()['trackLink'](resourceURL,'link');  
+            }
+        });
+        flag_load++;
+    }
 });
 
+function getClicked1(new_URL,event)
+{
+    event.target.href=new_URL;
+}
 
 // Cache results on click-out IF localStorage available
 if(lsTest() === true){
@@ -151,5 +178,7 @@ if(lsTest() === true){
         });
     });
 }
+
+
 
 

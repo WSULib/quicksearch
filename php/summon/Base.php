@@ -82,7 +82,7 @@ abstract class SerialsSolutions_Summon_Base
      * Is the end user authenticated or not?
      * @var bool
      */
-    protected $authedUser = false;
+    protected $authedUser = true;
 
     /**
      * Acceptable response type from Summon
