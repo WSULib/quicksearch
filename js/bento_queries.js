@@ -133,16 +133,16 @@ $(document).ready(function(){
                     If current host == "library.wayne.edu", then make the host below "quicksearch.library.wayne.edu"
                     */
                     if (location.host == "library.wayne.edu" && location.pathname == "/quicksearch/"){
-                        var url_prefix = "http://quicksearch.library.wayne.edu/resources/quicksearch/";
+                        var url_prefix = "http://quicksearch.library.wayne.edu";
                     }
                     else if (location.host == "library2.wayne.edu" && location.pathname == "/quicksearch/"){
-                        var url_prefix = "http://quicksearch2.library.wayne.edu/resources/quicksearch/";
+                        var url_prefix = "http://quicksearch2.library.wayne.edu";
                     }
                     else {
-                        var url_prefix = "";   
+                        var url_prefix = "php";   
                     }
                     
-                    url_search=url_prefix+"php/lg.php?url="+resourceURL+"&linkText=\'"+linkText+"\'&searchTerm=\'"+searchTerm+"\'&category="+category;
+                    url_search=url_prefix+"/lg.php?url="+resourceURL+"&linkText=\'"+linkText+"\'&searchTerm=\'"+searchTerm+"\'&category="+category;
                     getClicked1(url_search,event);
                 }
                 else
