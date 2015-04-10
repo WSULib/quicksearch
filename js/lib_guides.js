@@ -24,9 +24,6 @@ function lib_guides_query(search_string){
 	function libguideSuccess(response){
 		$("#lib_guides .box_results").append(response);
 
-        $("#lib_guides .box_results li").append("<hr>");
-        $("#lib_guides .box_results hr").last().remove();
-
         // hides loading animation
         $("#lib_guides .box_loading_animation").hide();
 	}
