@@ -26,10 +26,11 @@ function site_search_query(search_string){
         $("#site_search .box_results").empty();    
         
         var site_searchJSON = response;
-        console.log(site_searchJSON);
+        ////console.log(site_searchJSON);
 
         if (site_searchJSON.results.length === 0){
-            $("#site_search .box_results").append("<div id='no_results' class='db_result'><p>No results found.</p></div>");
+            //$("#site_search .box_results").append("<div id='no_results' class='db_result'><p>No results found. Try another search in <a hrefj='http://google.com/'>Google</a></p></div>");
+            $("#site_search .box_results").append("<div class='no-res db_result'>No results found.</div>");
         }        
 
         else {
@@ -53,7 +54,7 @@ function site_search_query(search_string){
 	}
 
 	function site_searchError(response){
-		console.log(response);
+		////console.log(response);
 		//turns off animation
         $("#site_search .box_loading_animation").hide();   
 		$("#site_search .box_results").append("<p>Site Search is temporarily unavailable.</p>");	

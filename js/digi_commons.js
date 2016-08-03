@@ -5,7 +5,11 @@ function digi_commons_query(search_string){
     var dataObject = {};
     dataObject = new Object();  	   	    
     dataObject.q = search_string    
-    dataObject.q = "dc_subject:"+search_string+"^2+"+encoded_search_string;
+    //dataObject.q = "dc_subject:"+search_string+"^2+"+encoded_search_string;
+    dataObject.q = "dc_subject:"+search_string+"%5E2+"+encoded_search_string;
+    //dataObject.q = encoded_search_string;
+
+
     dataObject.start = "0";
     dataObject.rows = "3"; //returns only three results
     dataObject.wt = "json"; //sets response to JSON   
@@ -15,7 +19,7 @@ function digi_commons_query(search_string){
     $(document).ready(function(){
       var digi_collections_request = $.ajax({
         type: "POST",
-        url: "http://digital.library.wayne.edu/WSUAPI",
+        url: "https://digital.library.wayne.edu/WSUAPI",
         data: dataObject,
         dataType: "json",
         success: digi_commons_success,
@@ -70,7 +74,7 @@ function digi_commons_query(search_string){
         }
 
         else{
-            $("#digi_commons .box_results").append("<p>No Results Found.</p>");
+            $("#digi_commons .box_results").append('<div class="no-res">No results found. Try another search in <a href="http://digitalcommons.wayne.edu/do/search/?q=' +search_string+ '&start=0&context=87433">Digital Commons</a></div>');
         }              
         
 	}

@@ -27,6 +27,8 @@ function updatePage(origin){
         search_string = search_string.replace(/%E9/g,"é");  
         // set input box to query string
         $('#search_string').val(search_string);  
+        //$('#search_string').val(search_string).trigger('change');  
+        searchPlaceholder();
 
 
         // if localStorage available AND cached results exist, queries match, load:                
@@ -73,11 +75,13 @@ function searchFunc(type,origin){
      if (host != "library.wayne.edu" && host != "library2.wayne.edu"){
          host = "library.wayne.edu";
      }
+     host = libraryHost;
      if (local_load == true){
          var redirect_path = ".#q="+encodeURIComponent(search_string);    
      } 
      else {
-         var redirect_path = "http://"+host+"/quicksearch/#q="+encodeURIComponent(search_string);
+         //var redirect_path = "http://"+host+"/quicksearch/#q="+encodeURIComponent(search_string);
+         var redirect_path = "http://"+host+"/?search="+encodeURIComponent(search_string);
      }
      window.location.href = redirect_path; 
      window.location.hash = "#q="+encodeURIComponent(search_string);
@@ -106,9 +110,11 @@ function searchFunc(type,origin){
     site_search_query(search_string);
     digi_collections_query(search_string);
     digi_commons_query(search_string);
-     summonjs_query(search_string);
-//    other_links();
-
+    summonjs_query(search_string);
+    // other_links();
+    spellcheck(search_string);
+    bestbet(search_string);
+    //relatedSearches(search_string);
 }
 
 function searchCall(type,origin){
@@ -153,6 +159,12 @@ $(document).ready(function(){
                     }
                     
                     url_search=url_prefix+"/lg.php?url="+resourceURL+"&linkText=\'"+linkText+"\'&searchTerm=\'"+searchTerm+"\'&category="+category;
+
+                    if (category == 'databases') {
+                        // alert(searchTerm);
+                        url_search=url_prefix+"/lg.php?url="+resourceURL.replace('https://library.wayne.edu/quicksearch/', '')+"&linkText=\'"+linkText+"\'&searchTerm=\'"+searchTerm+"\'&category="+category;
+                    }
+
                     getClicked1(url_search,event);
                 }
                 else

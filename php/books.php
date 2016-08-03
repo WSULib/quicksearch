@@ -1,4 +1,12 @@
 <?php
+
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
+
+
+
+
 include_once 'htmlParser/simple_html_dom.php';
 
 //Get Variables
@@ -31,10 +39,12 @@ if ($data_type == "xml2json"){
 
 	// Query XML SERVER and Parse results
 	$resultCount = $xml->xpath('/WXROOT/PAGEINFO/ENTRYCOUNT');
+
 	if ($resultCount[0][0] >= 3) { $bookTotal = 3;} else {$bookTotal = $resultCount[0];}
 	$booksObj = $xml->xpath('/WXROOT/Heading/Title[position() <='.$bookTotal.']');
-
+	//print_r($booksObj);
 	for ($i = 0; $i<=$bookTotal-1; $i++) {
+		//echo 123;
 		$bibNum = $booksObj[$i]->xpath('RecordId/RecordKey');
 
 		$books = array( 
@@ -44,15 +54,17 @@ if ($data_type == "xml2json"){
 			);
 		$mergedBooks = array_merge_recursive($previousBooks, $books);
 		$previousBooks = $mergedBooks;
-		}
+	}
 
-		$books = $previousBooks;
-		$books["bookTotal"] = (int)$bookTotal;
-		$books["bookTotalComplete"] = (int)$resultCount[0][0];
+	$books = $previousBooks;
+	$books["bookTotal"] = (int)$bookTotal;
+	$books["bookTotalComplete"] = (int)$resultCount[0][0];
 
 	// NOW Scrape catalog pages using bibNumbers
-
+	$books['bibNum'] = (array)$books['bibNum'];
+	//print_r($books);
 	foreach ($books['bibNum'] as $key => $value) {
+		//echo 546;
 		$html = file_get_html("http://elibrary.wayne.edu/record=$value");
 		if (substr($value, 0, 1) === "e") {
 			$title = $html->find(".resourceInfoData", 0);
@@ -104,6 +116,7 @@ if ($data_type == "xml2json"){
 	}
 
 	// Memory management
+
 	$html->clear(); 
 	unset($html);
 

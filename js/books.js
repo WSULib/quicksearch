@@ -45,12 +45,13 @@ function Success (response){
 
 			}
 			else {
-				var uri = "http://library.wayne.edu/resources/stackview/?q="+books_object.lc[i];
-				var stackviewLink = "<br/><a href='"+encodeURI(uri)+"' target='_blank'> <b>See on Shelf</b> <span class='icon-forward'></span></a>";
+				var uri = "/resources/stackview/?q="+books_object.lc[i];
+				//var stackviewLink = "<br/><a href='"+encodeURI(uri)+"' target='_blank'> <b>See on Shelf</b> <span class='icon-forward'></span></a>";
+				var stackviewLink = "<br/><a href='"+encodeURI(uri)+"' target='_blank'> <b>See on Shelf</b></a>";
 				$("#books .box_results").append("<div class='indiv-result'><p class='title'><a href='"+book_url+"'>"+book_title+"</a>"+stackviewLink+holdingStatus+lc+" "+location+"</p></div>");
 			}
 		}  //for
-		$("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results...("+count+")</em></a></span>");
+		$("#books .box_results").append("<a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg="+search_string+"' onclick=\"javascript:_paq.push(['trackPageView', 'View More']);\"><em>View more results... <span style='font-style:normal;'>("+intFormatCommas(count)+")</span></em></a></span>");
 
 	}
 	//If no results, then display no results found
@@ -64,7 +65,8 @@ function Error (response){
 		$("#books .box_results").empty();
 		// hides loading animation
 		$("#books .box_loading_animation").hide();
-		$("#books .box_results").append("<span class=\"no-res\">No material results were found.  Please try another search in the <a href='http://elibrary.wayne.edu'>Catalog</a> or search <a href='http://wild.on.worldcat.org/search?queryString="+search_string+"&qt=results_page&dblist=638' target='_blank'>WorldCat<a/> or <a href='http://elibrary.mel.org/search/a?searchtype=X&searcharg="+search_string+"&SORT=D' target='_blank'>MeLCat</a></span>");
+		//$("#books .box_results").append("<div class=\"no-res\">No results found. Try another search in <a href='http://elibrary.wayne.edu'>Catalog</a>, <a href='http://wild.on.worldcat.org/search?queryString="+search_string+"&qt=results_page&dblist=638' target='_blank'>WorldCat<a/> or <a href='http://elibrary.mel.org/search/a?searchtype=X&searcharg="+search_string+"&SORT=D' target='_blank'>MeLCat</a></div>");
+		$("#books .box_results").append("<div class=\"no-res\">No results found. Try another search in <a href='http://elibrary.wayne.edu/search~/?searchtype=X&searcharg=" +search_string+ "&SORT=D&searchscope=47'>Catalog</a>, <a href='http://wild.on.worldcat.org/search?queryString="+search_string+"&qt=results_page&dblist=638' target='_blank'>WorldCat<a/> or <a href='http://elibrary.mel.org/search/a?searchtype=X&searcharg="+search_string+"&SORT=D' target='_blank'>MeLCat</a></div>");
 		}
 
 }

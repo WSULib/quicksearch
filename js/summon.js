@@ -22,6 +22,8 @@ function summon_query(search_string){
 
 
   function summonSuccess(response){
+    alert(654);
+    console.log(response);
     $("#summon .box_results").empty();
 
     $("#summon .box_results").append(response); 

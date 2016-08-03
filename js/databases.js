@@ -37,20 +37,22 @@ function databases_query(search_string){
 				$("#resource_"+i).append("<p class='title'><a href='"+response.resources[i].url+"'>"+response.resources[i].title+"</a></p>");
 				if (response.resources[i].description !== null) {
 	if (response.resources[i].description.length > 130){
-						$("#resource_"+i).append("<div class='result-details'><p>"+response.resources[i].description.substr(0,130)+"...</p>");
+						$("#resource_"+i).append("<div class='result-details'><p>"+response.resources[i].description.substr(0,130)+"...</p></div>");
 					}
 					else {
-						$("#resource_"+i).append("<p>"+response.resources[i].description+"...</p>");
+						$("#resource_"+i).append("<div class='result-details'><p>"+response.resources[i].description+"...</p></div>");
 					}
 				}
 			}
 
 			//more results everytime
-			$("#databases .box_results").append("<span><a href='http://library.wayne.edu/resources/databases/search.php?q="+search_string+"&b=Search'><em>View more results...</em></a></span");
+			$("#databases .box_results").append("<span><a href='/resources/databases/search.php?q="+search_string+"&b=Search'><em>View more results...</em></a></span");
 		}
 
 		else{
-			$("#databases .box_results").append("<div id='no_results' class='db_result'><p>No Database results were found. Please try another search in <a href='http://library.wayne.edu/resources/databases/#q="+search_string+"'>Databases</a></p></div>");
+			//$("#databases .box_results").append("<div class='no-res' class='db_result'>No results found. Try another search in <a href='http://library.wayne.edu/resources/databases/'>Databases</a></div>");
+			//$("#databases .box_results").append("<div id='no_results' class='db_result'><p>No results found. Try another search in <a href='http://library.wayne.edu/resources/databases/#q="+search_string+"'>Databases</a></p></div>");
+			$("#databases .box_results").append("<div class='no-res' class='db_result'>No results found. Try another search in <a href='http://library.wayne.edu/resources/databases/?filter="+search_string+"'>Databases</a></div>");
 		}
 			
 		// hides loading animation

@@ -39,6 +39,13 @@
  */
 class SerialsSolutions_Summon_Query
 {
+    public static $title = null;
+    public static $date = null;
+    public static $dateFrom = null;
+    public static $dateTo = null;
+    public static $authors = null;
+    public static $journal = null;
+    public static $anyContentType = null;
     /**
      * The query terms
      * @var string
@@ -142,6 +149,8 @@ class SerialsSolutions_Summon_Query
      */
     protected $maxTopics = 1;
 
+    public $filtersWSU;
+
     /**
      * Constructor
      *
@@ -150,9 +159,16 @@ class SerialsSolutions_Summon_Query
      * @param string $query   Search query
      * @param array  $options Other options to set (associative array)
      */
-    public function __construct($query = null, $options = array())
+    public function __construct($query = null, $options = array(), $filters = array())
     {
         $this->query = $query;
+
+        // binno
+        $this->filtersWSU = $filters;
+        //$this->filtersWSU = $options;
+        // echo 56;
+        // print_r($this->filtersWSU );
+        // echo 57;
 
         foreach ($options as $key => $value) {
             if (property_exists($this, $key)) {
@@ -171,6 +187,17 @@ class SerialsSolutions_Summon_Query
             //    'Language,or,1,30'
             );
         }
+
+
+        // binno edits
+        // foreach ($options as $key => $value) {
+        //     //echo $value . '<br>' . PHP_EOL;
+        //     if (property_exists($this, $key)) {
+        //         $this->$key = $value;
+        //     }
+        // }
+
+        
     }
 
     /**
@@ -180,14 +207,51 @@ class SerialsSolutions_Summon_Query
      */
     public function getOptionsArray()
     {
+        //echo $this->dateFrom . '4335345';
         $options = array(
             's.q' => $this->query,
+            's.role' => 'none',
             's.ps' => $this->pageSize,
             's.pn' => $this->pageNumber,
             's.ho' => $this->holdings ? 'true' : 'false',
-            's.dym' => $this->didYouMean ? 'true' : 'false',
+            //'s.dym' => $this->didYouMean ? 'true' : 'false',
+            's.dym' => 'true',
             's.l' => $this->language,
+            //'s.fq' => 'doi:10.1186/1550-2783-10-5',
+            //'s.rf' => 'PublicationDate,' .$this->dateFrom. ':2014',
+            //'s.q' => array('Title:(be analysis: What be measured cost?)', 'Author:(Richardson)'),
+            
         );
+        // binno
+        $optionsSQ = array();
+        if ($this->title != null) {
+            //$options['s.q'] = array('Title:(' . $this->title . ')', 'Author:(' . $this->authors . ')');
+
+
+
+            //$optionsSQ []= 'Title:(' . $this->title . ')';
+            $optionsSQ []=  $this->title ;
+
+
+
+            //$options['s.q'] = $this->title;
+        }
+        // if ($this->authors != null) {
+        //     $optionsSQ []= 'Author:(' . $this->authors . ')';
+        // }
+        if ($this->journal != null) {
+            //$optionsSQ []= 'Journal:(' . $this->journal . ')';
+        }
+        // if ($this->date != null) {
+        //     $options['s.rf'] = 'PublicationDate,' . $this->date . ':' . $this->date;
+        // }
+        
+
+        if (count($optionsSQ) > 0) {
+            $options['s.q'] = $optionsSQ;
+        }
+        // end binno
+
         if (!empty($this->idsToFetch)) {
             $options['s.fids'] = implode(',', (array)$this->idsToFetch);
         }
@@ -220,6 +284,31 @@ class SerialsSolutions_Summon_Query
             $options['s.hl'] = 'false';
             $options['s.hs'] = $options['s.he'] = '';
         }
+
+        // binno
+        foreach ($this->filtersWSU as $key => $value) {
+            $options[$key] = $value;
+            $options['s.fvf'] = $this->filtersWSU;
+        }
+
+        if ($this->anyContentType != null) {
+            //s.fvf=ContentType,Book,false
+            $options['s.fvf'][] = 'ContentType,Book';
+            //$options['s.fvf'][] = 'ContentType,Conference Proceeding';
+
+
+
+            //$options['s.cmd'] = 'addFacetValueFilter(ContentType,Book)';
+         }
+         //$options['s.fvf'] = 'ContentType,Book,true';
+         //$options['s.cmd'] = 'addFacetValueFilter(ContentType,Book)';
+
+
+
+        // $options['s.role'] = 'authenticated';
+
+        //print_r($options);
+
         return $options;
     }
 
